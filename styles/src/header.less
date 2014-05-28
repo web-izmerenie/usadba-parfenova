@@ -34,6 +34,7 @@ html body header {
 		padding-left: @firstLineLeft;
 		padding-right: @firstLineRight;
 		.box-sizing(border-box);
+		cursor: default;
 
 		.choose_lang { // {{{2
 			display: table-cell;
@@ -118,4 +119,33 @@ html body header {
 			} // .separator
 		} // nav.main_menu }}}2
 	} // .first_line }}}1
+
+	nav.sub_menu { // {{{1
+		display: block;
+		text-align: right;
+		white-space: nowrap;
+		.absolute(auto, 21px - 3px, @mainMargin);
+		color: @lightContentColor;
+		cursor: default;
+
+		&, a, span {
+			.customFont('PT Sans', 13px, 15px);
+			text-transform: uppercase;
+		} // &, a, span
+
+		a, span {
+			.linkNoLine;
+			display: inline-block;
+			color: @lightContentColor;
+			margin-left: 13px;
+
+			&:hover { color: @activeLightLinkColor; }
+			&:first-child { margin-left: 0; }
+		} // a, span
+
+		span, span:hover {
+			cursor: default;
+			color: @openedLightLinkColor;
+		} // span, span:hover
+	} // nav.sub_menu }}}1
 } // header

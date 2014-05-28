@@ -12,6 +12,13 @@ $(function domReady() {
 	var $firstLine = $header.find('.first_line');
 	var $mainMenu = $header.find('.main_menu');
 	var $mainMenuSep = $header.find('.separator');
+	var $subMenu = $header.find('.sub_menu');
+	var $subMenuItems = $subMenu.find('a, span');
+
+	// skip first element (because no margin-left for first element)
+	$subMenuItems = $subMenuItems.get();
+	$subMenuItems.shift();
+	$subMenuItems = $( $subMenuItems );
 
 	var separatorBindSuffix = '.header_separator_percent_width';
 	var scrollBindSuffix = '.header_fixed_scroll';
@@ -22,17 +29,25 @@ $(function domReady() {
 	var firstLineMaxWidth = 842;
 	var firstLineMinWidth = 762;
 	var firstLineDenominator = firstLineMaxWidth - firstLineMinWidth;
+	var subMenuMin = parseInt($subMenuItems.css('margin-left'), 10);
+	var subMenuMax = 22;
+	var subMenuDenominator = subMenuMax - subMenuMin;
 
-	$(window).on('resize' + separatorBindSuffix, function () { // separator percent width {{{1
+	$(window).on('resize' + separatorBindSuffix, function () { // dynamic separator width {{{1
 
-		$mainMenuSep.css('width', ''); // reset before get width of menu
+		// reset before get width
+		$mainMenuSep.css('width', '');
+		$subMenuItems.css('margin-left', '');
 
-		var numerator = $firstLine.width() - firstLineMinWidth;
+		var firstLineWidth = $firstLine.width();
+
+		var numerator = firstLineWidth - firstLineMinWidth;
 		var percent = numerator * 100 / firstLineDenominator;
 
 		$mainMenuSep.css('width', ( (percent * sepDenominator / 100) + sepMinWidth ) + 'px');
+		$subMenuItems.css('margin-left', ( (percent * subMenuDenominator / 100) + subMenuMin ) + 'px');
 
-	}).trigger('resize' + separatorBindSuffix); // separator percent width }}}1
+	}).trigger('resize' + separatorBindSuffix); // dynamic separator width }}}1
 
 	$(window).on('scroll' + scrollBindSuffix, function () { // scroll for fixed position {{{1
 
