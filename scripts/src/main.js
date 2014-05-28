@@ -24,6 +24,8 @@ $(function domReady() {
 		}
 	});
 
+	require(['header']);
+
 	if ($('html').hasClass('main_page')) {
 		require(['pages/main']);
 	}
