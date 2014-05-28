@@ -1,0 +1,9 @@
+*.swp
+*.log
+*.tar
+*.gz
+node_modules
+grunt
+
+styles/build
+scripts/build

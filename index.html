@@ -1,0 +1,49 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru" lang="ru" class="main_page">
+<head>
+	<meta charset="utf-8" />
+	<title>Усадьба Парфенова</title>
+	<link rel="stylesheet" type="text/css" href="./styles/build/build.css?v=1" />
+	<script src="./scripts/build/build.js?v=1"></script>
+	<script>
+		//<![CDATA[
+			require(['basics/get_val'], function (getVal) {
+
+				getVal.set('lang', 'ru');
+				getVal.set('revision', '1');
+
+				require(['main']);
+
+			});
+		//]]>
+	</script>
+</head>
+
+<body>
+	<div class="top_side">
+		<header>
+			<nav class="main_menu">
+				...
+			</nav>
+			<nav class="sub_menu">
+				...
+			</nav>
+		</header>
+		<main>
+			olala
+		</main>
+	</div>
+	<footer>
+		<div class="contacts">
+			<div class="phone">Тел.: +7 (988) 483-72-00</div>
+			<address>
+				385750, Республика Адыгея, Майкопский район<br/>
+				пос. Каменномостский, ул. Чайковского, 23
+			</address>
+		</div>
+		<div class="developer">
+			Сделано в <a href="http://web-izmerenie.ru" class="logo">Web izmerenie</a>
+		</div>
+	</footer>
+</body>
+</html>

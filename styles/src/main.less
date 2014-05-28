@@ -1,0 +1,133 @@
+/**
+ * Main less module
+ *
+ * @author Viacheslav Lotsmanov
+ */
+
+/* === VARIABLES === */
+
+@import "variables";
+
+/* === MIXINS AND RESETS === */
+
+@import "reset";
+@import "mixins";
+@import "icons";
+
+/* === FONTS === */
+
+@import "fonts";
+
+/* === ELEMENTS === */
+
+@import "footer";
+
+/* === PAGES === */
+
+@import "pages/main";
+
+/* === STYLES === */
+
+html, body {
+	.size(100%);
+	min-height: 100%;
+}
+
+:focus { outline: none; }
+
+html body {
+	overflow-y: scroll;
+	color: @contentColor;
+	font: @contentFont;
+	background: @lightBgColor;
+
+	.top_side {
+		display: block;
+		min-width: @minWidth;
+		min-height: 100%;
+
+		main { // {{{1
+			display: block;
+			padding-bottom: @footerHeight;
+
+			a { .simpleLink; }
+
+			h2 {
+				display: block;
+			}
+
+			h3 {
+				display: block;
+			}
+
+			h4 {
+				display: block;
+			}
+
+			ul { // {{{2
+				display: block;
+
+				li {
+					display: block;
+				}
+
+				li + li { margin-top: 24px; }
+			} // ul }}}2
+
+			ol { // ol {{{2
+				display: block;
+				.relative;
+				counter-reset: customlistcounter;
+
+				li {
+					display: block;
+					padding-left: 40px;
+					.relative;
+
+					&:before {
+						.pseudoBlock();
+						width: 40px;
+						.absolute(0, auto, auto, 0);
+						text-align: center;
+						color: #000;
+						content: counter(customlistcounter, decimal) '.';
+						counter-increment: customlistcounter;
+					}
+				}
+			} // ol }}}2
+
+			blockquote { // {{{2
+				display: block;
+			} // blockquote }}}2
+
+			// margins and paddings of content tags {{{2
+
+			// p
+			p + p, blockquote + p { padding-top: 24px; }
+			h2 + p { padding-top: 29px; }
+			h3 + p { padding-top: 25px; }
+			h4 + p { padding-top: 26px; }
+
+			// img.elastic
+			p + img.elastic, h2 + img.elastic, h3 + img.elastic, h4 + img.elastic, ul + img.elastic, blockquote + img.elastic { margin-top: 33px; }
+
+			// h3
+			h3 + h3, p + h3, h2 + h3, h1 + h3, ul + h3, blockquote + h3 { padding-top: 39px; }
+
+			// h4
+			h4 + h4, p + h4, ul + h4, blockquote + h4 { padding-top: 41px; }
+
+			// ul, ol
+			ul + ul, p + ul, h2 + ul, h3 + ul, h4 + ul, blockquote + ul { padding-top: 24px; }
+			ol + ol, p + ol, h2 + ol, h3 + ol, h4 + ol, blockquote + ol { padding-top: 24px; }
+
+			// blockquote
+			p + blockquote, h2 + blockquote, h3 + blockquote, h4 + blockquote, ul + blockquote { padding-top: 24px; }
+
+			i, em { font-style: italic; }
+			b, strong { font-weight: bold; }
+
+			// margins and paddings of content tags }}}2
+		} // main }}}1
+	} // .top_side
+} // html body

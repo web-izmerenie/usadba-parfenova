@@ -1,0 +1,22 @@
+/**
+ * Icons styles
+ *
+ * @author Viacheslav Lotsmanov
+ */
+
+.icons_sprite {
+	display: inline-block;
+	overflow: hidden;
+	.size(1px);
+	.bg('icons_sprite.png', 1px 1px no-repeat);
+}
+
+.icon_wi_logo { &:extend(.icons_sprite); .size(15px); background-position: -1px -1px; }
+.icon_wi_logo_active { &:extend(.icon_wi_logo); background-position: -1px -17px; }
+
+/* template {{{1
+
+.icon_X { &:extend(.icons_sprite); .size(px, px); background-position: -px -px; }
+.icon_X_active { &:extend(.icon_X); background-position: -px -px; }
+
+}}}1 */
