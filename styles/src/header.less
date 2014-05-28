@@ -1,0 +1,58 @@
+/**
+ * Footer styles
+ *
+ * @author Viacheslav Lotsmanov
+ */
+
+html body header {
+	display: block;
+	.size(100%, @headerHeight);
+	min-width: @minWidth;
+	background: @darkBgColor;
+	color: @lightContentColor;
+	overflow: hidden;
+	.fixed(0, auto, auto, 0);
+
+	.logo {
+		display: block;
+		.absolute(3px, auto, auto, 15px);
+	}
+
+	.first_line_wrap {
+		display: block;
+		float: right;
+		width: 100%;
+		max-width: 842px;
+		margin-right: @mainMargin;
+	}
+
+	.first_line {
+		display: table;
+		width: 100%;
+
+		.choose_lang {
+			display: table-cell;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		nav.main_menu {
+			display: table-cell;
+			vertical-align: top;
+			text-align: right;
+
+			&, a {
+				.customFont('PT Sans', 16px, 18px);
+				font-weight: bold;
+				text-transform: uppercase;
+			}
+			
+			a {
+				.linkNoLine;
+				color: @lightContentColor;
+
+				&:hover { color: @activeLightLinkColor; }
+			}
+		}
+	}
+} // header
