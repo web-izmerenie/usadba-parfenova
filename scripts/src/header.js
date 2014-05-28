@@ -26,11 +26,11 @@ $(function domReady() {
 	var sepMinWidth = parseInt($mainMenuSep.css('min-width'), 10);
 	var sepMaxWidth = parseInt($mainMenuSep.css('max-width'), 10);
 	var sepDenominator = sepMaxWidth - sepMinWidth;
-	var firstLineMaxWidth = 842;
-	var firstLineMinWidth = 762;
+	var firstLineMaxWidth = getVal('headerFirstLineMaxWidth');
+	var firstLineMinWidth = getVal('headerFirstLineMinWidth');
 	var firstLineDenominator = firstLineMaxWidth - firstLineMinWidth;
 	var subMenuMin = parseInt($subMenuItems.css('margin-left'), 10);
-	var subMenuMax = 22;
+	var subMenuMax = getVal('headerSubMenuItemMaxMarginLeft');
 	var subMenuDenominator = subMenuMax - subMenuMin;
 
 	$(window).on('resize' + separatorBindSuffix, function () { // dynamic separator width {{{1
@@ -44,8 +44,8 @@ $(function domReady() {
 		var numerator = firstLineWidth - firstLineMinWidth;
 		var percent = numerator * 100 / firstLineDenominator;
 
-		$mainMenuSep.css('width', ( (percent * sepDenominator / 100) + sepMinWidth ) + 'px');
-		$subMenuItems.css('margin-left', ( (percent * subMenuDenominator / 100) + subMenuMin ) + 'px');
+		$mainMenuSep.css('width', ( ((percent * sepDenominator) / 100) + sepMinWidth ) + 'px');
+		$subMenuItems.css('margin-left', ( ((percent * subMenuDenominator) / 100) + subMenuMin ) + 'px');
 
 	}).trigger('resize' + separatorBindSuffix); // dynamic separator width }}}1
 

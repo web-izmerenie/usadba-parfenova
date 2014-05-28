@@ -11,7 +11,11 @@ define(function () {
 	exports.values = {
 
 		animationSpeed: 200, // ms
-		cookieExpires: 365 // days
+		cookieExpires: 365, // days
+
+		headerFirstLineMaxWidth: 842, // px
+		headerFirstLineMinWidth: 762, // px
+		headerSubMenuItemMaxMarginLeft: 22 // px
 
 	};
 
