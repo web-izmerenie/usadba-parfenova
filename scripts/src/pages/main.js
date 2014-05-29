@@ -23,26 +23,25 @@ $(function domReady() {
 		$backgrounds.css('height', $window.height() + 'px');
 	}).trigger('resize' + resizeCardsBindSuffix);
 
-	// scroll down on .card_1 button {{{1
+	setTimeout(function () {
 
-		$card1ScrlDn.click(function () {
-
-			$page.animate({
-				scrollTop: $card1.height() + 'px'
-			}, scrollDownSpeed);
-
-			return false;
-
-		});
-
-	// scroll down on .card_1 button }}}1
-
-	setTimeout(function () { // .card_1 sroll down jitter {{{1
-
-		var speed = getVal('animationSpeed');
+		var jitterTimer = null;
 		var bottom = parseInt($card1ScrlDn.css('bottom'), 10);
+		var speed = getVal('animationSpeed');
+		var scrollDownBindSuffix = '.card_1_scroll_down';
 
-		setInterval(function () {
+		// .card_1 sroll down jitter {{{1
+
+		$card1ScrlDn
+			.on('mouseenter' + scrollDownBindSuffix, function () {
+				$card1ScrlDn.addClass('hover');
+			}).on('mouseleave' + scrollDownBindSuffix, function () {
+				$card1ScrlDn.removeClass('hover');
+			});
+
+		jitterTimer = setInterval(function () {
+
+			if ($card1ScrlDn.hasClass('hover')) return;
 
 			$card1ScrlDn.stop().animate({
 				'bottom': (bottom - getVal('card1ScrollDownJitterValue')) + 'px'
@@ -56,7 +55,22 @@ $(function domReady() {
 
 		}, getVal('card1ScrollDownJitterInterval') * 1000);
 
-	}, 1); // .card_1 sroll down jitter }}}1
+		// .card_1 sroll down jitter }}}1
+
+		$card1ScrlDn.click(function () { // scroll down on .card_1 button {{{1
+
+			clearInterval(jitterTimer);
+			$card1ScrlDn.stop().animate({ 'bottom': bottom + 'px' }, speed);
+
+			$page.animate({
+				scrollTop: $card1.height() + 'px'
+			}, scrollDownSpeed);
+
+			return false;
+
+		}); // scroll down on .card_1 button }}}1
+
+	}, 1);
 
 }); // domReady()
 }); // define()
