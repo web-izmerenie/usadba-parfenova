@@ -19,7 +19,9 @@ define(function () {
 		headerSubMenuItemMaxMarginLeft: 22, // px
 
 		card1ScrollDownJitterInterval: 5, // sec
-		card1ScrollDownJitterValue: 20 // px
+		card1ScrollDownJitterValue: 20, // px
+
+		mainPageParalax: 400 // px
 
 	};
 
