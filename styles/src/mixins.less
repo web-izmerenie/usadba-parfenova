@@ -126,3 +126,12 @@
 		&:after { .opacity(1); }
 	}
 }
+
+// IE8 {{{1
+
+.IE8_animatedIcon() {
+	&:before, &:hover:after { visibility: visible; }
+	&:after, &:hover:before { visibility: hidden; }
+}
+
+// IE8 }}}1

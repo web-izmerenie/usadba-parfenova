@@ -55,5 +55,25 @@ $(function domReady() {
 
 	}).trigger('scroll' + scrollBindSuffix); // scroll for fixed position }}}1
 
+	// IE8 {{{1
+
+	if ($('html').hasClass('ie8')) {
+
+		var $firstLineWrap = $firstLine.closest('.first_line_wrap');
+
+		var ie8BindSuffix = '.ie8_first_ling_absolute_pos_bug';
+
+		$(window).on('resize' + ie8BindSuffix, function () {
+
+			$firstLineWrap.css({ right: 'auto', left: 0 }); // reset
+
+			$firstLineWrap.css('left', ( $header.width() - $firstLineWrap.width() ) + 'px');
+
+		}).trigger('resize' + ie8BindSuffix);
+
+	}
+
+	// IE8 }}}1
+
 }); // domReady()
 }); // define()
