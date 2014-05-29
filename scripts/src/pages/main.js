@@ -17,6 +17,8 @@ $(function domReady() {
 
 	var resizeCardsBindSuffix = '.main_page_resize_cards';
 
+	var scrollDownSpeed = getVal('animationSpeed') * 4;
+
 	$window.on('resize' + resizeCardsBindSuffix, function () {
 		$backgrounds.css('height', $window.height() + 'px');
 	}).trigger('resize' + resizeCardsBindSuffix);
@@ -27,7 +29,7 @@ $(function domReady() {
 
 			$page.animate({
 				scrollTop: $card1.height() + 'px'
-			}, getVal('animationSpeed')*6);
+			}, scrollDownSpeed);
 
 			return false;
 

@@ -66,25 +66,35 @@ html.main_page body main section.main_page {
 
 		.text {
 			display: block;
-			width: @minWidth - (@mainMargin2 * 2);
+			width: 900px;
 			margin: 0 auto;
 			padding-top: 73px - 18px;
 			padding-bottom: 59px - 6px;
 			text-align: center;
+		} // .text
+
+		.setBg(@fileNum) {
+			.bg('main_page/@{fileNum}.jpg', center center no-repeat);
+			.background-size(cover);
 		}
 
-		&.card_2 {
-			.background {
-				.bg('main_page/02.jpg', center center no-repeat);
-			} // .background
-		} // &.card_1
+		&.card_2 .background { .setBg('02'); }
+		&.card_3 .background { .setBg('03'); }
+		&.card_4 .background { .setBg('04'); }
+		&.card_5 .background { .setBg('05'); }
+		&.card_6 .background { .setBg('06'); }
+
+		&.card_3 .text,
+		&.card_4 .text {
+			width: 600px;
+		}
 	} // .card }}}1
 } // html.main_page body main
 
 html.ie8 body main { // IE8 {{{1
-	.card.card_1 {
+	.card.card_1, .card .background {
 		-ms-behavior: url('@{tplPath}ie8/backgroundsize.min.htc');
-
-		.scroll_down { .IE8_animatedIcon; }
 	}
+
+	.card.card_1 .scroll_down { .IE8_animatedIcon; }
 } // IE8 }}}1
