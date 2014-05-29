@@ -5,13 +5,13 @@
  */
 
 html.main_page body main section.main_page {
-	@areaMinHeight: 400px;
+	@cardMinHeight: 400px;
 
-	.top_area { // {{{1
+	.card.card_1 { // {{{1
 		display: block;
 		.size(100%);
 		.relative;
-		min-height: @areaMinHeight;
+		min-height: @cardMinHeight;
 		.bg('main_page/01.jpg', center center no-repeat);
 		.background-size(cover);
 
@@ -38,16 +38,28 @@ html.main_page body main section.main_page {
 
 			.linkNoLine;
 			&:extend(.icon_V);
+			background: none;
 			display: block;
 			.absolute(auto, auto, 36px - 8px, 50%);
 			margin-left: -(@iconWidth / 2);
 			cursor: pointer;
-		}
-	} // .top_area }}}1
+
+			&:before { &:extend(.icon_V); }
+			&:after { &:extend(.icon_V_active); }
+
+			.animatedIcon;
+
+			&:before, &:after {
+				.transition(opacity @animationSpeed ease-out);
+			}
+		} // .scroll_down
+	} // .card.card_1 }}}1
 } // html.main_page body main
 
 html.ie8 body main { // IE8 {{{1
-	.top_area {
+	.card.card_1 {
 		-ms-behavior: url('@{tplPath}ie8/backgroundsize.min.htc');
+
+		.scroll_down { .IE8_animatedIcon; }
 	}
 } // IE8 }}}1

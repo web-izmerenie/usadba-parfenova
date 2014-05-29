@@ -8,41 +8,41 @@ define(['jquery', 'get_val'], function ($, getVal) {
 $(function domReady() {
 
 	var $mainPage = $('section.main_page');
-	var $topArea = $mainPage.find('.top_area');
-	var $topAreaScrlDn = $topArea.find('.scroll_down');
+	var $card1 = $mainPage.find('.card.card_1');
+	var $card1ScrlDn = $card1.find('.scroll_down');
 	var $window = $(window);
 	var $page = $('html,body');
 
-	var resizeAreasBindSuffix = '.main_page_resize_areas';
+	var resizeCardsBindSuffix = '.main_page_resize_cards';
 
-	// resizing areas {{{1
+	// resizing cards {{{1
 
-		function resizeAreas() {
+		function resizeCards() {
 
 			var wndHeight = $window.height();
 
-			$topArea.css('height', wndHeight + 'px');
+			$card1.css('height', wndHeight + 'px');
 
-		} // resizeAreas()
+		} // resizeCards()
 
-		$window.on('resize' + resizeAreasBindSuffix, resizeAreas);
-		resizeAreas();
+		$window.on('resize' + resizeCardsBindSuffix, resizeCards);
+		resizeCards();
 
-	// resizing areas }}}1
+	// resizing cards }}}1
 
-	// scroll down on top area button {{{1
+	// scroll down on .card_1 button {{{1
 
-		$topAreaScrlDn.click(function () {
+		$card1ScrlDn.click(function () {
 
 			$page.animate({
-				scrollTop: $topArea.height() + 'px'
+				scrollTop: $card1.height() + 'px'
 			}, getVal('animationSpeed')*6);
 
 			return false;
 
 		});
 
-	// scroll down on top area button }}}1
+	// scroll down on .card_1 button }}}1
 
 }); // domReady()
 }); // define()

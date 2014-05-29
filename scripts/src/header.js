@@ -15,7 +15,7 @@ $(function domReady() {
 	var $mainMenuSep = $header.find('.separator');
 	var $subMenu = $header.find('.sub_menu');
 	var $subMenuItems = $subMenu.find('a, span');
-	var $topArea = null;
+	var $card1 = null;
 
 	// skip first element (because no margin-left for first element)
 	$subMenuItems = $subMenuItems.get();
@@ -38,7 +38,7 @@ $(function domReady() {
 
 	var isMainPage = $('html').hasClass('main_page');
 
-	if (isMainPage) $topArea = $('section.main_page .top_area');
+	if (isMainPage) $card1 = $('section.main_page .card.card_1');
 
 	$window.on('resize' + separatorBindSuffix, function () { // dynamic separator width {{{1
 
@@ -68,7 +68,7 @@ $(function domReady() {
 			// can't $.proxy because IE8
 			setTimeout(function () {
 				if (
-					( isMainPage && $document.scrollTop() >= $topArea.height() ) ||
+					( isMainPage && $document.scrollTop() >= $card1.height() ) ||
 					$window.height() + $document.scrollTop() >= $document.height()
 				) {
 					// show
