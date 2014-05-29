@@ -5,5 +5,52 @@
  */
 
 html.main_page body main {
-	//
+	@areaMinHeight: 400px;
+
+	.top_area { // {{{1
+		display: block;
+		.size(100%);
+		.relative;
+		min-height: @areaMinHeight;
+		.bg('main_page/01.jpg', center center no-repeat);
+		.background-size(cover);
+
+		.logo_wrap_1 {
+			display: block;
+			.size(100%);
+			.absolute(0, auto, auto, 0);
+		} // .logo_wrap_1
+
+		.logo_wrap_2 {
+			display: table;
+			.size(100%);
+		} // .logo_wrap_2
+		
+		.logo_wrap_3 {
+			display: table-cell;
+			vertical-align: middle;
+		} // .logo_wrap_3
+
+		.logo_2 {
+			display: block;
+			margin: 0 auto;
+		} // .logo_2
+
+		.scroll_down {
+			@iconWidth: 50px;
+
+			.linkNoLine;
+			&:extend(.icon_V);
+			display: block;
+			.absolute(auto, auto, 36px - 8px, 50%);
+			margin-left: -(@iconWidth / 2);
+			cursor: pointer;
+		}
+	} // .top_area }}}1
 } // html.main_page body main
+
+html.ie8 body main { // IE8 {{{1
+	.top_area {
+		-ms-behavior: url('@{tplPath}ie8/backgroundsize.min.htc');
+	}
+} // IE8 }}}1
