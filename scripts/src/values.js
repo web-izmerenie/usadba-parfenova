@@ -16,7 +16,10 @@ define(function () {
 		headerHeight: 87, // px
 		headerFirstLineMaxWidth: 842, // px
 		headerFirstLineMinWidth: 762, // px
-		headerSubMenuItemMaxMarginLeft: 22 // px
+		headerSubMenuItemMaxMarginLeft: 22, // px
+
+		card1ScrollDownJitterInterval: 5, // sec
+		card1ScrollDownJitterValue: 20 // px
 
 	};
 
