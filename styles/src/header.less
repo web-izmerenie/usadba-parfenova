@@ -5,13 +5,14 @@
  */
 
 html body header {
-	display: none;
+	display: block;
 	.size(100%, @headerHeight);
 	min-width: @minWidth;
 	background: @darkBgColor;
 	color: @lightContentColor;
 	overflow: hidden;
 	.fixed(0, auto, auto, 0);
+	z-index: 10;
 
 	.logo {
 		display: block;
@@ -124,7 +125,7 @@ html body header {
 		display: block;
 		text-align: right;
 		white-space: nowrap;
-		.absolute(auto, 21px - 3px, @mainMargin);
+		.absolute(75px - 21px, @mainMargin);
 		color: @lightContentColor;
 		cursor: default;
 
@@ -149,3 +150,7 @@ html body header {
 		} // span, span:hover
 	} // nav.sub_menu }}}1
 } // header
+
+html.main_page body header { // main page {{{1
+	height: 0;
+} // main page }}}1

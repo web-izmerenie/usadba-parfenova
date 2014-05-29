@@ -9,11 +9,13 @@ $(function domReady() {
 
 	var $header = $('header');
 	var $document = $(document);
+	var $window = $(window);
 	var $firstLine = $header.find('.first_line');
 	var $mainMenu = $header.find('.main_menu');
 	var $mainMenuSep = $header.find('.separator');
 	var $subMenu = $header.find('.sub_menu');
 	var $subMenuItems = $subMenu.find('a, span');
+	var $topArea = null;
 
 	// skip first element (because no margin-left for first element)
 	$subMenuItems = $subMenuItems.get();
@@ -22,6 +24,7 @@ $(function domReady() {
 
 	var separatorBindSuffix = '.header_separator_percent_width';
 	var scrollBindSuffix = '.header_fixed_scroll';
+	var showHideBindSuffix = '.header_show_hide';
 
 	var sepMinWidth = parseInt($mainMenuSep.css('min-width'), 10);
 	var sepMaxWidth = parseInt($mainMenuSep.css('max-width'), 10);
@@ -33,7 +36,11 @@ $(function domReady() {
 	var subMenuMax = getVal('headerSubMenuItemMaxMarginLeft');
 	var subMenuDenominator = subMenuMax - subMenuMin;
 
-	$(window).on('resize' + separatorBindSuffix, function () { // dynamic separator width {{{1
+	var isMainPage = $('html').hasClass('main_page');
+
+	if (isMainPage) $topArea = $('section.main_page .top_area');
+
+	$window.on('resize' + separatorBindSuffix, function () { // dynamic separator width {{{1
 
 		// reset before get width
 		$mainMenuSep.css('width', '');
@@ -49,11 +56,30 @@ $(function domReady() {
 
 	}).trigger('resize' + separatorBindSuffix); // dynamic separator width }}}1
 
-	$(window).on('scroll' + scrollBindSuffix, function () { // scroll for fixed position {{{1
+	$window.on('scroll' + scrollBindSuffix, function () { // scroll for fixed position {{{1
 
 		$header.css('left', (-$document.scrollLeft()) + 'px');
 
 	}).trigger('scroll' + scrollBindSuffix); // scroll for fixed position }}}1
+
+	$window.on( // show/hide {{{1
+		'scroll' + showHideBindSuffix + ' resize' + showHideBindSuffix,
+		function () {
+			// can't $.proxy because IE8
+			setTimeout(function () {
+				if (
+					( isMainPage && $document.scrollTop() >= $topArea.height() ) ||
+					$window.height() + $document.scrollTop() >= $document.height()
+				) {
+					// show
+					$header.stop().animate({ height: getVal('headerHeight') + 'px' }, getVal('animationSpeed'));
+				} else {
+					// hide
+					$header.stop().animate({ height: 0 }, getVal('animationSpeed'));
+				}
+			}, 1);
+		}
+	).trigger('scroll' + showHideBindSuffix); // show/hide }}}1
 
 	// IE8 {{{1
 
@@ -63,7 +89,7 @@ $(function domReady() {
 
 		var ie8BindSuffix = '.ie8_first_ling_absolute_pos_bug';
 
-		$(window).on('resize' + ie8BindSuffix, function () {
+		$window.on('resize' + ie8BindSuffix, function () {
 
 			$firstLineWrap.css({ right: 'auto', left: 0 }); // reset
 

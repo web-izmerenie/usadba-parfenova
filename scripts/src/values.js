@@ -13,6 +13,7 @@ define(function () {
 		animationSpeed: 200, // ms
 		cookieExpires: 365, // days
 
+		headerHeight: 87, // px
 		headerFirstLineMaxWidth: 842, // px
 		headerFirstLineMinWidth: 762, // px
 		headerSubMenuItemMaxMarginLeft: 22 // px
