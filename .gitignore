@@ -4,6 +4,7 @@
 *.gz
 node_modules
 grunt
+http-markup-server.config.json
 
 styles/build
 scripts/build
