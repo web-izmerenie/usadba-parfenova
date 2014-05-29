@@ -15,26 +15,23 @@ html.main_page body main section.main_page {
 		.bg('main_page/01.jpg', center center no-repeat);
 		.background-size(cover);
 
-		.logo_wrap_1 {
+		.logo_wrap {
 			display: block;
 			.size(100%);
-			.absolute(0, auto, auto, 0);
+			text-align: center;
+			.fontMetrics(0, 0);
+
+			.helper {
+				display: inline-block;
+				height: 100%;
+				vertical-align: middle;
+			}
+
+			.logo_2 {
+				display: inline-block;
+				vertical-align: middle;
+			} // .logo_2
 		} // .logo_wrap_1
-
-		.logo_wrap_2 {
-			display: table;
-			.size(100%);
-		} // .logo_wrap_2
-		
-		.logo_wrap_3 {
-			display: table-cell;
-			vertical-align: middle;
-		} // .logo_wrap_3
-
-		.logo_2 {
-			display: block;
-			margin: 0 auto;
-		} // .logo_2
 
 		.scroll_down {
 			@iconWidth: 50px;
