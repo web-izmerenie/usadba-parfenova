@@ -9,6 +9,7 @@ $(function domReady() {
 
 	var $mainPage = $('section.main_page');
 	var $card1 = $mainPage.find('.card.card_1');
+	var $card1LogoWrap = $card1.find('.logo_wrap');
 	var $card1ScrlDn = $card1.find('.scroll_down');
 	var $window = $(window);
 	var $document = $(document);
@@ -24,11 +25,15 @@ $(function domReady() {
 	// paralax {{{1
 
 	$mainPage.css('overflow', 'hidden');
+	$card1LogoWrap.css('position', 'relative');
+	$backgrounds.css('position', 'relative');
+
+	var scrollDownLeft = parseInt($card1ScrlDn.css('margin-left'), 10);
 
 	var pv = getVal('mainPageParalax'); // paralax value
 
 	function paralaxUpdate() {
-		$backgrounds.css('position', 'relative').each(function () {
+		$backgrounds.each(function () {
 
 			var $bg = $(this);
 			var lo = $bg.offset().top;
@@ -39,6 +44,7 @@ $(function domReady() {
 
 			var wwh = ((lo < wh) ? (wh - (wh - lo)) : wh);
 			var startPoint = st + wwh;
+			var w = $mainPage.width();
 			var h = $bg.height();
 			var hi = lo + h + wwh;
 			var numerator = startPoint - lo;
@@ -52,25 +58,22 @@ $(function domReady() {
 				pvl = pvl * (num * 100 / den) / 100;
 			}
 
-			if (startPoint <= lo) {
-				$bg.css({
-					'left': 0,
-					'padding-left': 0,
-					'padding-right': 0
-				});
-			} else if (startPoint >= hi) {
-				$bg.css({
-					'left': (-pvl) + 'px',
-					'padding-left': pvl + 'px',
-					'padding-right': pvl + 'px'
-				});
-			} else {
-				var v = pvl * (numerator * 100 / denominator) / 100;
-				$bg.css({
-					'left': (-v) + 'px',
-					'padding-left': v + 'px',
-					'padding-right': v + 'px'
-				});
+			$bg.css('padding-left', pvl + 'px');
+
+			var v = pvl * (numerator * 100 / denominator) / 100;
+			var isCard1 = $bg.hasClass('card_1');
+
+			if (numerator <= 0) {
+				v = 0;
+			} else if (numerator >= denominator) {
+				v = pvl;
+			}
+
+			$bg.css('left', (-v) + 'px');
+			if ($bg.hasClass('card_1')) $card1LogoWrap.css('left', (-(pvl - v)) + 'px');
+
+			if ($bg.hasClass('card_1')) {
+				$card1ScrlDn.css('left', ( (w/2) + v ) + 'px');
 			}
 
 		});
