@@ -50,7 +50,7 @@ $(function domReady() {
 			var numerator = startPoint - lo;
 			var denominator = hi - lo;
 
-			var pvl = pv; // paralax value local
+			var pvl = wh * pv / 100; // paralax value local
 
 			if (wwh !== wh) {
 				var den = wh + h;
@@ -80,6 +80,9 @@ $(function domReady() {
 	} // paralaxUpdate()
 
 	$window.on('scroll' + paralaxBindSuffix, paralaxUpdate);
+	$window.on('resize' + paralaxBindSuffix, function () {
+		setTimeout(paralaxUpdate, 1);
+	});
 	setTimeout(paralaxUpdate, 1);
 
 	// paralax }}}1
