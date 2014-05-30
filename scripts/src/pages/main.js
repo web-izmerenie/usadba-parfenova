@@ -97,6 +97,7 @@ $(function domReady() {
 		var bottom = parseInt($card1ScrlDn.css('bottom'), 10);
 		var speed = getVal('animationSpeed');
 		var scrollDownBindSuffix = '.card_1_scroll_down';
+		var curve = 'easeInBack';
 
 		// .card_1 sroll down jitter {{{1
 
@@ -113,11 +114,13 @@ $(function domReady() {
 
 			$card1ScrlDn.stop().animate({
 				'bottom': (bottom - getVal('card1ScrollDownJitterValue')) + 'px'
-			}, speed, function () {
+			}, speed, curve, function () {
 				$card1ScrlDn.stop().animate({
 					'bottom': (bottom + getVal('card1ScrollDownJitterValue')) + 'px'
-				}, speed*2, function () {
-					$card1ScrlDn.stop().animate({ 'bottom': bottom + 'px' }, speed);
+				}, speed*2, curve, function () {
+					$card1ScrlDn.stop().animate({
+						'bottom': bottom + 'px'
+					}, speed, curve);
 				});
 			});
 
