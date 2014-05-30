@@ -4,7 +4,7 @@
  * @author Viacheslav Lotsmanov
  */
 
-define(['jquery', 'get_val', 'jquery-ui'], function ($, getVal) {
+define(['jquery', 'get_val', 'jquery.easing'], function ($, getVal) {
 $(function domReady() {
 
 	var $mainPage = $('section.main_page');
