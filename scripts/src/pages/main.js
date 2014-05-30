@@ -97,7 +97,7 @@ $(function domReady() {
 		var bottom = parseInt($card1ScrlDn.css('bottom'), 10);
 		var speed = getVal('animationSpeed');
 		var scrollDownBindSuffix = '.card_1_scroll_down';
-		var curve = 'easeInBack';
+		var curve = 'easeInOutSine';
 
 		// .card_1 sroll down jitter {{{1
 
