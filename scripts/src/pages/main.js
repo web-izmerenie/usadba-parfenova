@@ -50,7 +50,7 @@ $(function domReady() {
 			var numerator = startPoint - lo;
 			var denominator = hi - lo;
 
-			var pvl = wh * pv / 100; // paralax value local
+			var pvl = w * pv / 100; // paralax value local
 
 			if (wwh !== wh) {
 				var den = wh + h;
