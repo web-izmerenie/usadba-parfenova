@@ -4,7 +4,7 @@
  * @author Viacheslav Lotsmanov
  */
 
-define(['jquery', 'get_val'], function ($, getVal) {
+define(['jquery', 'get_val', 'jquery-ui'], function ($, getVal) {
 $(function domReady() {
 
 	var $mainPage = $('section.main_page');
@@ -20,7 +20,7 @@ $(function domReady() {
 	var resizeCardsBindSuffix = '.main_page_resize_cards';
 	var paralaxBindSuffix = '.main_page_paralax';
 
-	var scrollDownSpeed = getVal('animationSpeed') * 4;
+	var scrollDownSpeed = getVal('animationSpeed') * 6;
 
 	// paralax {{{1
 
@@ -132,7 +132,10 @@ $(function domReady() {
 
 			$page.animate({
 				scrollTop: $card1.height() + 'px'
-			}, scrollDownSpeed);
+			}, {
+				duration: scrollDownSpeed,
+				easing: 'easeInOutQuad'
+			});
 
 			return false;
 
