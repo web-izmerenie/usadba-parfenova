@@ -24,59 +24,58 @@ $(function domReady() {
 
 	// paralax {{{1
 
-	$mainPage.css('overflow', 'hidden');
-	$card1LogoWrap.css('position', 'relative');
+	var bgRatio = getVal('mainPageBackgroundsRatio');
+	var paralaxVal = getVal('mainPageParalaxValue');
+
 	$backgrounds.css('position', 'relative');
 
-	var scrollDownLeft = parseInt($card1ScrlDn.css('margin-left'), 10);
-
-	var pv = getVal('mainPageParalax'); // paralax value
-
 	function paralaxUpdate() {
+
+		var st = $document.scrollTop();
+		var ww = $window.width();
+		var wh = $window.height();
+
+		var wr = bgRatio[0] * wh / bgRatio[1]; // width by ratio
+
+		var ih = ww * wh / wr; // image height
+
+		if (wr > ww) {
+			var p = wr - ww;
+			$backgrounds.css({
+				'padding-left': (p/2)+'px',
+				'padding-right': (p/2)+'px',
+				'left': (-p)+'px'
+			});
+		} else {
+			$backgrounds.css({
+				'padding-left': 0,
+				'padding-right': 0,
+				'left': 0
+			});
+		}
+
 		$backgrounds.each(function () {
 
 			var $bg = $(this);
-			var lo = $bg.offset().top;
-			var st = $document.scrollTop();
-			var wh = $window.height();
 
-			if (startPoint < lo || startPoint > hi) return;
+			var bt = $bg.offset().top;
 
-			var wwh = ((lo < wh) ? (wh - (wh - lo)) : wh);
-			var startPoint = st + wwh;
-			var w = $mainPage.width();
-			var h = $bg.height();
-			var hi = lo + h + wwh;
-			var numerator = startPoint - lo;
-			var denominator = hi - lo;
+			var lo = bt;
+			var hi = bt + wh;
 
-			var pvl = w * pv / 100; // paralax value local
+			var offset = paralaxVal * (st - lo) / hi;
 
-			if (wwh !== wh) {
-				var den = wh + h;
-				var num = den - (wh - wwh);
-				pvl = pvl * (num * 100 / den) / 100;
+			if (wr > ww) {
+				ih = ww;
+			} else {
+				// centering position
+				offset += (ih - wh) / 2;
 			}
 
-			$bg.css('padding-left', pvl + 'px');
-
-			var v = pvl * (numerator * 100 / denominator) / 100;
-			var isCard1 = $bg.hasClass('card_1');
-
-			if (numerator <= 0) {
-				v = 0;
-			} else if (numerator >= denominator) {
-				v = pvl;
-			}
-
-			$bg.css('left', (-v) + 'px');
-			if ($bg.hasClass('card_1')) $card1LogoWrap.css('left', (-(pvl - v)) + 'px');
-
-			if ($bg.hasClass('card_1')) {
-				$card1ScrlDn.css('left', ( (w/2) + v ) + 'px');
-			}
+			$bg.css('background-position', 'center '+(-offset)+'px');
 
 		});
+
 	} // paralaxUpdate()
 
 	$window.on('scroll' + paralaxBindSuffix, paralaxUpdate);

@@ -21,7 +21,8 @@ define(function () {
 		card1ScrollDownJitterInterval: 5, // sec
 		card1ScrollDownJitterValue: 20, // px
 
-		mainPageParalax: 20 // % of window width
+		mainPageBackgroundsRatio: [4, 3], // ratio
+		mainPageParalaxValue: 100 // % of height
 
 	};
 

@@ -14,6 +14,7 @@ html.main_page body main section.main_page {
 		min-height: @cardMinHeight;
 		.bg('main_page/01.jpg', center center no-repeat);
 		.background-size(cover);
+		background-attachment: fixed;
 
 		.logo_wrap { // {{{2
 			display: block;
@@ -63,7 +64,6 @@ html.main_page body main section.main_page {
 			display: block;
 			.size(100%);
 			min-height: @cardMinHeight;
-			.background-size(cover);
 		} // .background
 
 		.text {
@@ -78,6 +78,7 @@ html.main_page body main section.main_page {
 		.setBg(@fileNum) {
 			.bg('main_page/@{fileNum}.jpg', center center no-repeat);
 			.background-size(cover);
+			background-attachment: fixed;
 		}
 
 		&.card_2 .background { .setBg('02'); }
