@@ -5,8 +5,8 @@
 node_modules
 grunt
 
-styles/build
-scripts/build
+bitrix/templates/main/styles/build
+bitrix/templates/main/scripts/build
 
 robots.txt
 
