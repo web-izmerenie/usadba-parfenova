@@ -1,0 +1,959 @@
+/**
+ * Main less module
+ *
+ * @author Viacheslav Lotsmanov
+ */
+/* === VARIABLES === */
+/**
+ * Variables module
+ *
+ * @author Viacheslav Lotsmanov
+ */
+/* === PATHS === */
+/* === SIZES === */
+/* === FONTS === */
+/* === COLORS === */
+/* === TRANSITIONS === */
+/* === MIXINS AND RESETS === */
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+
+   Added classes names by: Viacheslav Lotsmanov
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video,
+.resetCSS {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+/**
+ * Mixins collection
+ *
+ * @author Viacheslav Lotsmanov
+ * @author Fedor Pudeyan
+ * @version 0.2
+ */
+/* === FONTS === */
+/* === POSITION === */
+/* === PSEUDO === */
+/* === LINKS === */
+/* === PATHS WRAPPERS === */
+/* === ANIMATED ICONS === */
+/**
+ * Icons styles
+ *
+ * @author Viacheslav Lotsmanov
+ */
+.icons_sprite,
+.icon_wi_logo,
+.icon_clover,
+.icon_V,
+html body header .first_line nav.main_menu .separator:before,
+html body footer .developer a.logo,
+.icon_wi_logo_active,
+.icon_V_active,
+html body footer .developer a.logo:before,
+html.main_page body main section.main_page .card.card_1 .scroll_down,
+html.main_page body main section.main_page .card.card_1 .scroll_down:before,
+html body footer .developer a.logo:after,
+html.main_page body main section.main_page .card.card_1 .scroll_down:after {
+  display: inline-block;
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  background: url('/bitrix/templates/main/images/icons_sprite.png?v=1') 1px 1px no-repeat;
+}
+.icon_wi_logo,
+.icon_wi_logo_active,
+html body footer .developer a.logo:before,
+html body footer .developer a.logo:after {
+  width: 15px;
+  height: 15px;
+  background-position: -1px -1px;
+}
+.icon_wi_logo_active,
+html body footer .developer a.logo:after {
+  background-position: -1px -17px;
+}
+.icon_clover {
+  width: 16px;
+  height: 14px;
+  background-position: -17px -1px;
+}
+.icon_V,
+.icon_V_active,
+html.main_page body main section.main_page .card.card_1 .scroll_down,
+html.main_page body main section.main_page .card.card_1 .scroll_down:before,
+html.main_page body main section.main_page .card.card_1 .scroll_down:after {
+  width: 50px;
+  height: 36px;
+  background-position: -34px -1px;
+}
+.icon_V_active,
+html.main_page body main section.main_page .card.card_1 .scroll_down:after {
+  background-position: -85px -1px;
+}
+/* template {{{1
+
+.icon_X { &:extend(.icons_sprite); .size(px, px); background-position: -px -px; }
+.icon_X_active { &:extend(.icon_X); background-position: -px -px; }
+
+}}}1 */
+/* === FONTS === */
+/**
+ * Font-faces
+ *
+ * @author Viacheslav Lotsmanov
+ */
+@font-face {
+  font-family: 'Roboto-Light';
+  src: url('/bitrix/templates/main/fonts/Roboto-Light.eot?v=1');
+  src: local('Roboto-Light'), url('/bitrix/templates/main/fonts/Roboto-Light.woff?v=1') format('woff'), url('/bitrix/templates/main/fonts/Roboto-Light.ttf?v=1') format('truetype'), url('/bitrix/templates/main/fonts/Roboto-Light.svg?v=1#Roboto-Light') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'PT Sans';
+  src: url('/bitrix/templates/main/fonts/PT_Sans-Regular.eot?v=1');
+  src: local('PT Sans'), url('/bitrix/templates/main/fonts/PT_Sans-Regular.woff?v=1') format('woff'), url('/bitrix/templates/main/fonts/PT_Sans-Regular.ttf?v=1') format('truetype'), url('/bitrix/templates/main/fonts/PT_Sans-Regular.svg?v=1#PT_Sans-Regular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'PT Sans';
+  src: url('/bitrix/templates/main/fonts/PT_Sans-Bold.eot?v=1');
+  src: local('PT Sans Bold'), url('/bitrix/templates/main/fonts/PT_Sans-Bold.woff?v=1') format('woff'), url('/bitrix/templates/main/fonts/PT_Sans-Bold.ttf?v=1') format('truetype'), url('/bitrix/templates/main/fonts/PT_Sans-Bold.svg?v=1#PT_Sans-Bold') format('svg');
+  font-weight: bold;
+  font-style: normal;
+}
+/* === MIXINS === */
+/* === ELEMENTS === */
+/**
+ * Footer styles
+ *
+ * @author Viacheslav Lotsmanov
+ */
+html body header {
+  display: block;
+  width: 100%;
+  height: 87px;
+  min-width: 980px;
+  background: #4d2e20;
+  color: #f9e9c6;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  right: auto;
+  bottom: auto;
+  left: 0;
+  z-index: 10;
+}
+html body header .logo {
+  display: block;
+  position: absolute;
+  top: 3px;
+  right: auto;
+  bottom: auto;
+  left: 15px;
+}
+html body header .first_line_wrap {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: auto;
+  left: auto;
+  display: block;
+  width: 100%;
+  max-width: 1060px;
+}
+html body header .first_line {
+  display: table;
+  width: 100%;
+  padding-left: 198px;
+  padding-right: 20px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  cursor: default;
+}
+html body header .first_line .choose_lang {
+  display: table-cell;
+  vertical-align: top;
+  text-align: left;
+  padding-top: 15px;
+  white-space: nowrap;
+}
+html body header .first_line .choose_lang a,
+html body header .first_line .choose_lang span {
+  display: inline;
+  color: #000000;
+  text-decoration: none;
+  border-bottom: 1px solid #000000;
+  -webkit-transition: color 0.2s linear, border-bottom-color 0.2s linear;
+  -moz-transition: color 0.2s linear, border-bottom-color 0.2s linear;
+  -o-transition: color 0.2s linear, border-bottom-color 0.2s linear;
+  transition: color 0.2s linear, border-bottom-color 0.2s linear;
+  border-bottom: 0;
+  display: block;
+  width: 27px;
+  height: 27px;
+  float: left;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: 'PT Sans', sans-serif;
+  font-size: 14px;
+  line-height: 16px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-border-radius: 13.5px;
+  -webkit-background-clip: padding-box;
+  -moz-border-radius: 13.5px;
+  -moz-background-clip: padding;
+  border-radius: 13.5px;
+  background-clip: padding-box;
+  padding-top: 5px;
+  color: #f9e9c6;
+  border: 1px solid transparent;
+  margin-left: 1px;
+}
+html body header .first_line .choose_lang a:hover,
+html body header .first_line .choose_lang span:hover {
+  color: #000000;
+}
+html body header .first_line .choose_lang a:hover,
+html body header .first_line .choose_lang span:hover {
+  border-bottom-color: #000000;
+}
+html body header .first_line .choose_lang a:first-child,
+html body header .first_line .choose_lang span:first-child {
+  margin-left: 0;
+}
+html body header .first_line .choose_lang a:hover {
+  color: #ffd579;
+  border-color: transparent;
+}
+html body header .first_line .choose_lang span,
+html body header .first_line .choose_lang span:hover {
+  cursor: default;
+  color: #c88161;
+  border-color: #715749;
+}
+html body header .first_line nav.main_menu {
+  display: table-cell;
+  vertical-align: top;
+  text-align: right;
+  padding-top: 20px;
+  white-space: nowrap;
+}
+html body header .first_line nav.main_menu,
+html body header .first_line nav.main_menu a,
+html body header .first_line nav.main_menu .active,
+html body header .first_line nav.main_menu .separator {
+  font-family: 'PT Sans', sans-serif;
+  font-size: 16px;
+  line-height: 18px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+html body header .first_line nav.main_menu a,
+html body header .first_line nav.main_menu .active {
+  display: inline;
+  color: #000000;
+  text-decoration: none;
+  border-bottom: 1px solid #000000;
+  -webkit-transition: color 0.2s linear, border-bottom-color 0.2s linear;
+  -moz-transition: color 0.2s linear, border-bottom-color 0.2s linear;
+  -o-transition: color 0.2s linear, border-bottom-color 0.2s linear;
+  transition: color 0.2s linear, border-bottom-color 0.2s linear;
+  border-bottom: 0;
+  display: inline-block;
+  color: #f9e9c6;
+  position: relative;
+  top: auto;
+  right: auto;
+  bottom: auto;
+  left: auto;
+  cursor: pointer;
+}
+html body header .first_line nav.main_menu a:hover,
+html body header .first_line nav.main_menu .active:hover {
+  color: #000000;
+}
+html body header .first_line nav.main_menu a:hover,
+html body header .first_line nav.main_menu .active:hover {
+  border-bottom-color: #000000;
+}
+html body header .first_line nav.main_menu a:hover,
+html body header .first_line nav.main_menu .active:hover {
+  color: #ffd579;
+}
+html body header .first_line nav.main_menu .active,
+html body header .first_line nav.main_menu .active:hover {
+  cursor: default;
+  color: #c88161;
+}
+html body header .first_line nav.main_menu .separator {
+  display: inline-block;
+  width: 25px;
+  min-width: 25px;
+  max-width: 42px;
+  position: relative;
+  top: auto;
+  right: auto;
+  bottom: auto;
+  left: auto;
+}
+html body header .first_line nav.main_menu .separator:before {
+  width: 16px;
+  height: 14px;
+  background-position: -17px -1px;
+  content: '';
+  display: block;
+  position: absolute;
+  top: -13px;
+  right: auto;
+  bottom: auto;
+  left: 50%;
+  margin-left: -8px;
+}
+html body header nav.sub_menu {
+  display: block;
+  text-align: right;
+  white-space: nowrap;
+  position: absolute;
+  top: 54px;
+  right: 20px;
+  bottom: auto;
+  left: auto;
+  color: #f9e9c6;
+  cursor: default;
+}
+html body header nav.sub_menu,
+html body header nav.sub_menu a,
+html body header nav.sub_menu span {
+  font-family: 'PT Sans', sans-serif;
+  font-size: 13px;
+  line-height: 15px;
+  text-transform: uppercase;
+}
+html body header nav.sub_menu a,
+html body header nav.sub_menu span {
+  display: inline;
+  color: #000000;
+  text-decoration: none;
+  border-bottom: 1px solid #000000;
+  -webkit-transition: color 0.2s linear, border-bottom-color 0.2s linear;
+  -moz-transition: color 0.2s linear, border-bottom-color 0.2s linear;
+  -o-transition: color 0.2s linear, border-bottom-color 0.2s linear;
+  transition: color 0.2s linear, border-bottom-color 0.2s linear;
+  border-bottom: 0;
+  display: inline-block;
+  color: #f9e9c6;
+  margin-left: 13px;
+}
+html body header nav.sub_menu a:hover,
+html body header nav.sub_menu span:hover {
+  color: #000000;
+}
+html body header nav.sub_menu a:hover,
+html body header nav.sub_menu span:hover {
+  border-bottom-color: #000000;
+}
+html body header nav.sub_menu a:hover,
+html body header nav.sub_menu span:hover {
+  color: #ffd579;
+}
+html body header nav.sub_menu a:first-child,
+html body header nav.sub_menu span:first-child {
+  margin-left: 0;
+}
+html body header nav.sub_menu span,
+html body header nav.sub_menu span:hover {
+  cursor: default;
+  color: #c88161;
+}
+html.main_page body header {
+  height: 0;
+}
+/**
+ * Footer styles
+ *
+ * @author Viacheslav Lotsmanov
+ */
+html body footer {
+  display: block;
+  width: auto;
+  height: 97px;
+  min-width: 980px;
+  margin-top: -97px;
+  background: #4d2e20;
+  color: #f9e9c6;
+  font: 13px/17px Arial, 'Liberation Sans', Helvetica, sans-serif;
+  overflow: hidden;
+  position: relative;
+  top: auto;
+  right: auto;
+  bottom: auto;
+  left: auto;
+}
+html body footer .contacts {
+  display: block;
+  position: absolute;
+  top: 17px;
+  right: auto;
+  bottom: auto;
+  left: 20px;
+}
+html body footer .developer {
+  display: block;
+  position: absolute;
+  top: auto;
+  right: 20px;
+  bottom: 11px;
+  left: auto;
+  color: #b28c66;
+  font-family: 'Roboto-Light', sans-serif;
+  font-size: 12px;
+  line-height: 15px;
+  white-space: nowrap;
+  text-transform: uppercase;
+  vertical-align: middle;
+}
+html body footer .developer a.logo {
+  width: 15px;
+  height: 15px;
+  background-position: -1px -1px;
+  background: none;
+  position: relative;
+  top: 2px;
+  right: auto;
+  bottom: auto;
+  left: auto;
+  overflow: hidden;
+  white-space: nowrap;
+  text-indent: -50000px;
+  margin-left: 3px;
+}
+html body footer .developer a.logo:before,
+html body footer .developer a.logo:after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  right: auto;
+  bottom: auto;
+  left: 0;
+  zoom: 1;
+  filter: alpha(opacity=100);
+  -webkit-opacity: 1;
+  -moz-opacity: 1;
+  opacity: 1;
+  -webkit-transition: opacity 0.2s linear;
+  -moz-transition: opacity 0.2s linear;
+  -o-transition: opacity 0.2s linear;
+  transition: opacity 0.2s linear;
+}
+html body footer .developer a.logo:after {
+  content: '';
+  display: block;
+  zoom: 1;
+  filter: alpha(opacity=0);
+  -webkit-opacity: 0;
+  -moz-opacity: 0;
+  opacity: 0;
+}
+html body footer .developer a.logo:hover:before {
+  zoom: 1;
+  filter: alpha(opacity=0);
+  -webkit-opacity: 0;
+  -moz-opacity: 0;
+  opacity: 0;
+}
+html body footer .developer a.logo:hover:after {
+  zoom: 1;
+  filter: alpha(opacity=100);
+  -webkit-opacity: 1;
+  -moz-opacity: 1;
+  opacity: 1;
+}
+html.ie8 body footer .developer a.logo:before,
+html.ie8 body footer .developer a.logo:hover:after {
+  visibility: visible;
+}
+html.ie8 body footer .developer a.logo:after,
+html.ie8 body footer .developer a.logo:hover:before {
+  visibility: hidden;
+}
+/* === PAGES === */
+/**
+ * Main page styles (printer)
+ *
+ * @author Viacheslav Lotsmanov
+ */
+html.main_page body main section.main_page .card.card_1 {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  top: auto;
+  right: auto;
+  bottom: auto;
+  left: auto;
+  min-height: 400px;
+  background: url('/bitrix/templates/main/images/main_page/01.jpg?v=1') center center no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  background-attachment: fixed;
+}
+html.main_page body main section.main_page .card.card_1 .logo_wrap {
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  font-size: 0;
+  line-height: 0;
+}
+html.main_page body main section.main_page .card.card_1 .logo_wrap .helper {
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}
+html.main_page body main section.main_page .card.card_1 .logo_wrap .logo_2 {
+  display: inline-block;
+  vertical-align: middle;
+}
+html.main_page body main section.main_page .card.card_1 .scroll_down {
+  display: inline;
+  color: #000000;
+  text-decoration: none;
+  border-bottom: 1px solid #000000;
+  -webkit-transition: color 0.2s linear, border-bottom-color 0.2s linear;
+  -moz-transition: color 0.2s linear, border-bottom-color 0.2s linear;
+  -o-transition: color 0.2s linear, border-bottom-color 0.2s linear;
+  transition: color 0.2s linear, border-bottom-color 0.2s linear;
+  border-bottom: 0;
+  background: none;
+  display: block;
+  position: absolute;
+  top: auto;
+  right: auto;
+  bottom: 28px;
+  left: 50%;
+  margin-left: -25px;
+  cursor: pointer;
+}
+html.main_page body main section.main_page .card.card_1 .scroll_down:hover {
+  color: #000000;
+}
+html.main_page body main section.main_page .card.card_1 .scroll_down:hover {
+  border-bottom-color: #000000;
+}
+html.main_page body main section.main_page .card.card_1 .scroll_down:before,
+html.main_page body main section.main_page .card.card_1 .scroll_down:after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  right: auto;
+  bottom: auto;
+  left: 0;
+  zoom: 1;
+  filter: alpha(opacity=100);
+  -webkit-opacity: 1;
+  -moz-opacity: 1;
+  opacity: 1;
+  -webkit-transition: opacity 0.2s linear;
+  -moz-transition: opacity 0.2s linear;
+  -o-transition: opacity 0.2s linear;
+  transition: opacity 0.2s linear;
+}
+html.main_page body main section.main_page .card.card_1 .scroll_down:after {
+  content: '';
+  display: block;
+  zoom: 1;
+  filter: alpha(opacity=0);
+  -webkit-opacity: 0;
+  -moz-opacity: 0;
+  opacity: 0;
+}
+html.main_page body main section.main_page .card.card_1 .scroll_down:hover:before {
+  zoom: 1;
+  filter: alpha(opacity=0);
+  -webkit-opacity: 0;
+  -moz-opacity: 0;
+  opacity: 0;
+}
+html.main_page body main section.main_page .card.card_1 .scroll_down:hover:after {
+  zoom: 1;
+  filter: alpha(opacity=100);
+  -webkit-opacity: 1;
+  -moz-opacity: 1;
+  opacity: 1;
+}
+html.main_page body main section.main_page .card.card_1 .scroll_down:before,
+html.main_page body main section.main_page .card.card_1 .scroll_down:after {
+  -webkit-transition: opacity 0.2s ease-out;
+  -moz-transition: opacity 0.2s ease-out;
+  -o-transition: opacity 0.2s ease-out;
+  transition: opacity 0.2s ease-out;
+}
+html.main_page body main section.main_page .card {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+html.main_page body main section.main_page .card .background {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 400px;
+}
+html.main_page body main section.main_page .card .text {
+  display: block;
+  width: 900px;
+  margin: 0 auto;
+  padding-top: 55px;
+  padding-bottom: 53px;
+  text-align: center;
+}
+html.main_page body main section.main_page .card.card_2 .background {
+  background: url('/bitrix/templates/main/images/main_page/02.jpg?v=1') center center no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  background-attachment: fixed;
+}
+html.main_page body main section.main_page .card.card_3 .background {
+  background: url('/bitrix/templates/main/images/main_page/03.jpg?v=1') center center no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  background-attachment: fixed;
+}
+html.main_page body main section.main_page .card.card_4 .background {
+  background: url('/bitrix/templates/main/images/main_page/04.jpg?v=1') center center no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  background-attachment: fixed;
+}
+html.main_page body main section.main_page .card.card_5 .background {
+  background: url('/bitrix/templates/main/images/main_page/05.jpg?v=1') center center no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  background-attachment: fixed;
+}
+html.main_page body main section.main_page .card.card_6 .background {
+  background: url('/bitrix/templates/main/images/main_page/06.jpg?v=1') center center no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  background-attachment: fixed;
+}
+html.main_page body main section.main_page .card.card_3 .text,
+html.main_page body main section.main_page .card.card_4 .text {
+  width: 600px;
+}
+html.ie8 body main .card.card_1,
+html.ie8 body main .card .background {
+  -ms-behavior: url('/bitrix/templates/main/ie8/backgroundsize.min.htc');
+}
+html.ie8 body main .card.card_1 .scroll_down:before,
+html.ie8 body main .card.card_1 .scroll_down:hover:after {
+  visibility: visible;
+}
+html.ie8 body main .card.card_1 .scroll_down:after,
+html.ie8 body main .card.card_1 .scroll_down:hover:before {
+  visibility: hidden;
+}
+/* === STYLES === */
+html,
+body {
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+}
+:focus {
+  outline: none;
+}
+html body {
+  overflow-y: scroll;
+  color: #452b1f;
+  font: 16px/24px 'PT Sans', sans-serif;
+  background: #fff4db;
+}
+html body .top_side {
+  display: block;
+  min-width: 980px;
+  min-height: 100%;
+}
+html body .top_side main {
+  display: block;
+  padding-bottom: 97px;
+}
+html body .top_side main a {
+  display: inline;
+  color: #000000;
+  text-decoration: none;
+  border-bottom: 1px solid #000000;
+  -webkit-transition: color 0.2s linear, border-bottom-color 0.2s linear;
+  -moz-transition: color 0.2s linear, border-bottom-color 0.2s linear;
+  -o-transition: color 0.2s linear, border-bottom-color 0.2s linear;
+  transition: color 0.2s linear, border-bottom-color 0.2s linear;
+}
+html body .top_side main a:hover {
+  color: #000000;
+}
+html body .top_side main a:hover {
+  border-bottom-color: #000000;
+}
+html body .top_side main h2 {
+  display: block;
+  font-family: 'PT Sans', sans-serif;
+  font-weight: bold;
+  font-size: 37px;
+  line-height: 39px;
+  text-transform: uppercase;
+}
+html body .top_side main h3 {
+  display: block;
+}
+html body .top_side main h4 {
+  display: block;
+}
+html body .top_side main ul {
+  display: block;
+}
+html body .top_side main ul li {
+  display: block;
+}
+html body .top_side main ul li + li {
+  margin-top: 24px;
+}
+html body .top_side main ol {
+  display: block;
+  position: relative;
+  top: auto;
+  right: auto;
+  bottom: auto;
+  left: auto;
+  counter-reset: customlistcounter;
+}
+html body .top_side main ol li {
+  display: block;
+  padding-left: 40px;
+  position: relative;
+  top: auto;
+  right: auto;
+  bottom: auto;
+  left: auto;
+}
+html body .top_side main ol li:before {
+  content: '';
+  display: block;
+  width: 40px;
+  position: absolute;
+  top: 0;
+  right: auto;
+  bottom: auto;
+  left: 0;
+  text-align: center;
+  color: #000;
+  content: counter(customlistcounter, decimal) '.';
+  counter-increment: customlistcounter;
+}
+html body .top_side main blockquote {
+  display: block;
+}
+html body .top_side main p + p,
+html body .top_side main blockquote + p {
+  padding-top: 24px;
+}
+html body .top_side main h2 + p {
+  padding-top: 29px;
+}
+html body .top_side main h3 + p {
+  padding-top: 25px;
+}
+html body .top_side main h4 + p {
+  padding-top: 26px;
+}
+html body .top_side main p + img.elastic,
+html body .top_side main h2 + img.elastic,
+html body .top_side main h3 + img.elastic,
+html body .top_side main h4 + img.elastic,
+html body .top_side main ul + img.elastic,
+html body .top_side main blockquote + img.elastic {
+  margin-top: 33px;
+}
+html body .top_side main h3 + h3,
+html body .top_side main p + h3,
+html body .top_side main h2 + h3,
+html body .top_side main h1 + h3,
+html body .top_side main ul + h3,
+html body .top_side main blockquote + h3 {
+  padding-top: 39px;
+}
+html body .top_side main h4 + h4,
+html body .top_side main p + h4,
+html body .top_side main ul + h4,
+html body .top_side main blockquote + h4 {
+  padding-top: 41px;
+}
+html body .top_side main ul + ul,
+html body .top_side main p + ul,
+html body .top_side main h2 + ul,
+html body .top_side main h3 + ul,
+html body .top_side main h4 + ul,
+html body .top_side main blockquote + ul {
+  padding-top: 24px;
+}
+html body .top_side main ol + ol,
+html body .top_side main p + ol,
+html body .top_side main h2 + ol,
+html body .top_side main h3 + ol,
+html body .top_side main h4 + ol,
+html body .top_side main blockquote + ol {
+  padding-top: 24px;
+}
+html body .top_side main p + blockquote,
+html body .top_side main h2 + blockquote,
+html body .top_side main h3 + blockquote,
+html body .top_side main h4 + blockquote,
+html body .top_side main ul + blockquote {
+  padding-top: 24px;
+}
+html body .top_side main i,
+html body .top_side main em {
+  font-style: italic;
+}
+html body .top_side main b,
+html body .top_side main strong {
+  font-weight: bold;
+}
+html body .top_side main .non_break {
+  white-space: nowrap;
+}

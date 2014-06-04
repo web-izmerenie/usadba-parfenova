@@ -22,13 +22,13 @@
   "grunt": {
     "styles": [
       {
-        "path": "styles",
+        "path": "bitrix/templates/main/styles",
         "files": { "build.css": "main.less" }
       }
     ],
     "scripts": [
       {
-        "path": "scripts",
+        "path": "bitrix/templates/main/scripts",
         "buildFile": "build.js",
         "notAmdFiles": [ "*require*.js" ],
         "amd": true

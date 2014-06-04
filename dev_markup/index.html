@@ -4,6 +4,14 @@
 	<meta charset="utf-8" />
 	<title>Усадьба Парфенова</title>
 
+	<!--
+	$revision = 10;
+    $devRevision = 2;
+
+    // development revision
+    if ($USER->IsAdmin()) $revision = $revision . "dev" . $devRevision;
+	-->
+
 	<!--[if lt IE 8]>
 		<meta http-equiv="refresh" content="0; url=/ie_old/ru.html" />
 		<style>.top_side, footer { display: none !important; }</style>
@@ -19,9 +27,9 @@
 		<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
 
-	<link rel="stylesheet" type="text/css" href="./styles/build/build.css?v=1" />
+	<link rel="stylesheet" type="text/css" href="/bitrix/templates/main/styles/build/build.css?v=1" />
 
-	<script src="./scripts/build/build.js?v=1"></script>
+	<script src="/bitrix/templates/main/scripts/build/build.js?v=1"></script>
 	<script>
 		//<![CDATA[
 			require(['basics/get_val'], function (getVal) {
@@ -40,7 +48,7 @@
 	<div class="top_side">
 		<header>
 			<!--<a href="#" title="На главную">-->
-				<img alt="Усадьба Парфенова" src="./images/logo.png" width="167" height="80" class="logo" />
+				<img alt="Усадьба Парфенова" src="/bitrix/templates/main/images/logo.png" width="167" height="80" class="logo" />
 			<!--</a>-->
 			<div class="first_line_wrap">
 				<div class="first_line">
@@ -72,7 +80,7 @@
 				<section class="card card_1">
 					<div class="logo_wrap">
 						<span class="helper"></span>
-						<img alt="Усадьба Парфенова" src="./images/logo_2.png" width="304" height="157" class="logo_2" />
+						<img alt="Усадьба Парфенова" src="/bitrix/templates/main/images/logo_2.png" width="304" height="157" class="logo_2" />
 					</div>
 					<a class="scroll_down"></a>
 				</section>
