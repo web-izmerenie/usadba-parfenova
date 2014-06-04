@@ -22,6 +22,9 @@ bitrix/.settings.php
 bitrix/php_interface/dbconn.php
 bitrix/license_key.php
 
+# backups
+bitrix/backup
+
 # bitrix system dirs
 bitrix/.access.php
 bitrix/activities
