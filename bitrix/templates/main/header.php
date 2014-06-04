@@ -1,6 +1,6 @@
 <?
-    $revision = 10;
-    $devRevision = 2;
+    $revision = 1;
+    $devRevision = 1;
 
     // development revision
     if ($USER->IsAdmin()) $revision = $revision . "dev" . $devRevision;
@@ -8,7 +8,7 @@
     IncludeTemplateLangFile(__FILE__);
     
     $htmlClasses = array();
-    if($APPLICATION->GetCurPage() == SITE_DIR) $htmlClasses[] = "main_page";
+    if ($APPLICATION->GetCurPage() == SITE_DIR) $htmlClasses[] = "main_page";
     if (defined("ERROR_404")) $htmlClasses[] = "error_404";
 ?><!doctype html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?=LANGUAGE_ID?>" lang="<?=LANGUAGE_ID?>" class="<?=implode(" ", $htmlClasses)?>">
@@ -17,7 +17,7 @@
     <title><?$APPLICATION->ShowTitle()?></title>
 
     <!--[if lt IE 8]>
-        <meta http-equiv="refresh" content="0; url=/ie_old/ru.html" />
+        <meta http-equiv="refresh" content="0; url=/ie_old/<?=(LANGUAGE_ID=='ru')?'ru':'en'?>.html" />
         <style>.top_side, footer { display: none !important; }</style>
         <script>throw new Error('IE less than 8');</script>
     <![endif]-->
@@ -51,10 +51,10 @@
 
 <body><?$APPLICATION->ShowPanel()?>
     <div class="top_side">
-        <header><??>
-            <!--<a href="#" title="На главную">-->
+        <header>
+            <?if ($APPLICATION->GetCurPage() != SITE_DIR){?><a href="/" title="На главную"><?}?>
                 <img alt="Усадьба Парфенова" src="/bitrix/templates/main/images/logo.png" width="167" height="80" class="logo" />
-            <!--</a>-->
+            <?if ($APPLICATION->GetCurPage() != SITE_DIR){?></a><?}?>
             <div class="first_line_wrap">
                 <div class="first_line">
                     <div class="choose_lang">
