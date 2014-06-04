@@ -8,6 +8,8 @@ grunt
 styles/build
 scripts/build
 
+robots.txt
+
 # bitrix tmp dirs
 bitrix/cache
 bitrix/managed_cache
