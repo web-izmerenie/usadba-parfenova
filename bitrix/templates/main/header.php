@@ -10,6 +10,7 @@
     $htmlClasses = array();
     if ($APPLICATION->GetCurPage() == SITE_DIR) $htmlClasses[] = "main_page";
     if (defined("ERROR_404")) $htmlClasses[] = "error_404";
+    if (defined("HOMESTEAD_PAGE")) $htmlClasses[] = "homestead_page";
 ?><!doctype html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?=LANGUAGE_ID?>" lang="<?=LANGUAGE_ID?>" class="<?=implode(" ", $htmlClasses)?>">
 <head>
@@ -98,4 +99,25 @@
 );?>
             </nav>
         </header>
-        <main>
+        <?if (defined("HOMESTEAD_PAGE")) {?>
+            <div class="section_wrap">
+                <div class="head">
+                    <h1><?$APPLICATION->ShowTitle()?></h1>
+                </div>
+                <div class="columns">
+                    <div class="left_block">
+                        <div class="bg"></div>
+                        <div class="blur_back_bg"></div>
+                        <nav class="left_submenu">
+                            <a href="#">Гостевой дом</a>
+                            <span>Главный корпус</span>
+                            <a href="#">Административный корпус</a>
+                            <a href="#">Спорт и отдых</a>
+                            <a href="#">Дары природы</a>
+                            <a href="#">Багетная мастерская</a>
+                        </nav>
+                    </div>
+                    <main>
+        <?} else {?>
+            <main>
+        <?}?>

@@ -26,6 +26,7 @@
 /* === PAGES === */
 
 @import "pages/main";
+@import "pages/homestead";
 
 /* === STYLES === */
 
@@ -50,14 +51,14 @@ html body {
 		main { // {{{1
 			display: block;
 			padding-bottom: @footerHeight;
+			padding-top: @headerHeight;
 
 			a { .simpleLink; }
 
 			h2 {
 				display: block;
-				.customFont('PT Sans');
+				.customFont('PT Sans', 37px, 39px);
 				font-weight: bold;
-				.fontMetrics(37px, 39px);
 				text-transform: uppercase;
 			}
 

@@ -7,6 +7,7 @@
 define(['get_val', 'jquery'], function (getVal, $) {
 $(function domReady() {
 
+	var $html = $('html');
 	var $header = $('header');
 	var $document = $(document);
 	var $window = $(window);
@@ -62,7 +63,7 @@ $(function domReady() {
 
 	}).trigger('scroll' + scrollBindSuffix); // scroll for fixed position }}}1
 
-	$window.on( // show/hide {{{1
+	if ($html.hasClass('main_page')) $window.on( // show/hide {{{1
 		'scroll' + showHideBindSuffix + ' resize' + showHideBindSuffix,
 		function () {
 			// can't $.proxy because IE8

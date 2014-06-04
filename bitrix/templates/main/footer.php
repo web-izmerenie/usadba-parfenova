@@ -1,4 +1,10 @@
-        </main>
+        <?if (defined("HOMESTEAD_PAGE")) {?>
+                    </main>
+                </div><!--.columns-->
+            </div><!--.section_wrap-->
+        <?} else {?>
+            </main>
+        <?}?>
     </div>
     <footer>
         <div class="contacts">
