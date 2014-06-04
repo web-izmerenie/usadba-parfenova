@@ -1,5 +1,5 @@
         <?if (defined("HOMESTEAD_PAGE")) {?>
-                    </main>
+                    </div><!--.right_block-->
                 </div><!--.columns-->
             </div><!--.section_wrap-->
         <?} else {?>

@@ -5,18 +5,6 @@
  */
 
 html.homestead_page body {
-	.top_side {
-		main {
-			padding-top: 0;
-			padding-bottom: 0;
-
-			&:after {
-				.pseudoBlock;
-				clear: both;
-			} // &:after
-		} // main
-	} // .top_side
-
 	.section_wrap {
 		display: block;
 		padding-top: @headerHeight;
@@ -98,11 +86,55 @@ html.homestead_page body {
 				} // nav.left_submenu
 			} // .left_block
 
-			main {
+			.right_block {
 				display: table-cell;
 				vertical-align: bottom;
 				text-align: left;
-			} // main
+				.fontMetrics(0, 0);
+
+				section.homestead {
+					display: block;
+
+					nav.rooms {
+						display: block;
+						margin-left: 36px - 23px - 2px;
+						
+						a {
+							@s: 96px; // size
+
+							display: inline-block;
+							.size(@s + 47px, auto);
+							text-align: center;
+							margin-bottom: 20px;
+							vertical-align: top;
+
+							img {
+								display: block;
+								.size(@s);
+								.box-sizing(border-box);
+								.border-radius(@s/2);
+								border: 2px solid white;
+								margin: 0 auto;
+							} // img
+
+							& > span {
+								display: inline-block;
+								text-align: center;
+								background: @light2Color;
+								color: @dark3Color;
+								.border-radius(5px);
+								.customFont('PT Sans', 14px, 17px);
+								font-weight: bold;
+								text-transform: uppercase;
+								.box-sizing(border-box);
+								padding: 18px-14px 9px 7px-3px;
+								margin-top: 9px;
+								width: auto;
+							} // span
+						} // a
+					} // nav.rooms
+				} // section.homestead
+			} // .right_block
 		} // .columns
 	} // .section_wrap
 } // html.homestead_page body

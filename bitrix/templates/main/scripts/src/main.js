@@ -30,7 +30,7 @@ $(function domReady() {
 		require(['pages/main']);
 	}
 
-	if ($('html').hasClass('homestead_page') && $('main section.homestead').size() > 0) {
+	if ($('html').hasClass('homestead_page') && $('section.homestead').size() > 0) {
 		require(['pages/homestead']);
 	}
 

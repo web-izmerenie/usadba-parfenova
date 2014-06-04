@@ -117,7 +117,7 @@
                             <a href="#">Багетная мастерская</a>
                         </nav>
                     </div>
-                    <main>
+                    <div class="right_block">
         <?} else {?>
             <main>
         <?}?>
