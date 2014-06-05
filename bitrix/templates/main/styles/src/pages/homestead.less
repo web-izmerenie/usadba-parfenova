@@ -115,6 +115,7 @@ html.homestead_page body {
 								.border-radius(@s/2);
 								border: 2px solid white;
 								margin: 0 auto;
+								.transition(border-color @animationSpeed linear);
 							} // img
 
 							& > span {
@@ -130,7 +131,13 @@ html.homestead_page body {
 								padding: 18px-14px 9px 7px-3px;
 								margin-top: 9px;
 								width: auto;
+								.transition(background-color @animationSpeed linear);
 							} // span
+
+							&:hover {
+								img { border-color: @activeLightLinkColor; }
+								& > span { background: @activeLightLinkColor; }
+							} // &:hover
 						} // a
 					} // nav.rooms
 				} // section.homestead
