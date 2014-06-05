@@ -11,6 +11,7 @@
     if ($APPLICATION->GetCurPage() == SITE_DIR) $htmlClasses[] = "main_page";
     if (defined("ERROR_404")) $htmlClasses[] = "error_404";
     if (defined("HOMESTEAD_PAGE")) $htmlClasses[] = "homestead_page";
+    if (defined("HOMESTEAD_SUBPAGE")) $htmlClasses[] = "homestead_subpage";
 ?><!doctype html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?=LANGUAGE_ID?>" lang="<?=LANGUAGE_ID?>" class="<?=implode(" ", $htmlClasses)?>">
 <head>

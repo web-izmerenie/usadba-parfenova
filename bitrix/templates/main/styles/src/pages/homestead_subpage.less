@@ -1,0 +1,105 @@
+/**
+ * "homestead" sub-page styles
+ *
+ * @author Viacheslav Lotsmanov
+ */
+
+html.homestead_subpage body {
+	.section_wrap {
+		display: block;
+		padding-top: @headerHeight;
+		padding-bottom: @footerHeight;
+		padding-left: @mainMargin;
+		padding-right: @mainMargin;
+		.box-sizing(border-box);
+
+		.head {
+			display: block;
+			text-align: center;
+			padding-top: 67px - 36px;
+			padding-bottom: 34px - 6px;
+
+			h1 {
+				display: block;
+				.customFont('PT Sans', 40px, 42px);
+				font-weight: bold;
+				text-transform: uppercase;
+				color: @dark2Color;
+			} // h1
+		} // .head
+
+		nav.top_menu {
+			display: block;
+			.fontMetrics(0, 0);
+			white-space: nowrap;
+			margin-top: 36px;
+			height: 32px;
+			overflow: hidden;
+
+			@px: 10px; // padding X-axis
+			@pt: 22px-15px; // padding top
+			@pb: 10px-3px; // padding bottom
+
+			a, span {
+				.simpleLink;
+				display: inline-block;
+				.customFont('PT Sans', 16px, 18px);
+				font-weight: bold;
+				text-transform: uppercase;
+				color: @darkBgColor;
+				border-bottom-color: @darkBgUnderlineColor;
+				.relative;
+			} // a, span
+
+			span, span:hover {
+				border: 0;
+				color: @light2Color;
+				cursor: default;
+				background: @darkBgColor;
+				.border-radius(5px);
+				padding: @pt @px @pb;
+			} // span, span:hover
+			
+			a { margin: @pt @px @pb; }
+
+			.setIcon(@offsetLeft, @offsetTop, @padding, @margin) {
+				margin-left: @margin + (@offsetLeft + @padding);
+				.animatedIcon;
+				&:before, &:after {
+					.absolute(@offsetTop - @pt, auto, auto, @offsetLeft - (@offsetLeft + @padding));
+				}
+			}
+
+			.activeIcon(@offsetLeft, @offsetTop, @padding) {
+				padding-left: @offsetLeft + @padding;
+				&:before {
+					.pseudoBlock;
+					.absolute(@offsetTop, auto, auto, @offsetLeft);
+				}
+			}
+
+			@el_1_ol: 0; @el_1_ot: 2px + 7px; @el_1_p: 17px; @el_1_ml: 0;
+			span:nth-child(1) { margin-left: @el_1_ml; }
+			a:nth-child(1) { &:before { .icon_left_arrow; } &:after { .icon_left_arrow_hover; } .setIcon(@el_1_ol, @el_1_ot, @el_1_p, @el_1_ml); }
+			span:nth-child(1) { &:before { &:extend(.icon_left_arrow_active); } .activeIcon(@el_1_ol, @el_1_ot, @el_1_p); }
+
+			@el_2_ol: 8px; @el_2_ot: 8px; @el_2_p: 26px + 1px; @el_2_ml: 34px - 18px;
+			span:nth-child(2) { margin-left: @el_2_ml; }
+			a:nth-child(2) { &:before { .icon_leaf; } &:after { .icon_leaf_hover; } .setIcon(@el_2_ol, @el_2_ot, @el_2_p, @el_2_ml); }
+			span:nth-child(2) { &:before { &:extend(.icon_leaf_active); } .activeIcon(@el_2_ol, @el_2_ot, @el_2_p); }
+
+			@el_3_ol: 11px; @el_3_ot: 7px; @el_3_p: 23px; @el_3_ml: 39px - @el_3_p - @el_3_ol;
+			span:nth-child(3) { margin-left: @el_3_ml; }
+			a:nth-child(3) { &:before { .icon_corner; } &:after { .icon_corner_hover; } .setIcon(@el_3_ol, @el_3_ot, @el_3_p, @el_3_ml); }
+			span:nth-child(3) { &:before { &:extend(.icon_corner_active); } .activeIcon(@el_3_ol, @el_3_ot, @el_3_p); }
+
+			a:hover {
+				color: @light3Color;
+				border-bottom-color: @light3Color;
+				cursor: pointer;
+			} // a:hover
+		} // nav.top_menu
+	} // .section_wrap
+
+	.top_side main { .resetCSS; }
+} // html.homestead_subpage body
