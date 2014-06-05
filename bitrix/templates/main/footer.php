@@ -1,11 +1,5 @@
-        <?if (defined("HOMESTEAD_PAGE")) {?>
-                    </div><!--.right_block-->
-                </div><!--.columns-->
-            </div><!--.section_wrap-->
-        <?} else {?>
-            </main>
-        <?}?>
-    </div>
+        <?if (!defined("NO_MAIN_WRAPPER")) {?></main><?}?>
+    </div><!--.top_side-->
     <footer>
         <div class="contacts">
             <?$APPLICATION->IncludeFile(

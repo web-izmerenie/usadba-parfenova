@@ -99,25 +99,4 @@
 );?>
             </nav>
         </header>
-        <?if (defined("HOMESTEAD_PAGE")) {?>
-            <div class="section_wrap">
-                <div class="head">
-                    <h1><?$APPLICATION->ShowTitle()?></h1>
-                </div>
-                <div class="columns">
-                    <div class="left_block">
-                        <div class="bg"></div>
-                        <div class="blur_back_bg"></div>
-                        <nav class="left_submenu">
-                            <a href="#">Гостевой дом</a>
-                            <span>Главный корпус</span>
-                            <a href="#">Административный корпус</a>
-                            <a href="#">Спорт и отдых</a>
-                            <a href="#">Дары природы</a>
-                            <a href="#">Багетная мастерская</a>
-                        </nav>
-                    </div>
-                    <div class="right_block">
-        <?} else {?>
-            <main>
-        <?}?>
+        <?if (!defined("NO_MAIN_WRAPPER")) {?><main><?}?>
