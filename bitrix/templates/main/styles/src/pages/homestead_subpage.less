@@ -13,7 +13,7 @@ html.homestead_subpage body {
 		padding-right: @mainMargin;
 		.box-sizing(border-box);
 
-		.head {
+		.head { // {{{1
 			display: block;
 			text-align: center;
 			padding-top: 67px - 36px;
@@ -26,9 +26,9 @@ html.homestead_subpage body {
 				text-transform: uppercase;
 				color: @dark2Color;
 			} // h1
-		} // .head
+		} // .head }}}1
 
-		nav.top_menu {
+		nav.top_menu { // {{{1
 			display: block;
 			.fontMetrics(0, 0);
 			white-space: nowrap;
@@ -98,7 +98,69 @@ html.homestead_subpage body {
 				border-bottom-color: @light3Color;
 				cursor: pointer;
 			} // a:hover
-		} // nav.top_menu
+		} // nav.top_menu }}}1
+
+		.sub_menu_line { // {{{1
+			display: block;
+			&:after { .pseudoBlock; clear: both; }
+			margin-top: 57px - 25px;
+
+			nav.sub_menu {
+				@w: 234px; // width
+				@ih: 26px; // item height
+
+				display: block;
+				.size(@w, auto);
+				margin-left: -5px;
+
+				a, span {
+					.simpleLink;
+					display: block;
+					float: left;
+					clear: both;
+					padding-left: 5px;
+					.size(@w - 13px, @ih);
+					white-space: nowrap;
+					.box-sizing(border-box);
+					.relative;
+					.customFont('PT Sans', 15px, 17px);
+					font-weight: bold;
+					text-transform: uppercase;
+					color: @dark2Color;
+					padding-top: 12px - 7px;
+					margin-top: 3px;
+
+					&:first-child { margin-top: 0; }
+				} // a, span
+
+				a {
+					padding-left: 0;
+					margin-left: 5px;
+					.size(auto);
+					border-bottom-color: @dark2UnderlineColor;
+					margin-bottom: @ih - 23px;
+
+					&:hover { color: @light3Color; border-bottom-color: @light3Color; }
+				} // a
+
+				span {
+					background: @darkBgColor;
+					cursor: default;
+					border: 0;
+					.border-radius(3px 0 0 3px);
+
+					&, &:hover { color: @light2Color; }
+
+					&:after {
+						.icon_sub_menu_right_arrow;
+						.pseudoBlock;
+						.absolute(0, auto, auto, 100%);
+					} // &:after
+				} // span
+
+				&:after { .pseudoBlock; clear: both; }
+			} // nav.sub_menu
+		} // .sub_menu_line }}}1
 	} // .section_wrap
 
 	.top_side main { .resetCSS; }
