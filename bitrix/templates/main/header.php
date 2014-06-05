@@ -47,7 +47,9 @@
             });
         //]]>
     </script>
-    <?$APPLICATION->ShowHead()?>
+    <?$APPLICATION->ShowCSS()?>
+    <?$APPLICATION->ShowHeadStrings()?>
+    <?$APPLICATION->ShowHeadScripts()?>
 </head>
 
 <body><?$APPLICATION->ShowPanel()?>
