@@ -3,7 +3,7 @@
     <section class="card card_1">
         <div class="logo_wrap">
             <span class="helper"></span>
-            <img alt="Усадьба Парфенова" src="/bitrix/templates/main/images/logo_2.png" width="304" height="157" class="logo_2" />
+            <img alt="Усадьба Парфенова" src="/bitrix/templates/main/images/logo_2.png" width="320" height="167" class="logo_2" />
         </div>
         <a class="scroll_down"></a>
     </section>
