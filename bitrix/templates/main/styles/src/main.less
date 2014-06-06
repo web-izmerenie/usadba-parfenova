@@ -79,6 +79,13 @@ html body {
 
 				li {
 					display: block;
+					.relative;
+
+					&:before {
+						.pseudoBlock('\e801');
+						.absolute(3px, auto, auto, -12px);
+						.customFont('fontello', 20px, 20px);
+					}
 				}
 
 				li + li { margin-top: 24px; }
