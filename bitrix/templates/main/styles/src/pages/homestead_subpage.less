@@ -203,6 +203,62 @@ html.homestead_subpage body {
 				} // a
 			} // nav.rooms }}}2
 		} // .sub_menu_line }}}1
+
+		main {
+			.customFont('PT Sans', 16px, 24px);
+			color: @dark2Color;
+
+			.panorama {
+				display: block;
+				background: @plugColor;
+				width: 100%;
+				height: 400px;
+			} // .panorama
+
+			.notation_block {
+				@bc: #cbc4be; // border color
+
+				display: block;
+				border-top: 1px solid @bc;
+				border-bottom: 1px solid @bc;
+				width: 620px;
+				padding-left: 2px;
+				padding-right: 2px;
+				padding-top: 36px - 18px;
+				padding-bottom: 26px - 6px;
+				.box-sizing(border-box);
+				margin: 54px auto;
+			} // .notation_block
+
+			ul.photos {
+				display: block;
+				.fontMetrics(0, 0);
+				text-align: center;
+
+				li {
+					@w: 295px; @h: 195px;
+
+					display: inline-block;
+					.size(@w, @h);
+					margin-left: 27px;
+					.relative;
+
+					img {
+						display: block;
+						.size(@w, @h);
+						z-index: 0;
+					} // img
+
+					&:before {
+						.icon_photo_frame;
+						.pseudoBlock;
+						.absolute(0, auto, auto, 0);
+					} // &:before
+
+					&:first-child { margin-left: 0; }
+				} // li
+			} // ul.photos
+		} // main
 	} // .section_wrap
 
 	.top_side main { .resetCSS; }

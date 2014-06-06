@@ -52,7 +52,21 @@ $APPLICATION->SetTitle("Гостевой дом");
 	<div class="head">
 		<h1>Номер «Стандарт»</h1>
 	</div>
-	<main></main>
+	<main>
+		<div class="panorama"></div>
+		<div class="notation_block">
+			<p>Интерьер номеров продуман до мельчайших деталей. Каждый из номеров
+			оснащён современным LCD-телевизором и DVD, спутниковой антенной,
+			холодильником с прохладительными напитками, кондиционером. В ванных
+			комнатах сантехника и душевые кабины европейского качества, фен,
+			косметические средства для личной гигиены, махровые халаты и тапочки.</p>
+		</div>
+		<ul class="photos">
+			<li><img alt="" src="/tmp/homestead/pic.png" /></li>
+			<li><img alt="" src="/tmp/homestead/pic.png" /></li>
+			<li><img alt="" src="/tmp/homestead/pic.png" /></li>
+		</ul>
+	</main>
 </div><!--.section_wrap-->
 
 <?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
