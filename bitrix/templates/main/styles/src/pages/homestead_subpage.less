@@ -204,18 +204,18 @@ html.homestead_subpage body {
 			} // nav.rooms }}}2
 		} // .sub_menu_line }}}1
 
-		main {
+		main { // {{{1
 			.customFont('PT Sans', 16px, 24px);
 			color: @dark2Color;
 
-			.panorama {
+			.panorama { // {{{2
 				display: block;
 				background: @plugColor;
 				width: 100%;
 				height: 400px;
-			} // .panorama
+			} // .panorama }}}2
 
-			.notation_block {
+			.notation_block { // {{{2
 				@bc: #cbc4be; // border color
 
 				display: block;
@@ -228,9 +228,9 @@ html.homestead_subpage body {
 				padding-bottom: 26px - 6px;
 				.box-sizing(border-box);
 				margin: 54px auto;
-			} // .notation_block
+			} // .notation_block }}}2
 
-			ul.photos {
+			ul.photos { // {{{2
 				display: block;
 				.fontMetrics(0, 0);
 				text-align: center;
@@ -257,8 +257,80 @@ html.homestead_subpage body {
 
 					&:first-child { margin-left: 0; }
 				} // li
-			} // ul.photos
-		} // main
+			} // ul.photos }}}2
+
+			.prices { // {{{2
+				display: table;
+				.fontMetrics(0, 0);
+				margin: 0 auto;
+				margin-top: 94px - 49px;
+				margin-bottom: 59px - 6px;
+
+				dl {
+					display: table-row;
+
+					dt, dd { padding-top: 55px - 46px; }
+
+					dt {
+						display: table-cell;
+						.customFont('PT Sans', 22px, 24px);
+						white-space: nowrap;
+						vertical-align: bottom;
+						padding-bottom: 2px;
+					} // dt
+
+					dd {
+						display: table-cell;
+						padding-left: 15px;
+						white-space: nowrap;
+						vertical-align: bottom;
+
+						.quantity {
+							display: inline-block;
+							.size(140px, 35px);
+
+							.fill {
+								display: inline-block;
+								.customFont('PT Sans', 22px, 24px);
+								letter-spacing: 3px;
+							}
+							.unit { &:extend(.icon_man); }
+							.unit { margin-right: 7px; }
+						} // .quantity
+
+						.price_block {
+							.price {
+								display: inline-block;
+								.customFont('PT Sans', 44px, 46px);
+								font-weight: bold;
+								text-transform: uppercase;
+								padding-left: 7px;
+							} // .price
+
+							.currency {
+								display: inline-block;
+								margin-left: 8px;
+								
+								span + span { display: none; }
+
+								span, span + span + span {
+									display: block;
+									.customFont('PT Sans', 14px, 16px);
+									font-weight: bold;
+									text-transform: uppercase;
+								}
+
+								span + span + span {
+									border-top: 2px solid @dark2Color;
+									margin-top: 1px;
+									padding-top: 1px;
+								}
+							} // .currency
+						} // .price_block
+					} // dd
+				} // dl
+			} // .prices }}}2
+		} // main }}}1
 	} // .section_wrap
 
 	.top_side main { .resetCSS; }

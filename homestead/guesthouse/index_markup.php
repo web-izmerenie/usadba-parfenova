@@ -66,6 +66,43 @@ $APPLICATION->SetTitle("Гостевой дом");
 			<li><img alt="" src="/tmp/homestead/pic.png" /></li>
 			<li><img alt="" src="/tmp/homestead/pic.png" /></li>
 		</ul>
+		<div class="prices">
+			<dl>
+				<dt>Одноместное проживание</dt>
+				<dd>
+					<span class="quantity">
+						<span class="unit"></span>
+						<span class="fill"></span>
+					</span>
+					<span class="price_block">
+						<span class="price">3 200</span>
+						<span class="currency">
+							<span>руб.</span>
+							<span>/</span>
+							<span>сутки</span>
+						</span>
+					</span>
+				</dd>
+			</dl>
+			<dl>
+				<dt>Двухместное проживание</dt>
+				<dd>
+					<span class="quantity">
+						<span class="unit"></span>
+						<span class="unit"></span>
+						<span class="fill"></span>
+					</span>
+					<span class="price_block">
+						<span class="price">3 500</span>
+						<span class="currency">
+							<span>руб.</span>
+							<span>/</span>
+							<span>сутки</span>
+						</span>
+					</span>
+				</dd>
+			</dl>
+		</div><!--.prices-->
 	</main>
 </div><!--.section_wrap-->
 
