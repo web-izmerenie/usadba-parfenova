@@ -28,6 +28,7 @@
 @import "pages/main";
 @import "pages/homestead";
 @import "pages/homestead_subpage";
+@import "pages/contacts";
 
 /* === STYLES === */
 
@@ -58,9 +59,11 @@ html body {
 
 			h2 {
 				display: block;
-				.customFont('PT Sans', 37px, 39px);
+				color: @dark2Color;
+				.customFont('PT Sans', 20px, 22px);
 				font-weight: bold;
 				text-transform: uppercase;
+				text-align: center;
 			}
 
 			h3 {
@@ -138,5 +141,18 @@ html body {
 
 			.non_break { white-space: nowrap; }
 		} // main }}}1
+
+		h1.page_title { // {{{1
+			display: block;
+			.customFont('PT Sans', 40px, 42px);
+			font-weight: bold;
+			text-transform: uppercase;
+			color: @dark2Color;
+			text-align: center;
+			padding-top: 67px - 36px + @headerHeight;
+			padding-bottom: 34px - 6px;
+		} // h1.page_title // }}}1
+
+		h1.page_title + main { padding-top: 0; }
 	} // .top_side
 } // html body

@@ -102,4 +102,5 @@
 );?>
             </nav>
         </header>
+		<?if (defined("PAGE_TITLE")) {?><h1 class="page_title"><?$APPLICATION->ShowTitle()?></h1><?}?>
         <?if (!defined("NO_MAIN_WRAPPER")) {?><main><?}?>
