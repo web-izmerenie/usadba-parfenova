@@ -23,10 +23,10 @@ $APPLICATION->SetTitle("Гостевой дом");
 				<img alt="Каминный зал" src="/tmp/homestead/01.png" />
 				<span><span>Каминный зал</span></span>
 			</a>
-			<a href="#">
+			<span>
 				<img alt="Номер «Стандарт»" src="/tmp/homestead/02.png" />
 				<span><span>Номер «Стандарт»</span></span>
-			</a>
+			</span>
 			<a href="#">
 				<img alt="Номер «Стандарт Плюс»" src="/tmp/homestead/03.png" />
 				<span><span>Номер «Стандарт Плюс»</span></span>

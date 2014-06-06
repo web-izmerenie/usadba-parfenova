@@ -11,7 +11,10 @@ define(['get_val'], function (getVal) {
 
 		'ru': {
 
-			// ...
+			'err': {
+				'limited_functional': 'Функционал сайта работает неполностью.',
+				'recommend_update_your_browser': 'Рекомендуем обновить ваш браузер.',
+			},
 
 		},
 

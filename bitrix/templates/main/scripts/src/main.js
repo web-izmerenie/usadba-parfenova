@@ -19,6 +19,8 @@ $(function domReady() {
 				// basics aliases
 				'get_local_text': 'basics/get_local_text',
 				'get_val': 'basics/get_val',
+				'load_img': 'basics/load_img',
+				'grayscale_img': 'basics/grayscale_img',
 
 			}
 		}

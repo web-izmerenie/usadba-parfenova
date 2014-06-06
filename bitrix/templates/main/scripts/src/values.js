@@ -22,7 +22,9 @@ define(function () {
 		card1ScrollDownJitterValue: 20, // px
 
 		mainPageBackgroundsRatio: [4, 3], // ratio
-		mainPageParalaxValue: 150 // % of height
+		mainPageParalaxValue: 150, // % of height
+
+		loadImgTimeout: 30 * 1000, // ms
 
 	};
 
