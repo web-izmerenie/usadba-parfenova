@@ -11,6 +11,7 @@ html body section.contacts {
 	.box-sizing(border-box);
 	padding-left: @mainMargin;
 	padding-right: @mainMargin;
+	padding-bottom: 54px;
 
 	.contact_unit {
 		display: block;
@@ -19,6 +20,9 @@ html body section.contacts {
 
 	.contact_unit + h2 { margin-top: @mainMargin; }
 	h2 + .way_icons { padding-top: @mainMargin; }
+	.map + h2, ul + h2 { margin-top: 56px - 18px; }
+	h2 + .map { margin-top: 23px - 4px; }
+	//ul + h2 { margin-top: 53px - 24px; } // cause small, use .map+h2
 
 	.way_icons {
 		display: block;
@@ -59,4 +63,10 @@ html body section.contacts {
 		margin: 0 auto;
 		margin-top: 45px - 18px;
 	} // ul
+
+	.map {
+		display: block;
+		height: 400px;
+		background: @plugColor;
+	}
 } // html body section.contacts

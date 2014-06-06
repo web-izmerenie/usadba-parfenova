@@ -38,6 +38,15 @@ $APPLICATION->SetTitle("Контакты");
 		<li>Автобусом до&nbsp;г.&nbsp;Краснодара, ст.&nbsp;Белореченской, г.&nbsp;Майкопа,
 		далее до&nbsp;п.&nbsp;Каменномостского автобусом, маршрутным такси, или&nbsp;электричкой.</li>
 	</ul>
+
+	<h2>Из Ростова-на-Дону</h2>
+	<div class="map"></div>
+
+	<h2>Из Краснодара</h2>
+	<div class="map"></div>
+
+	<h2>Из Майкопа</h2>
+	<div class="map"></div>
 </section>
 
 <?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
