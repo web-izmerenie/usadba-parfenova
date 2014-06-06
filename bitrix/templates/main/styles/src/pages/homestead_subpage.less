@@ -102,14 +102,17 @@ html.homestead_subpage body {
 
 		.sub_menu_line { // {{{1
 			display: block;
-			&:after { .pseudoBlock; clear: both; }
+			width: 100%;
 			margin-top: 57px - 25px;
 
-			nav.sub_menu {
+			&:after { .pseudoBlock; clear: both; }
+
+			nav.sub_menu { // {{{2
 				@w: 234px; // width
 				@ih: 26px; // item height
 
 				display: block;
+				float: left;
 				.size(@w, auto);
 				margin-left: -5px;
 
@@ -157,9 +160,46 @@ html.homestead_subpage body {
 						.absolute(0, auto, auto, 100%);
 					} // &:after
 				} // span
+			} // nav.sub_menu }}}2
 
-				&:after { .pseudoBlock; clear: both; }
-			} // nav.sub_menu
+			nav.rooms { // {{{2
+				display: block;
+				.fontMetrics(0, 0);
+				white-space: nowrap;
+
+				a {
+					@imgS: 72px;
+
+					.linkNoLine;
+					display: inline-block;
+					text-align: center;
+					vertical-align: top;
+					width: @imgS + 29px;
+					white-space: normal;
+
+					img {
+						display: block;
+						.size(@imgS);
+						.border-radius(@imgS / 2);
+						margin: 0 auto;
+						margin-bottom: 3px;
+					} // img
+
+					& > span {
+						display: inline;
+						.customFont('PT Sans', 12px, 18px);
+						font-weight: bold;
+						text-transform: uppercase;
+						color: @dark2Color;
+						border-bottom: 1px solid @dark2UnderlineColor;
+						.transition(color @animationSpeed linear, border-bottom-color @animationSpeed linear);
+					} // & > span
+
+					&:hover > span { color: @light3Color; border-bottom-color: @light3Color; }
+
+					&:first-child { margin-left: 20px; }
+				} // a
+			} // nav.rooms }}}2
 		} // .sub_menu_line }}}1
 	} // .section_wrap
 
