@@ -6,12 +6,13 @@
     if ($USER->IsAdmin()) $revision = $revision . "dev" . $devRevision;
 
     IncludeTemplateLangFile(__FILE__);
-    
+
     $htmlClasses = array();
     if ($APPLICATION->GetCurPage() == SITE_DIR) $htmlClasses[] = "main_page";
     if (defined("ERROR_404")) $htmlClasses[] = "error_404";
     if (defined("HOMESTEAD_PAGE")) $htmlClasses[] = "homestead_page";
     if (defined("HOMESTEAD_SUBPAGE")) $htmlClasses[] = "homestead_subpage";
+    if (defined("ACTIVITIES_PAGE")) $htmlClasses[] = "activities_page";
 ?><!doctype html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?=LANGUAGE_ID?>" lang="<?=LANGUAGE_ID?>" class="<?=implode(" ", $htmlClasses)?>">
 <head>

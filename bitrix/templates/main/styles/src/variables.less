@@ -1,7 +1,7 @@
 /**
  * Variables module
  *
-42pxauthor Viacheslav Lotsmanov
+ * @author Viacheslav Lotsmanov
  */
 
 /* === PATHS === */
@@ -26,11 +26,15 @@
 
 /* === FONTS === */
 
+@contentFontSize: 16px;
+@contentFontLine: 24px;
 @contentFontFamily: 'PT Sans', sans-serif;
-@contentFont: 16px/24px @contentFontFamily;
+@contentFont: ~'@{contentFontSize}/@{contentFontLine}' @contentFontFamily;
 
+@accentFontSize: 13px;
+@accentFontLine: 17px;
 @accentFontFamily: Arial, 'Liberation Sans', Helvetica, sans-serif;
-@accentFont: 13px/17px @accentFontFamily;
+@accentFont: ~'@{accentFontSize}/@{accentFontLine}' @accentFontFamily;
 
 /* === COLORS === */
 
@@ -44,7 +48,7 @@
 @activeLinkColorUnderline: @light3Color;
 
 @lightLinkColor: @lightContentColor;
-@activeLightLinkColor: #ffd579;
+@activeLightLinkColor: #ffd57a;
 @openedLightLinkColor: #c88161;
 
 @lightBgColor: #fff4db;

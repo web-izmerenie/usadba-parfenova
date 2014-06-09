@@ -1,0 +1,125 @@
+/**
+ * "activities" page styles
+ *
+ * @author Viacheslav Lotsmanov
+ */
+
+@import "two_columns_page";
+
+html.activities_page body {
+	.twoColumnsPage();
+
+	.section_wrap .columns {
+		.bg('activities/bg.jpg', center center no-repeat);
+		.background-size(cover);
+	} // .section_wrap .columns
+
+	.section_wrap .columns .right_block section.activities {
+		display: block;
+
+		.section_info {
+			display: block;
+			float: left;
+			font: @contentFont;
+			color: @light2Color;
+			width: 350px;
+			margin-left: 60px;
+			margin-top: 105px - 36px;
+
+			h2 {
+				@iconW: 49px;
+
+				display: inline-block;
+				.customFont('PT Sans', 40px, 42px);
+				font-weight: bold;
+				text-transform: uppercase;
+				color: @light2Color;
+				.relative;
+				padding-left: @iconW + 8px;
+				padding-right: @iconW + 8px;
+				padding-bottom: 40px - 24px;
+
+				&:before, &:after {
+					&:extend(.icon_oars);
+					.pseudoBlock;
+					.absolute(-1px, auto, auto, 0);
+				} // &:before, &:after
+
+				&:after {
+					left: auto;
+					right: 0;
+				} // &:after
+			} // h2
+		} // .section_info
+
+		.more {
+			@iconW: 18px;
+
+			.linkNoLine;
+			display: block;
+			float: right;
+			margin-top: 71px;
+			margin-right: 43px + @mainMargin;
+
+			figure {
+				display: block;
+				text-align: center;
+
+				img {
+					@s: 131px;
+
+					display: inline-block;
+					.size(@s);
+					.box-sizing(border-box);
+					.border-radius(@s/2);
+					border: 2px solid white;
+					margin: 0 auto;
+					.transition(border-color @animationSpeed linear);
+				} // img
+
+				figcaption {
+
+					display: inline-block;
+					background: @light2Color;
+					.border-radius(5px 0 0 5px);
+					color: @dark3Color;
+					.size(auto, 35px);
+					.customFont('PT Sans', 18px, 24px);
+					font-weight: bold;
+					text-transform: uppercase;
+					padding: 0 10px;
+					padding-top: 23px-18px;
+					.box-sizing(border-box);
+					margin-top: 17px;
+					.relative;
+					margin-right: @iconW;
+					.transition(background-color @animationSpeed linear);
+
+					&:before { &:extend(.icon_right_arrow_light); }
+					&:after { &:extend(.icon_right_arrow_light_active); }
+
+					&:before, &:after {
+						.pseudoBlock;
+						.absolute(0, -@iconW);
+						.opacity(1);
+						.transition(opacity @animationSpeed linear);
+					}
+
+					&:after {
+						.pseudoBlock;
+						.opacity(0);
+					}
+				} // figcaption
+			} // figure
+
+			&:hover figure {
+				img { border-color: @activeLightLinkColor; }
+				figcaption {
+					background: @activeLightLinkColor;
+					//&:before { .opacity(0); }
+					&:after { .opacity(1); }
+				} // figcaption
+			} // &:hover
+		} // .more
+	} // .section_wrap .columns .right_block section.activities
+} // html.activities_page body
