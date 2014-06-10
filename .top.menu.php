@@ -15,13 +15,6 @@ $aMenuLinks = Array(
 		"" 
 	),
 	Array(
-		"Семейный отдых", 
-		"/family/", 
-		Array(), 
-		Array(), 
-		"" 
-	),
-	Array(
 		"Активный отдых", 
 		"/activities/", 
 		Array(), 

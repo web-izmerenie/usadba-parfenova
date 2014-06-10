@@ -5,7 +5,7 @@ $arUrlRewrite = array(
 		"RULE" => "ELEMENT_CODE=\$2",
 		"ID" => "bitrix:news.detail",
 		"PATH" => "/homestead/detail.php",
-	)
+	),
 );
 
 ?>
