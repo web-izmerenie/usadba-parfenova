@@ -30,6 +30,7 @@
 @import "pages/homestead_subpage";
 @import "pages/contacts";
 @import "pages/activities";
+@import "pages/activities_subpage";
 
 /* === STYLES === */
 
@@ -149,6 +150,20 @@ html body {
 			// margins and paddings of content tags }}}2
 
 			.non_break { white-space: nowrap; }
+
+			img.sticky { // {{{2
+				&.left {
+					float: left;
+					margin-right: @mainMargin;
+					margin-bottom: @mainMargin;
+				}
+
+				&.right {
+					float: right;
+					margin-left: @mainMargin;
+					margin-bottom: @mainMargin;
+				}
+			} // img.sticky }}}2
 		} // main }}}1
 
 		h1.page_title { // {{{1

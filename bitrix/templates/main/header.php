@@ -13,6 +13,7 @@
     if (defined("HOMESTEAD_PAGE")) $htmlClasses[] = "homestead_page";
     if (defined("HOMESTEAD_SUBPAGE")) $htmlClasses[] = "homestead_subpage";
     if (defined("ACTIVITIES_PAGE")) $htmlClasses[] = "activities_page";
+    if (defined("ACTIVITIES_SUBPAGE")) $htmlClasses[] = "activities_subpage";
 ?><!doctype html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?=LANGUAGE_ID?>" lang="<?=LANGUAGE_ID?>" class="<?=implode(" ", $htmlClasses)?>">
 <head>

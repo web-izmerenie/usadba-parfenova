@@ -40,5 +40,9 @@ $(function domReady() {
 		require(['pages/homestead_subpage']);
 	}
 
+	if ($('html').hasClass('activities_subpage')) {
+		require(['pages/activities_subpage']);
+	}
+
 }); // domReady()
 }); // define()

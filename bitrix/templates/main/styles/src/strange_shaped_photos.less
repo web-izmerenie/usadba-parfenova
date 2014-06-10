@@ -1,0 +1,35 @@
+/**
+ * Strange-shaped photos list mixin
+ *
+ * @author Viacheslav Lotsmanov
+ */
+
+// for <ul>
+.strangeShapedPhotos() {
+	display: block;
+	.fontMetrics(0, 0);
+	text-align: center;
+
+	li {
+		@w: 295px; @h: 195px;
+
+		display: inline-block;
+		.size(@w, @h);
+		margin-left: 27px;
+		.relative;
+
+		img {
+			display: block;
+			.size(@w, @h);
+			z-index: 0;
+		} // img
+
+		&:before {
+			.icon_photo_frame;
+			.pseudoBlock;
+			.absolute(0, auto, auto, 0);
+		} // &:before
+
+		&:first-child { margin-left: 0; }
+	} // li
+} // .strangeShapedPhotos()

@@ -4,6 +4,8 @@
  * @author Viacheslav Lotsmanov
  */
 
+@import "strange_shaped_photos";
+
 html.homestead_subpage body {
 	.section_wrap {
 		display: block;
@@ -197,7 +199,10 @@ html.homestead_subpage body {
 						.transition(color @animationSpeed linear, border-bottom-color @animationSpeed linear);
 					} // & > span
 
-					&:hover > span { color: @light3Color; border-bottom-color: @light3Color; }
+					&:hover > span {
+						color: @light3Color;
+						border-bottom-color: @light3Color;
+					} // &:hover > span
 
 					&:first-child { margin-left: 20px; }
 				} // & > a, & > span
@@ -241,34 +246,7 @@ html.homestead_subpage body {
 				margin: 54px auto;
 			} // .notation_block }}}2
 
-			ul.photos { // {{{2
-				display: block;
-				.fontMetrics(0, 0);
-				text-align: center;
-
-				li {
-					@w: 295px; @h: 195px;
-
-					display: inline-block;
-					.size(@w, @h);
-					margin-left: 27px;
-					.relative;
-
-					img {
-						display: block;
-						.size(@w, @h);
-						z-index: 0;
-					} // img
-
-					&:before {
-						.icon_photo_frame;
-						.pseudoBlock;
-						.absolute(0, auto, auto, 0);
-					} // &:before
-
-					&:first-child { margin-left: 0; }
-				} // li
-			} // ul.photos }}}2
+			ul.photos { .strangeShapedPhotos; }
 
 			.prices { // {{{2
 				display: table;
