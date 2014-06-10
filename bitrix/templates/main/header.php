@@ -1,5 +1,5 @@
 <?
-    $revision = 3;
+    $revision = 4;
     $devRevision = 1;
 
     // development revision
@@ -61,12 +61,12 @@
             <?if ($APPLICATION->GetCurPage() != SITE_DIR){?><a href="/" title="На главную"><?}?>
                 <img alt="Усадьба Парфенова" src="/bitrix/templates/main/images/logo.png" width="167" height="80" class="logo" />
             <?if ($APPLICATION->GetCurPage() != SITE_DIR){?></a><?}?>
+			<div class="choose_lang">
+				<a href="#" title="English">En</a>
+				<span title="Русский">Ру</span>
+			</div>
             <div class="first_line_wrap">
                 <div class="first_line">
-                    <div class="choose_lang">
-                        <a href="#" title="English">En</a>
-                        <span title="Русский">Ру</span>
-                    </div>
                     <nav class="main_menu"><?$APPLICATION->IncludeComponent("bitrix:menu", "menu.top", Array(
     "ROOT_MENU_TYPE" => "top",    // Тип меню для первого уровня
     "MENU_CACHE_TYPE" => "A",    // Тип кеширования
