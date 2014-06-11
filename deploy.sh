@@ -159,6 +159,11 @@ info_inline "Creating symbolic link to grunt-cli"
 rm ./grunt &>/dev/null
 if ln -s ./node_modules/.bin/grunt ./grunt &>/dev/null; then ok; else err; fi
 
+info "Generating sprites"
+if ./grunt gen-sprites; then
+	info_inline "Generating sprites status:"; ok;
+else err; fi
+
 info "Starting grunt default tasks"
 if ./grunt; then
 	info_inline "Grunt default tasks status:"; ok;
