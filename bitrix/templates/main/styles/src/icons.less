@@ -4,53 +4,58 @@
  * @author Viacheslav Lotsmanov
  */
 
+@import "icons/icons";
+
 .icons_sprite {
 	display: inline-block;
 	overflow: hidden;
-	.size(1px);
-	.bg('icons_sprite.png', 1px 1px no-repeat);
+	background-repeat: no-repeat;
 }
 
-.icon_wi_logo { &:extend(.icons_sprite); .size(15px); background-position: -1px -1px; }
-.icon_wi_logo_active { &:extend(.icon_wi_logo); background-position: -1px -17px; }
+// icons {{{1
 
-.icon_clover { &:extend(.icons_sprite); .size(16px, 14px); background-position: -17px -1px; }
+.icon-wi_logo,
+.icon-wi_logo_active,
 
-.icon_V { &:extend(.icons_sprite); .size(50px, 36px); background-position: -34px -1px; }
-.icon_V_active { &:extend(.icon_V); background-position: -85px -1px; }
+.icon-clover,
 
-.icon_left_arrow { &:extend(.icons_sprite); .size(8px, 15px); background-position: -136px -1px; }
-.icon_left_arrow_hover { &:extend(.icon_left_arrow); background-position: -136px -17px; }
-.icon_left_arrow_active { &:extend(.icon_left_arrow); background-position: -136px -33px; }
+.icon-V,
+.icon-V_active,
 
-.icon_leaf { &:extend(.icons_sprite); .size(26px, 17px); background-position: -145px -1px; }
-.icon_leaf_hover { &:extend(.icon_leaf); background-position: -145px -19px; }
-.icon_leaf_active { &:extend(.icon_leaf); background-position: -145px -37px; }
+.icon-left_arrow,
+.icon-left_arrow_hover,
+.icon-left_arrow_active,
 
-.icon_corner { &:extend(.icons_sprite); .size(19px); background-position: -172px -1px; }
-.icon_corner_hover { &:extend(.icon_corner); background-position: -172px -21px; }
-.icon_corner_active { &:extend(.icon_corner); background-position: -172px -41px; }
+.icon-leaf,
+.icon-leaf_hover,
+.icon-leaf_active,
 
-.icon_sub_menu_right_arrow { &:extend(.icons_sprite); .size(13px, 26px); background-position: -192px -1px; }
+.icon-corner,
+.icon-corner_hover,
+.icon-corner_active,
 
-.icon_right_arrow_light { &:extend(.icons_sprite); .size(18px, 35px); background-position: -192px -36px; }
-.icon_right_arrow_light_active { &:extend(.icon_right_arrow_light); background-position: -211px -41px; }
+.icon-right_filled_arrow_dark,
 
-.icon_photo_frame { &:extend(.icons_sprite); .size(295px, 195px); background-position: -1px -150px; }
+.icon-right_filled_arrow_light,
+.icon-right_filled_arrow_light_active,
 
-.icon_man { &:extend(.icons_sprite); .size(13px, 34px); background-position: -206px -1px; }
+.icon-photo_frame,
 
-.icon_airplane { &:extend(.icons_sprite); .size(38px, 39px); background-position: -220px -1px; }
-.icon_train { &:extend(.icons_sprite); .size(30px, 46px); background-position: -259px -1px; }
-.icon_bus { &:extend(.icons_sprite); .size(53px, 33px); background-position: -290px -1px; }
-.icon_car { &:extend(.icons_sprite); .size(52px, 25px); background-position: -344px -1px; }
+.icon-man,
 
-.icon_oars { &:extend(.icons_sprite); .size(49px, 45px); background-position: -1px -38px; }
+.icon-airplane,
+.icon-train,
+.icon-bus,
+.icon-car,
 
-/* template {{{1
+.icon-oars
 
-.icon_X { &:extend(.icons_sprite); .size(px, px); background-position: -px -px; }
-.icon_X_hover { &:extend(.icon_X); background-position: -px -px; }
-.icon_X_active { &:extend(.icon_X); background-position: -px -px; }
+{
+	&:extend(.icons_sprite);
+	.bgImg('icons_sprite.png');
+}
 
-}}}1 */
+// icons }}}1
+
+// book {{{1
+// book }}}1

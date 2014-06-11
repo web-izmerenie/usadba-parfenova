@@ -11,7 +11,8 @@
     "grunt-wrap": "~0.3.0",
     "grunt-amdwrap": "~0.0.1",
     "grunt-contrib-clean": "~0.5.0",
-    "grunt-contrib-copy": "~0.5.0"
+    "grunt-contrib-copy": "~0.5.0",
+    "css-sprite": "~0.6.3"
   },
   "scripts": {
     "postinstall": "bash ./deploy.sh"
@@ -37,6 +38,18 @@
     "jshint": {
       "development": true,
       "production": true
+    },
+    "sprites": {
+      "book": {
+        "src": [ "bitrix/templates/main/images/book/*" ],
+        "css": "bitrix/templates/main/styles/src/icons/book.less",
+        "base64": true
+      },
+      "icons": {
+        "src": [ "bitrix/templates/main/images/icons/*" ],
+        "css": "bitrix/templates/main/styles/src/icons/icons.less",
+        "sprite": "bitrix/templates/main/images/icons_sprite.png"
+      }
     }
   }
 

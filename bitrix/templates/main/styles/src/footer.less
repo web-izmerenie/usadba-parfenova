@@ -30,7 +30,7 @@ html body footer {
 		vertical-align: middle;
 
 		a.logo {
-			.icon_wi_logo;
+			&:extend(.icon-wi_logo);
 			background: none;
 			.relative(2px);
 			overflow: hidden;
@@ -38,8 +38,8 @@ html body footer {
 			text-indent: -50000px;
 			margin-left: 3px;
 
-			&:before { &:extend(.icon_wi_logo); }
-			&:after { &:extend(.icon_wi_logo_active); }
+			&:before { &:extend(.icon-wi_logo); }
+			&:after { &:extend(.icon-wi_logo_active); }
 
 			.animatedIcon;
 		} // a.logo

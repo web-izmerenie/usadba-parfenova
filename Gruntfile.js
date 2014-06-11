@@ -7,6 +7,8 @@ module.exports = function (grunt) {
 
     var pkg = grunt.file.readJSON('package.json');
 
+    var key;
+
     var styles = {};
     var stylesCopyList = [];
 
@@ -29,7 +31,11 @@ module.exports = function (grunt) {
 
     var cleanJS = [];
     var cleanLess = [];
+    var cleanSprites = [];
 
+    var sprites = {};
+
+    if (pkg.grunt.styles) // styles {{{1
     pkg.grunt.styles.forEach(function (item, i) {
         // watch
         var lessWatch = [
@@ -78,8 +84,9 @@ module.exports = function (grunt) {
             },
             files: lessFiles,
         };
-    });
+    }); // styles }}}1
 
+    if (pkg.grunt.scripts) // scripts {{{1
     pkg.grunt.scripts.forEach(function (item, i) {
         // minification
         var buildFilePath = item.path +'/build/'+ item.buildFile;
@@ -183,9 +190,37 @@ module.exports = function (grunt) {
                 dest: item.copyBuildTo + '/' + item.buildFile,
             });
         }
-    });
+    }); // scripts }}}1
 
-    grunt.initConfig({
+    if (pkg.grunt.sprites) // sprites {{{1
+    (function () {
+        var key, options, item, task;
+
+        for (key in pkg.grunt.sprites) {
+            item = pkg.grunt.sprites[key];
+
+            options = {
+                margin: 1,
+                style: item.css,
+            };
+
+            if ('base64' in item) options.base64 = item.base64;
+            if ('margin' in item) options.margin = item.margin;
+
+            task = { options: options, src: item.src };
+
+            if (!item.base64 && item.sprite) {
+                task.dest = item.sprite;
+                cleanSprites.push(item.sprite);
+            }
+
+            cleanSprites.push(item.css);
+
+            sprites[ key ] = task;
+        }
+    })(); // sprites }}}1
+
+    grunt.initConfig({ // {{{1
         configs: pkg.grunt,
         concat: scripts.concat,
         uglify: {
@@ -241,13 +276,11 @@ module.exports = function (grunt) {
         'grunt-clean': {
             js: cleanJS,
             less: cleanLess,
-            dist: [
-                'grunt',
-                'start-http-server',
-                'node_modules',
-            ],
+            sprites: cleanSprites,
+            dist: [ 'grunt', 'node_modules' ],
         },
-    });
+        css_sprite: sprites,
+    }); // grunt.initConfig }}}1
 
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
@@ -259,10 +292,11 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-amdwrap');
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('css-sprite');
 
     grunt.task.renameTask('clean', 'grunt-clean');
 
-    var key;
+    // prepare additional tasks {{{1
 
     // concat
     var buildConcat = [];
@@ -321,6 +355,8 @@ module.exports = function (grunt) {
     buildLess.push('copy:less');
     buildLessProduction.push('copy:less');
 
+    // prepare additional tasks }}}1
+
     grunt.registerTask('build-js', buildJS);
     grunt.registerTask('build-js-production', buildJSProduction);
     grunt.registerTask('build-less', buildLess);
@@ -332,12 +368,14 @@ module.exports = function (grunt) {
     grunt.registerTask('clean', ['grunt-clean:js', 'grunt-clean:less']);
     grunt.registerTask('clean-js', ['grunt-clean:js']);
     grunt.registerTask('clean-less', ['grunt-clean:less']);
+    grunt.registerTask('clean-sprites', ['grunt-clean:sprites']);
     grunt.registerTask('distclean', ['grunt-clean:dist']);
     grunt.registerTask('development', ['build']);
     grunt.registerTask('production', [
         'build-js-production',
         'build-less-production',
     ]);
+    grunt.registerTask('gen-sprites', ['css_sprite']);
     grunt.registerTask('default', ['production']);
 
 };

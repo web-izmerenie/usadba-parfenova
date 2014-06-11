@@ -15,10 +15,10 @@ $APPLICATION->SetTitle("Контакты");
 	<h2>Как добраться</h2>
 
 	<div class="way_icons">
-		<span class="icon_airplane" title="Самолетом"></span>
-		<span class="icon_train" title="Поездом"></span>
-		<span class="icon_bus" title="Автобусом"></span>
-		<span class="icon_car" title="На машине"></span>
+		<span class="icon-airplane" title="Самолетом"></span>
+		<span class="icon-train" title="Поездом"></span>
+		<span class="icon-bus" title="Автобусом"></span>
+		<span class="icon-car" title="На машине"></span>
 	</div>
 
 	<div class="centering">

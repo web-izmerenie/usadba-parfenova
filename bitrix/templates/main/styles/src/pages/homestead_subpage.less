@@ -84,18 +84,18 @@ html.homestead_subpage body {
 
 			@el_1_ol: 0; @el_1_ot: 2px + 7px; @el_1_p: 17px; @el_1_ml: 0;
 			span:nth-child(1) { margin-left: @el_1_ml; }
-			a:nth-child(1) { &:before { .icon_left_arrow; } &:after { .icon_left_arrow_hover; } .setIcon(@el_1_ol, @el_1_ot, @el_1_p, @el_1_ml); }
-			span:nth-child(1) { &:before { &:extend(.icon_left_arrow_active); } .activeIcon(@el_1_ol, @el_1_ot, @el_1_p); }
+			a:nth-child(1) { &:before { &:extend(.icon-left_arrow); } &:after { &:extend(.icon-left_arrow_hover); } .setIcon(@el_1_ol, @el_1_ot, @el_1_p, @el_1_ml); }
+			span:nth-child(1) { &:before { &:extend(.icon-left_arrow_active); } .activeIcon(@el_1_ol, @el_1_ot, @el_1_p); }
 
 			@el_2_ol: 8px; @el_2_ot: 8px; @el_2_p: 26px + 1px; @el_2_ml: 34px - 18px;
 			span:nth-child(2) { margin-left: @el_2_ml; }
-			a:nth-child(2) { &:before { .icon_leaf; } &:after { .icon_leaf_hover; } .setIcon(@el_2_ol, @el_2_ot, @el_2_p, @el_2_ml); }
-			span:nth-child(2) { &:before { &:extend(.icon_leaf_active); } .activeIcon(@el_2_ol, @el_2_ot, @el_2_p); }
+			a:nth-child(2) { &:before { &:extend(.icon-leaf); } &:after { &:extend(.icon-leaf_hover); } .setIcon(@el_2_ol, @el_2_ot, @el_2_p, @el_2_ml); }
+			span:nth-child(2) { &:before { &:extend(.icon-leaf_active); } .activeIcon(@el_2_ol, @el_2_ot, @el_2_p); }
 
 			@el_3_ol: 11px; @el_3_ot: 7px; @el_3_p: 23px; @el_3_ml: 39px - @el_3_p - @el_3_ol;
 			span:nth-child(3) { margin-left: @el_3_ml; }
-			a:nth-child(3) { &:before { .icon_corner; } &:after { .icon_corner_hover; } .setIcon(@el_3_ol, @el_3_ot, @el_3_p, @el_3_ml); }
-			span:nth-child(3) { &:before { &:extend(.icon_corner_active); } .activeIcon(@el_3_ol, @el_3_ot, @el_3_p); }
+			a:nth-child(3) { &:before { &:extend(.icon-corner); } &:after { &:extend(.icon-corner_hover); } .setIcon(@el_3_ol, @el_3_ot, @el_3_p, @el_3_ml); }
+			span:nth-child(3) { &:before { &:extend(.icon-corner_active); } .activeIcon(@el_3_ol, @el_3_ot, @el_3_p); }
 
 			a:hover {
 				color: @light3Color;
@@ -159,7 +159,7 @@ html.homestead_subpage body {
 					&, &:hover { color: @light2Color; }
 
 					&:after {
-						.icon_sub_menu_right_arrow;
+						&:extend(.icon-right_filled_arrow_dark);
 						.pseudoBlock;
 						.absolute(0, auto, auto, 100%);
 					} // &:after
@@ -284,7 +284,7 @@ html.homestead_subpage body {
 								letter-spacing: 3px;
 							}
 
-							.unit { &:extend(.icon_man); margin-right: 7px; }
+							.unit { &:extend(.icon-man); margin-right: 7px; }
 						} // .quantity
 
 						.price_block {
