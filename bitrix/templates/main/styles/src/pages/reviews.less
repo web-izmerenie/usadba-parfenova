@@ -1,0 +1,89 @@
+/**
+ * "reviews" page styles
+ *
+ * @author Viacheslav Lotsmanov
+ */
+
+html body section.reviews {
+	display: block;
+	overflow: hidden;
+	margin-top: -10px;
+
+	ul.reviews_book { // {{{1
+		@offset: 210px + 139px;
+		@topH: 32px;
+		@bottomH: 118px;
+		@designOffset: 2px;
+
+		.resetCSS;
+		display: block;
+		.relative;
+		margin-top: @topH;
+		margin-bottom: @bottomH + (50px - 12px) - @designOffset;
+		min-height: 736px - @topH - @bottomH;
+
+		&:before {
+			&:extend(.icon-book_top);
+			.pseudoBlock;
+			.absolute(-@topH, auto, auto, 50%);
+			margin-left: -@offset;
+			z-index: -1;
+		} // &:before
+
+		&:after {
+			&:extend(.icon-book_bottom);
+			.pseudoBlock;
+			.absolute(auto, auto, -(@bottomH - @designOffset), 50%);
+			margin-left: -@offset;
+			z-index: -1;
+		} // &:after
+
+		li { // {{{2
+			.resetCSS;
+			position: static;
+			display: block;
+
+			& > p, .signature {
+				display: block;
+				padding-left: 50%;
+				margin-left: -(@offset - (40px + 71px));
+				width: 620px;
+				z-index: 10;
+			} // p
+
+			.signature {
+				white-space: nowrap;
+				font-weight: bold;
+				line-height: 20px;
+				margin-top: 30px - 22px;
+
+				& > p {
+					float: right;
+				} // p
+
+				&:after {
+					.pseudoBlock;
+					clear: both;
+				} // &:after
+			} // p.signature
+
+			& + li { margin-top: 61px - 22px; }
+		} // li }}}2
+
+		li:first-child { // {{{2
+			overflow: hidden;
+			padding-top: 59px - 32px;
+
+			&:before {
+				&:extend(.icon-book_fill);
+				.pseudoBlock;
+				background-repeat: repeat-y;
+				height: 100%;
+				.absolute(0, auto, auto, 50%);
+				margin-left: -@offset;
+				z-index: -1;
+				margin-top: -@designOffset;
+			} // &:before
+		} // li:first-child }}}2
+	} // ul.reviews_book }}}1
+} // html body section.reviews
