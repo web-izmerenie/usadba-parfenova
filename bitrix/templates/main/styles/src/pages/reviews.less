@@ -8,6 +8,7 @@ html body section.reviews {
 	display: block;
 	overflow: hidden;
 	margin-top: -10px;
+	.relative;
 
 	ul.reviews_book { // {{{1
 		@offset: 210px + 139px;
@@ -86,4 +87,30 @@ html body section.reviews {
 			} // &:before
 		} // li:first-child }}}2
 	} // ul.reviews_book }}}1
+
+	.write_a_review { // {{{1
+		.linkNoLine;
+		cursor: pointer;
+		&:extend(.icon-strange_shaped_button);
+		background: none;
+		display: block;
+		.absolute(27px, auto, auto, 50%);
+		margin-left: -(400px + 47px + 19px);
+		z-index: 20;
+		.customFont('PT Sans', 15px, 17px);
+		font-weight: bold;
+		color: white;
+		text-align: center;
+		text-transform: uppercase;
+		.box-sizing(border-box);
+		padding-top: 27px - 13px;
+
+		&:before { &:extend(.icon-strange_shaped_button); }
+		&:after { &:extend(.icon-strange_shaped_button_active); }
+
+		.animatedIcon;
+
+		&:before, &:after { z-index: -1; }
+		&:hover { color: white; }
+	} // .write_a_review }}}1
 } // html body section.reviews

@@ -5,6 +5,7 @@ $APPLICATION->SetTitle("Отзывы");
 ?>
 
 <section class="reviews">
+	<a class="write_a_review">Оставить отзыв</a>
 	<ul class="reviews_book">
 		<li>
 			<p>«Очень понравился отдых в усадьбе, отдыхала с ребенком, цены
