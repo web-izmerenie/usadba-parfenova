@@ -1,3 +1,4 @@
+<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 <?
 $ELEMENT_CODE = trim($_REQUEST["ELEMENT_CODE"]);
 ?><?
@@ -16,6 +17,7 @@ $res = CIBlockElement::GetList(
 );
 $arRes = $res->GetNextElement();
 $fields = $arRes->GetFields();
+$props = $arRes->GetProperties();
 $detail_pic = CFile::GetPath($fields["DETAIL_PICTURE"]);?>
 <div class="section_wrap <?=$ELEMENT_CODE?>">
     <div class="head">
@@ -47,7 +49,7 @@ $detail_pic = CFile::GetPath($fields["DETAIL_PICTURE"]);?>
             <section class="activities">
 				<div class="section_info">
 					<h2><?=$fields["NAME"]?></h2>
-					<?=$fields["PREVIEW_TEXT"]?>
+					<?=$props["SHORTTEXT"]["~VALUE"]["TEXT"]?>
 				</div>
 				<a href="<?=$fields["DETAIL_PAGE_URL"]?>details/" class="more">
 					<figure><?
