@@ -45,7 +45,9 @@
 				<nav class="rooms"><?
                     CModule::IncludeModule("iblock");
                     $res = CIBlockElement::GetList(
-                        array(),
+                        array(
+                            "SORT" => "asc"
+                        ),
                         array(
                             "ACTIVE" => "Y",
                             "IBLOCK_TYPE" => $arParams["IBLOCK_TYPE"],
