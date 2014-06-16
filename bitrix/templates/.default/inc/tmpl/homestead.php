@@ -1,5 +1,5 @@
 <?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<div class="section_wrap">
+<div class="section_wrap <?=$arParams["SECTION_CODE"]?>">
 	<div class="head">
 		<h1><?$APPLICATION->ShowTitle()?></h1>
 	</div>
