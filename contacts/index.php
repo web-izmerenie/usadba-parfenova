@@ -1,8 +1,11 @@
 <?
+define("PAGE_TITLE", "Y");
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Контакты");
-?>
-
-Text here....
-
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+?><?$APPLICATION->IncludeFile(
+    "inc/tmpl/contacts.php",
+    array(),
+    array(
+        "SHOW_BORDER" => false
+    )
+);?><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
