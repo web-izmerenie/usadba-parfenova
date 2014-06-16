@@ -85,9 +85,9 @@
         <ul class="photos"><?
             // TODO INSTALL DEFATOOLS AND MAKE MULTIPROPERTY FOR UPLOADING IMAGES
         ?>
-            <li><img alt="" src="/tmp/homestead/pic.png" /></li>
-            <li><img alt="" src="/tmp/homestead/pic.png" /></li>
-            <li><img alt="" src="/tmp/homestead/pic.png" /></li>
+            <li><img alt="" src="/upload/tmp/homestead_detail_photo1.jpg" /></li>
+            <li><img alt="" src="/upload/tmp/homestead_detail_photo2.jpg" /></li>
+            <li><img alt="" src="/upload/tmp/homestead_detail_photo3.jpg" /></li>
         </ul>
         <div class="prices"><?
             foreach($arResult["DISPLAY_PROPERTIES"]["PRICE"]["VALUE"] as $key => $price){
