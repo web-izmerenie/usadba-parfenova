@@ -25,7 +25,7 @@ $props = $arRes->GetProperties();
 $APPLICATION->SetTitle($fields["NAME"]);
 ?>
 
-<div class="section_wrap">
+<div class="section_wrap <?=$ELEMENT_CODE?>">
 	<div class="activities_nav_block"><!-- {{{1 -->
 		<a href="<?=SITE_DIR?>activities/" class="back_link"><?=GetMessage("ACTIVITIES")?></a>
 		<nav class="activities_menu"><?

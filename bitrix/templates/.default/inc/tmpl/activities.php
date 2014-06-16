@@ -17,11 +17,11 @@ $res = CIBlockElement::GetList(
 $arRes = $res->GetNextElement();
 $fields = $arRes->GetFields();
 $detail_pic = CFile::GetPath($fields["DETAIL_PICTURE"]);?>
-<div class="section_wrap">
+<div class="section_wrap <?=$ELEMENT_CODE?>">
     <div class="head">
         <h1><?$APPLICATION->ShowTitle()?></h1>
     </div>
-    <div class="columns" style="background-image:url('<?=$detail_pic?>') !important;">
+    <div class="columns" data-background="<?=$detail_pic?>">
         <div class="left_block">
             <div class="bg"></div>
             <div class="blur_back_bg"></div>
