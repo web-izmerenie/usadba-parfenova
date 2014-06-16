@@ -11,8 +11,6 @@ html.homestead_subpage body {
 		display: block;
 		padding-top: @headerHeight;
 		padding-bottom: @footerHeight;
-		padding-left: @mainMargin;
-		padding-right: @mainMargin;
 		.box-sizing(border-box);
 		max-width: @maxWidth;
 		margin: 0 auto;
@@ -22,6 +20,8 @@ html.homestead_subpage body {
 			text-align: center;
 			padding-top: 67px - 36px;
 			padding-bottom: 34px - 6px;
+			margin-left: @mainMargin;
+			margin-right: @mainMargin;
 
 			h1 {
 				display: block;
@@ -39,6 +39,8 @@ html.homestead_subpage body {
 			margin-top: 36px;
 			height: 32px;
 			overflow: hidden;
+			margin-left: @mainMargin;
+			margin-right: @mainMargin;
 
 			@px: 10px; // padding X-axis
 			@pt: 22px-15px; // padding top
@@ -106,8 +108,9 @@ html.homestead_subpage body {
 
 		.sub_menu_line { // {{{1
 			display: block;
-			width: 100%;
 			margin-top: 57px - 25px;
+			padding-left: @mainMargin;
+			padding-right: @mainMargin;
 
 			&:after { .pseudoBlock; clear: both; }
 
@@ -226,9 +229,11 @@ html.homestead_subpage body {
 
 			.panorama { // {{{2
 				display: block;
-				background: @plugColor;
-				width: 100%;
-				height: 400px;
+				background: @plugColor url('/upload/tmp/homestead_detail_pan_plug.jpg') center center no-repeat;
+				.background-size(cover);
+				.size(100%, 400px);
+				max-width: @maxWidth - (@mainMargin * 2);
+				margin: 0 auto;
 			} // .panorama }}}2
 
 			.notation_block { // {{{2
