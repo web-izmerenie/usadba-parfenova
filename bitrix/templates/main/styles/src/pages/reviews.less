@@ -19,14 +19,14 @@ html body section.reviews {
 		.resetCSS;
 		display: block;
 		.relative;
-		margin-top: @topH;
+		margin-top: @topH + 2px;
 		margin-bottom: @bottomH + (50px - 12px) - @designOffset;
 		min-height: 736px - @topH - @bottomH;
 
 		&:before {
 			&:extend(.icon-book_top);
 			.pseudoBlock;
-			.absolute(-@topH, auto, auto, 50%);
+			.absolute(-(@topH + 2px), auto, auto, 50%);
 			margin-left: -@offset;
 			z-index: -1;
 		} // &:before
@@ -73,7 +73,7 @@ html body section.reviews {
 
 		li:first-child { // {{{2
 			overflow: hidden;
-			padding-top: 59px - 32px;
+			padding-top: 59px - 32px - 2px;
 
 			&:before {
 				&:extend(.icon-book_fill);
