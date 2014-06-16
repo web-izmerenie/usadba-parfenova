@@ -26,12 +26,14 @@ define(function () {
 
 		loadImgTimeout: 30 * 1000, // ms
 
+		panoramaRatio: [148, 69],
+
 	};
 
 	/** Required set before "getVal" */
 	exports.required = [
 		'lang',
-		'revision'
+		'revision',
 	];
 
 	return exports;

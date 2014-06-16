@@ -9,8 +9,12 @@ $(function domReady() {
 
 	if (!$('html').hasClass('homestead_subpage')) return;
 
-	var $quantity = $('main .prices .quantity');
-	var $activeRooms = $('.section_wrap .sub_menu_line nav.rooms > span');
+	var $s = $('.section_wrap');
+	var $main = $s.find('main');
+
+	var $quantity = $main.find('.prices .quantity');
+	var $activeRooms = $s.find('.sub_menu_line nav.rooms > span');
+	var $panorama = $main.find('.panorama');
 
 	function fill() { // {{{1
 		$quantity.each(function () {
@@ -72,6 +76,24 @@ $(function domReady() {
 		toGray();
 
 	}); // $activeRooms.each() // }}}1
+
+	// panorama block ratio resize {{{1
+	(function isolate() {
+
+		var bindSuffix = '.panorama_ratio_resize';
+		var ratio = getVal('panoramaRatio');
+
+		function handler() {
+			$panorama.each(function () {
+				$(this).css('height', ($(this).width() * ratio[1] / ratio[0]) + 'px');
+			}); // $panorama.each()
+		} // handler()
+
+		$(window).on('resize' + bindSuffix, handler);
+		setTimeout(handler, 1);
+
+	})(); // isolate()
+	// panorama block ratio resize }}}1
 
 }); // domReady()
 }); // define()
