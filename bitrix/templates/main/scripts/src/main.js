@@ -44,5 +44,9 @@ $(function domReady() {
 		require(['pages/activities_subpage']);
 	}
 
+	if ($('section.reviews').size() > 0) {
+		require(['pages/reviews']);
+	}
+
 }); // domReady()
 }); // define()

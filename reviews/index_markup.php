@@ -6,6 +6,25 @@ $APPLICATION->SetTitle("Отзывы");
 
 <section class="reviews">
 	<a class="write_a_review">Оставить отзыв</a>
+	<form class="add_review" action="/ajax/add_review.php" method="post">
+		<h2>Оставить отзыв</h2>
+		<label class="text required">
+			<span>Имя</span>
+			<input type="text" name="name" value=""/>
+		</label>
+		<label class="text">
+			<span>E-mail</span>
+			<input type="text" name="email" value=""/>
+		</label>
+		<label class="textarea required">
+			<span>Ваш отзыв</span>
+			<textarea name="review_text"></textarea>
+		</label>
+		<label class="submit">
+			<span>Отправить</span>
+			<input type="submit" value="Отправить" />
+		</label>
+	</form>
 	<ul class="reviews_book">
 		<li>
 			<p>«Очень понравился отдых в усадьбе, отдыхала с ребенком, цены
