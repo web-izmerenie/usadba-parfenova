@@ -116,7 +116,9 @@ define(['get_val', 'jquery'], function (getVal, $) {
 
 			var count = 0;
 
-			$.merge($closer, $overflow).off('click' + params.bindSuffix, close);
+			$(document).off('click' + params.bindSuffix);
+			$closer.off('click' + params.bindSuffix);
+
 			$.merge($overflow, params.$container)
 				.stop()
 				.animate({ opacity: 0 }, getVal('animationSpeed'), function () {
@@ -125,7 +127,33 @@ define(['get_val', 'jquery'], function (getVal, $) {
 					if (count >= 2) $html.removeClass( htmlClassName );
 				});
 
+			return false;
+
 		} // close() }}}2
+
+		function docClickHandler(event) { // {{{2
+
+			if (closingProcess) return true;
+
+			var x = params.$container.offset().left;
+			var y = params.$container.offset().top;
+			var w = params.$container.innerWidth();
+			var h = params.$container.innerHeight();
+
+			// hell IE
+			if (event.pageX < 0 || event.pageY < 0) return true;
+
+			if (
+				!(event.pageX >= x && event.pageX <= x+w) ||
+				!(event.pageY >= y && event.pageY <= y+h)
+			) {
+				close();
+				return false;
+			}
+
+			return true;
+
+		} // docClickHandler() }}}2
 
 		$overflow.stop().animate({ opacity: 1 }, getVal('animationSpeed'));
 
@@ -135,7 +163,8 @@ define(['get_val', 'jquery'], function (getVal, $) {
 		}).addClass( contentClassName ).animate({
 			opacity: 1
 		}, getVal('animationSpeed'), function () {
-			$.merge($closer, $overflow).on('click' + params.bindSuffix, close);
+			$(document).on('click' + params.bindSuffix, docClickHandler);
+			$closer.on('click' + params.bindSuffix, close);
 		});
 
 	}; // exports.show() }}}1
