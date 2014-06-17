@@ -75,8 +75,10 @@
     <div class="head">
         <h1><?=$arResult["NAME"]?></h1>
     </div>
-    <main>
-        <div class="panorama"></div><?
+    <main><?
+        if($arResult["DETAIL_PICTURE"]){?>
+            <div class="detail_picture"><img src="<?=$arResult["DETAIL_PICTURE"]["SRC"]?>" /></div><? // class="panorama"
+        }?><?
         if($arResult["DETAIL_TEXT"]){?>
             <div class="notation_block">
                 <?=$arResult["DETAIL_TEXT"]?>

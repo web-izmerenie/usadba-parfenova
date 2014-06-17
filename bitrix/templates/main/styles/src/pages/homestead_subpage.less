@@ -227,14 +227,19 @@ html.homestead_subpage body {
 			.customFont('PT Sans', 16px, 24px);
 			color: @dark2Color;
 
-			.panorama { // {{{2
+			.panorama, .detail_picture { // {{{2
 				display: block;
-				background: @plugColor url('/upload/tmp/homestead_detail_pan_plug.jpg') center center no-repeat;
-				.background-size(cover);
+				background: @plugColor;
 				.size(100%, 400px);
 				max-width: @maxWidth - (@mainMargin * 2);
 				margin: 0 auto;
-			} // .panorama }}}2
+			} // .panorama, .detail_picture }}}2
+
+			.detail_picture, .detail_picture img {
+				display: block;
+				width: 100%;
+				height: auto;
+			} // .detail_picture
 
 			ul.photos { .strangeShapedPhotos; }
 
