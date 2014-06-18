@@ -4,7 +4,7 @@
  * @author Viacheslav Lotsmanov
  */
 
-define(['get_val', 'jquery', 'get_local_text'], function (getVal, $, getLocalText) {
+define(['jquery', 'get_local_text'], function ($, getLocalText) {
 $(function domReady() {
 
 	$('form.add_question').each(function () {
@@ -13,7 +13,7 @@ $(function domReady() {
 
 		require(['popup_form_init'], function (popupFormInit) {
 
-			popupFormInit.call($form.get(0), 'add_question', [
+			popupFormInit.call($form.get(0), 'add_question', null, [
 				getLocalText('forms', 'ask_a_question_success_1'),
 				getLocalText('forms', 'ask_a_question_success_2'),
 			]);

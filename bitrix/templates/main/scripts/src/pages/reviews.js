@@ -18,7 +18,7 @@ $(function domReady() {
 
 		require(['popup_form_init'], function (popupFormInit) {
 
-			popupFormInit.call($form.get(0), 'add_review', [
+			popupFormInit.call($form.get(0), 'add_review', null, [
 				getLocalText('forms', 'write_a_review_success_1'),
 				getLocalText('forms', 'write_a_review_success_2'),
 			]);

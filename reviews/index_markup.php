@@ -13,6 +13,10 @@ $APPLICATION->SetTitle("Отзывы");
 			<input type="text" name="name" value=""/>
 		</label>
 		<label class="text">
+			<span>Город (страна)</span>
+			<input type="text" name="location" value=""/>
+		</label>
+		<label class="text">
 			<span>E-mail</span>
 			<input type="text" name="email" value=""/>
 		</label>
