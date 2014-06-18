@@ -196,7 +196,10 @@ $(function domReady() {
 					}, null, true);
 
 				}); // require(['dialog_box_wrapper'])
-			}, $.extend({ action: 'add_review' }, dataObj), $form); // ajaxReq()
+			}, $.extend({
+				action: 'add_review',
+				lang: getVal('lang'),
+			}, dataObj), $form); // ajaxReq()
 
 			return false;
 
