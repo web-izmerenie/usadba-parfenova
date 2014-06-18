@@ -10,7 +10,11 @@ foreach($arResult as $arItem):
 	<?if($arItem["SELECTED"]):?>
 		<span><?=$arItem["TEXT"]?></span>
 	<?else:?>
-		<a href="<?=$arItem["LINK"]?>"><?=$arItem["TEXT"]?></a>
+        <?if(stristr($arItem["LINK"], "ask")):?>
+            <a class="ask_a_question"><?=$arItem["TEXT"]?></a>
+        <?else:?>
+            <a href="<?=$arItem["LINK"]?>"><?=$arItem["TEXT"]?></a>
+        <?endif;?>
 	<?endif?>
 	
 <?endforeach?>
