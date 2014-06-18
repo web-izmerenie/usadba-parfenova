@@ -12,6 +12,8 @@ bitrix/templates/main/images/icons_sprite.png
 
 robots.txt
 
+urlrewrite_.php
+
 # bitrix tmp dirs
 bitrix/cache
 bitrix/managed_cache
