@@ -23,6 +23,8 @@ $(function domReady() {
 				'get_val': 'basics/get_val',
 				'load_img': 'basics/load_img',
 				'grayscale_img': 'basics/grayscale_img',
+				'json_answer': 'basics/json_answer',
+				'dialog_box': 'basics/dialog_box',
 
 			}
 		}
@@ -48,6 +50,10 @@ $(function domReady() {
 
 	if ($html.hasClass('activities_subpage')) {
 		require(['pages/activities_subpage']);
+	}
+
+	if ($('section.reviews').size() > 0) {
+		require(['pages/reviews']);
 	}
 
 }); // domReady()

@@ -26,6 +26,16 @@ define(function () {
 
 		loadImgTimeout: 30 * 1000, // ms
 
+		// dialog boxes
+		dialogBoxTpl: '<div class="#DIALOG_BOX_CLASS# #TYPE_NAME# #TITLE_CLASS_FLAG#">'+
+				'<div class="wrapper"><div class="wrapper_2">'+
+					'<a class="#CLOSER_CLASS#"></a>'+
+					'<div class="messages">#MESSAGES#</div>'+
+					'#BUTTONS_BLOCK#'+
+				'</div></div>'+
+			'</div>',
+		dialogBoxCloseExclude: '.wrapper_2',
+
 		panoramaRatio: [148, 69],
 
 	};
