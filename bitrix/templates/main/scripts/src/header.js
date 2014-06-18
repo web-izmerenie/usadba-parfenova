@@ -82,26 +82,6 @@ $(function domReady() {
 		}
 	).trigger('scroll' + showHideBindSuffix); // show/hide }}}1
 
-	// pdf files in new tab {{{1
-
-	function targetBlank() {
-
-		var $a = $(this);
-		var href = $a.attr('href').toString()
-			.replace(/\?.+$/, '')
-			.replace(/\#.*$/g, '');
-
-		if (/.pdf$/.test(href)) {
-			$a.attr('target', '_blank');
-		}
-
-	} // targetBlank()
-
-	$subMenu.find('a').each(targetBlank);
-	$mainMenu.find('a').each(targetBlank);
-
-	// pdf files in new tab }}}1
-
 	// IE8 {{{1
 
 	if ($('html').hasClass('ie8')) {
