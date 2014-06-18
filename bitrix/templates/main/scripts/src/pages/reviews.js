@@ -15,12 +15,13 @@ $(function domReady() {
 
 		var $s = $(this);
 		var $form = $s.find('form.add_review');
+		var $inputs = $form.find('label.text, label.textarea');
 
 		$form.detach().prependTo('body');
 
 		// placeholders {{{1
 		var placeholdersBindSuffix = '.write_a_review_form_placeholders';
-		$form.find('label.text, label.textarea').each(function () {
+		$inputs.each(function () {
 
 			var $label = $(this);
 			var $placeholder = $label.find('>span');
@@ -34,9 +35,7 @@ $(function domReady() {
 			}
 
 			function focus() {
-				if ($(this).attr('name') !== 'subject') {
-					$placeholder.stop().fadeOut(getVal('animationSpeed'));
-				}
+				$placeholder.stop().fadeOut(getVal('animationSpeed'));
 			}
 
 			$label.find('input, textarea')
@@ -49,7 +48,7 @@ $(function domReady() {
 
 		// focus class {{{1
 		var focusClassBindSuffix = '.write_a_review_form_placeholders';
-		$form.find('label.text, label.textarea').each(function () {
+		$inputs.each(function () {
 
 			var $label = $(this);
 
