@@ -74,14 +74,26 @@ $APPLICATION->SetTitle($fields["NAME"]);
 		<h1><?$APPLICATION->ShowTitle()?></h1>
 	</div>
 	<main><?
-        $detail_pic = CFile::GetPath($fields["DETAIL_PICTURE"]);?>
-		<img alt="<?=$fields["NAME"]?>" src="<?=$detail_pic?>" class="section_illustration" />
-		<div class="general_description">
-			<?=$fields["PREVIEW_TEXT"]?>
-		</div><!--.general_description-->
-		<div class="centered_content">
-			<?=$fields["DETAIL_TEXT"]?>
-		</div><!--.centered_content-->
+        if($fields["DETAIL_PICTURE"]){
+            $detail_pic = CFile::GetPath($fields["DETAIL_PICTURE"]);?>
+            <img alt="<?=$fields["NAME"]?>" src="<?=$detail_pic?>" class="section_illustration" /><?
+        }
+        if($fields["PREVIEW_TEXT"]){?>
+            <div class="general_description">
+                <?=$fields["PREVIEW_TEXT"]?>
+            </div><!--.general_description--><?
+        }
+        if($fields["DETAIL_TEXT"]){//cirle_photo sticky left?>
+            <div class="centered_content">
+                <p><?
+                    if($props["ROUNDPIC"]["VALUE"]){
+                        $rpic = CFile::ResizeImageGet($props["ROUNDPIC"]["VALUE"], array("width" => "212", "height" => "212"), BX_RESIZE_IMAGE_EXACT);?>
+                        <img src="<?=$rpic["src"]?>" alt="<?=$fields["NAME"]?>" class="cirle_photo sticky left"><?
+                    }?>
+                    <?=$fields["DETAIL_TEXT"]?>
+                </p>
+            </div><!--.centered_content--><?
+        }?>
         <?
             // TODO PROPERTY LIKE IN HOMESTEAD
         ?>
@@ -90,10 +102,12 @@ $APPLICATION->SetTitle($fields["NAME"]);
 			<li><img alt="" src="/tmp/homestead/pic.png" /></li>
 			<li><img alt="" src="/tmp/homestead/pic.png" /></li>
 		</ul>
-		<?=$props["INFO"]["~VALUE"]["TEXT"]?>
-		<div class="additional_content">
-			<?=$props["ADDITIONAL"]["~VALUE"]["TEXT"]?>
-		</div><!--.additional_content-->
+		<?=$props["INFO"]["~VALUE"]["TEXT"]?><?
+        if($props["ADDITIONAL"]["~VALUE"]["TEXT"]){?>
+            <div class="additional_content">
+                <?=$props["ADDITIONAL"]["~VALUE"]["TEXT"]?>
+            </div><!--.additional_content--><?
+        }?>
 	</main>
 	<div class="activities_nav_block"><!-- {{{1 -->
 		<a href="<?=SITE_DIR?>activities/" class="back_link"><?=GetMessage("ACTIVITIES")?></a>
