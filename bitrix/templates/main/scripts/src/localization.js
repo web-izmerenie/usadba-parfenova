@@ -26,6 +26,8 @@ define(['get_val'], function (getVal) {
 			'forms': {
 				'write_a_review_success_1': 'Thank you for your review',
 				'write_a_review_success_2': 'We will contact you shortly.',
+				'ask_a_question_success_1': 'Thank you for your review',
+				'ask_a_question_success_2': 'We will contact you shortly.',
 			},
 
 		},
@@ -47,6 +49,9 @@ define(['get_val'], function (getVal) {
 			'forms': {
 				'write_a_review_success_1': 'Благодарим за обращение к нам',
 				'write_a_review_success_2': 'Мы обязательно свяжемся с вами в ближайшее время.<br/>'+
+					'Усадьба Парфенова — место, где вас любят и ждут!',
+				'ask_a_question_success_1': 'Благодарим за обращение к нам',
+				'ask_a_question_success_2': 'Мы обязательно свяжемся с вами в ближайшее время.<br/>'+
 					'Усадьба Парфенова — место, где вас любят и ждут!',
 			},
 

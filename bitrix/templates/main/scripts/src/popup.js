@@ -119,13 +119,17 @@ define(['get_val', 'jquery'], function (getVal, $) {
 			$(document).off('click' + params.bindSuffix);
 			$closer.off('click' + params.bindSuffix);
 
-			$.merge($overflow, params.$container)
-				.stop()
-				.animate({ opacity: 0 }, getVal('animationSpeed'), function () {
-					$(this).css('display', 'none');
-					count++;
-					if (count >= 2) $html.removeClass( htmlClassName );
-				});
+			var $toHide = $();
+			$.merge($toHide, $overflow);
+			$.merge($toHide, params.$container);
+
+			$toHide.stop().animate({ opacity: 0 }, getVal('animationSpeed'), function () {
+				$(this).css('display', 'none');
+				count++;
+				if (this === params.$container.get(0))
+					params.$container.removeClass( contentClassName );
+				if (count >= 2) $html.removeClass( htmlClassName );
+			});
 
 			return false;
 

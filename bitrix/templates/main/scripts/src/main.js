@@ -28,7 +28,7 @@ $(function domReady() {
 
 			}
 		}
-	});
+	}); // require.config()
 
 	require(['header']);
 
@@ -54,6 +54,10 @@ $(function domReady() {
 
 	if ($('section.reviews').size() > 0) {
 		require(['pages/reviews']);
+	}
+
+	if ($('form.add_question').size() > 0) {
+		require(['ask_a_question']);
 	}
 
 }); // domReady()
