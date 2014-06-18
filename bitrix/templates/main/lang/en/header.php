@@ -10,4 +10,10 @@ $MESS["TRANSFER_LONG"] = "Manor offers a shuttle service from Krasnodar to guest
 $MESS["SHOW_MORE"] = "Show more";
 $MESS["ACTIVITIES"] = "Activities";
 $MESS["MAKE_REVIEW"] = "Make review";
+$MESS["NAME"] = "Name";
+$MESS["CITY_LOCATION"] = "Location";
+$MESS["EMAIL"] = "E-mail";
+$MESS["YOUR_REVIEW"] = "Your review";
+$MESS["SEND"] = "Send";
+
 ?>
