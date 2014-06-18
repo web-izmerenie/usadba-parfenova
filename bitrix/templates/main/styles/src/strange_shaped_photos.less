@@ -8,7 +8,10 @@
 .strangeShapedPhotos() {
 	display: block;
 	.fontMetrics(0, 0);
-	text-align: center;
+	width: @minWidth - (@mainMargin * 2);
+	padding-left: @mainMargin;
+	padding-right: @mainMargin;
+	margin: 0 auto;
 
 	li {
 		@w: 295px; @h: 195px;
@@ -30,6 +33,6 @@
 			.absolute(0, auto, auto, 0);
 		} // &:before
 
-		&:first-child { margin-left: 0; }
+		&:first-child, &:nth-child(3n+4) { margin-left: 0; }
 	} // li
 } // .strangeShapedPhotos()

@@ -11,8 +11,6 @@ html.homestead_subpage body {
 		display: block;
 		padding-top: @headerHeight;
 		padding-bottom: @footerHeight;
-		padding-left: @mainMargin;
-		padding-right: @mainMargin;
 		.box-sizing(border-box);
 		max-width: @maxWidth;
 		margin: 0 auto;
@@ -22,6 +20,8 @@ html.homestead_subpage body {
 			text-align: center;
 			padding-top: 67px - 36px;
 			padding-bottom: 34px - 6px;
+			margin-left: @mainMargin;
+			margin-right: @mainMargin;
 
 			h1 {
 				display: block;
@@ -39,6 +39,8 @@ html.homestead_subpage body {
 			margin-top: 36px;
 			height: 32px;
 			overflow: hidden;
+			margin-left: @mainMargin;
+			margin-right: @mainMargin;
 
 			@px: 10px; // padding X-axis
 			@pt: 22px-15px; // padding top
@@ -106,8 +108,9 @@ html.homestead_subpage body {
 
 		.sub_menu_line { // {{{1
 			display: block;
-			width: 100%;
 			margin-top: 57px - 25px;
+			padding-left: @mainMargin;
+			padding-right: @mainMargin;
 
 			&:after { .pseudoBlock; clear: both; }
 
@@ -224,27 +227,19 @@ html.homestead_subpage body {
 			.customFont('PT Sans', 16px, 24px);
 			color: @dark2Color;
 
-			.panorama { // {{{2
+			.panorama, .detail_picture { // {{{2
 				display: block;
 				background: @plugColor;
-				width: 100%;
-				height: 400px;
-			} // .panorama }}}2
+				.size(100%, 400px);
+				max-width: @maxWidth - (@mainMargin * 2);
+				margin: 0 auto;
+			} // .panorama, .detail_picture }}}2
 
-			.notation_block { // {{{2
-				@bc: #cbc4be; // border color
-
+			.detail_picture, .detail_picture img {
 				display: block;
-				border-top: 1px solid @bc;
-				border-bottom: 1px solid @bc;
-				width: 620px;
-				padding-left: 2px;
-				padding-right: 2px;
-				padding-top: 36px - 18px;
-				padding-bottom: 26px - 6px;
-				.box-sizing(border-box);
-				margin: 54px auto;
-			} // .notation_block }}}2
+				width: 100%;
+				height: auto;
+			} // .detail_picture
 
 			ul.photos { .strangeShapedPhotos; }
 

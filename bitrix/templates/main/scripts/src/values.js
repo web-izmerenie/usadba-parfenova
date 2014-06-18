@@ -36,12 +36,14 @@ define(function () {
 			'</div>',
 		dialogBoxCloseExclude: '.wrapper_2',
 
+		panoramaRatio: [148, 69],
+
 	};
 
 	/** Required set before "getVal" */
 	exports.required = [
 		'lang',
-		'revision'
+		'revision',
 	];
 
 	return exports;

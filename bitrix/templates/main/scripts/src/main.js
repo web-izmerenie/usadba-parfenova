@@ -7,6 +7,8 @@
 define(['basics/get_val', 'jquery'], function (getVal, $) {
 $(function domReady() {
 
+	var $html = $('html');
+
 	require.config({
 		map: {
 			'*': {
@@ -30,19 +32,23 @@ $(function domReady() {
 
 	require(['header']);
 
-	if ($('html').hasClass('main_page')) {
+	if ($html.hasClass('main_page')) {
 		require(['pages/main']);
 	}
 
-	if ($('html').hasClass('homestead_page') && $('section.homestead').size() > 0) {
+	if ($html.hasClass('homestead_page') && $('section.homestead').size() > 0) {
 		require(['pages/homestead']);
 	}
 
-	if ($('html').hasClass('homestead_subpage')) {
+	if ($html.hasClass('homestead_subpage')) {
 		require(['pages/homestead_subpage']);
 	}
 
-	if ($('html').hasClass('activities_subpage')) {
+	if ($html.hasClass('activities_page')) {
+		require(['pages/activities']);
+	}
+
+	if ($html.hasClass('activities_subpage')) {
 		require(['pages/activities_subpage']);
 	}
 

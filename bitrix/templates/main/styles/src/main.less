@@ -34,6 +34,7 @@
 @import "pages/activities";
 @import "pages/activities_subpage";
 @import "pages/reviews";
+@import "pages/corporate";
 
 /* === STYLES === */
 
@@ -167,6 +168,21 @@ html body {
 					margin-bottom: @mainMargin;
 				}
 			} // img.sticky }}}2
+
+			.notation_block { // {{{2
+				@bc: #cbc4be; // border color
+
+				display: block;
+				border-top: 1px solid @bc;
+				border-bottom: 1px solid @bc;
+				width: 620px;
+				padding-left: 2px;
+				padding-right: 2px;
+				padding-top: 36px - 18px;
+				padding-bottom: 26px - 6px;
+				.box-sizing(border-box);
+				margin: 54px auto;
+			} // .notation_block }}}2
 		} // main }}}1
 
 		h1.page_title { // {{{1

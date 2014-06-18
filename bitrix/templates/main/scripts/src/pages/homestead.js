@@ -7,7 +7,11 @@
 define(['jquery', 'get_val'], function ($, getVal) {
 $(function domReady() {
 
-	$('html.homestead_page section.homestead').each(function () {
+	var $html = $('html');
+
+	if (!$html.hasClass('homestead_page')) return;
+
+	$('section.homestead').each(function () {
 
 		var $sect = $(this);
 
@@ -23,9 +27,15 @@ $(function domReady() {
 			});
 		} // resizeRoomsNames()
 
-		$(window).load(resizeRoomsNames);
+		$(window).load(function () { setTimeout(resizeRoomsNames, 1); });
 		setTimeout(resizeRoomsNames, 1);
 
+	});
+
+	$('.section_wrap .columns').each(function () {
+		var bg = $(this).attr('data-background');
+		if (!bg) return;
+		$(this).css('background-image', 'url("'+ bg +'")');
 	});
 
 }); // domReady()

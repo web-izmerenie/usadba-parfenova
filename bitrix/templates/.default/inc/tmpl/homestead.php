@@ -1,9 +1,22 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<div class="section_wrap">
+<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?><?
+    CModule::IncludeModule("iblock");
+    $section = CIBlockSection::GetList(
+        array(),
+        array(
+            "ACTIVE" => "Y",
+            "IBLOCK_TYPE" => LANGUAGE_ID,
+            "IBLOCK_CODE" => "homestead",
+            "CODE" => $arParams["SECTION_CODE"]
+        )
+    );
+    $arSection = $section->GetNext();
+    $arSection["PICTURE"] = CFile::GetPath($arSection["PICTURE"]);
+?>
+<div class="section_wrap <?=$arParams["SECTION_CODE"]?>">
 	<div class="head">
 		<h1><?$APPLICATION->ShowTitle()?></h1>
 	</div>
-	<div class="columns">
+	<div class="columns" data-background="<?=$arSection["PICTURE"]?>">
 		<div class="left_block">
 			<div class="bg"></div>
 			<div class="blur_back_bg"></div>
@@ -45,7 +58,9 @@
 				<nav class="rooms"><?
                     CModule::IncludeModule("iblock");
                     $res = CIBlockElement::GetList(
-                        array(),
+                        array(
+                            "SORT" => "asc"
+                        ),
                         array(
                             "ACTIVE" => "Y",
                             "IBLOCK_TYPE" => $arParams["IBLOCK_TYPE"],

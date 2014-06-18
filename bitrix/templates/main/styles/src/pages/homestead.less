@@ -10,9 +10,14 @@ html.homestead_page body {
 	.twoColumnsPage();
 
 	.section_wrap .columns {
-		.bg('homestead/bg.jpg', center center no-repeat);
+		background-position: center center;
+		background-repeat: no-repeat;
 		.background-size(cover);
 	} // .section_wrap .columns
+
+	.section_wrap.guesthouse .columns {
+		background-position: center 0;
+	} // .section_wrap.guesthouse .columns
 
 	.section_wrap .columns .right_block {
 		vertical-align: bottom;
@@ -58,7 +63,7 @@ html.homestead_page body {
 					margin-top: 9px;
 					width: auto;
 					.transition(background-color @animationSpeed linear);
-				} // span
+				} // & > span
 
 				&:hover {
 					img { border-color: @activeLightLinkColor; }
