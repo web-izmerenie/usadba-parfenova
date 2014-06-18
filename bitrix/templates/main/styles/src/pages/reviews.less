@@ -138,6 +138,22 @@ html body form.add_review { // add review form {{{1
 
 	@labelInterval: 9px;
 
+	label.text, label.textarea { // {{{2
+		display: block;
+		border: 1px solid @formFieldBorderColor;
+		.box-sizing(border-box);
+		.relative;
+		z-index: 150;
+		.transition(border-color @animationSpeed linear);
+
+		& > span {
+			width: auto;
+			z-index: 170;
+		} // & > span
+
+		&.focused { border-color: @light3Color; }
+	} // label.text, label.textarea }}}2
+
 	label.text { // {{{2
 		@lw: 227px; // label width
 		@lh: 31px; // label height
@@ -149,12 +165,7 @@ html body form.add_review { // add review form {{{1
 		@pb: @actualHeight - (@lineHeight + @pt);
 		@px: 8px;
 
-		display: block;
 		.size(@lw, @lh);
-		.box-sizing(border-box);
-		border: 1px solid @formFieldBorderColor;
-		.relative;
-		z-index: 150;
 		margin-top: @labelInterval;
 
 		&, & > span, & > input { cursor: text; }
@@ -169,11 +180,6 @@ html body form.add_review { // add review form {{{1
 			.customFont('PT Sans', @fontSize, @lineHeight);
 			padding: @pt @px @pb;
 		} // & > span, & > input
-
-		& > span {
-			width: auto;
-			z-index: 170;
-		} // & > span
 
 		& > input {
 			background: white;
@@ -192,12 +198,7 @@ html body form.add_review { // add review form {{{1
 		@pb: 5px;
 		@px: 8px;
 
-		display: block;
 		.size(@lw, @lh);
-		.box-sizing(border-box);
-		border: 1px solid @formFieldBorderColor;
-		.relative;
-		z-index: 150;
 		margin-top: @labelInterval;
 
 		&, & > span, & > textarea { cursor: text; }
@@ -213,11 +214,6 @@ html body form.add_review { // add review form {{{1
 			padding: @pt @px @pb;
 		} // & > span, & > input
 
-		& > span {
-			width: auto;
-			z-index: 170;
-		} // & > span
-
 		& > textarea {
 			background: white;
 			z-index: 160;
@@ -227,6 +223,7 @@ html body form.add_review { // add review form {{{1
 	} // label.textarea }}}2
 
 	label.required > span:after { .pseudoBlock('*'); display: inline-block; }
+	label.text.error, label.textarea.error { border-color: @formFieldErrorBorderColor; }
 
 	label.submit { // {{{2
 		&:extend(.icon-strange_shaped_button_small);
@@ -237,6 +234,16 @@ html body form.add_review { // add review form {{{1
 		z-index: 150;
 		overflow: hidden;
 		margin-top: 15px;
+
+		&:before {
+			&:extend(.icon-strange_shaped_button_small);
+			.pseudoBlock;
+			.bg('spinner.gif', center center no-repeat);
+			.absolute(-100%, auto, auto, -100%);
+			z-index: 180;
+			.opacity(0);
+			.transition(opacity @animationSpeed linear);
+		} // &:before
 
 		input {
 			.resetCSS; border: 0;
@@ -262,6 +269,7 @@ html body form.add_review { // add review form {{{1
 			text-transform: uppercase;
 			.box-sizing(border-box);
 			padding-top: 12px;
+			.transition(color @animationSpeed linear);
 
 			&:before { &:extend(.icon-strange_shaped_button_small); }
 			&:after { &:extend(.icon-strange_shaped_button_small_active); }
@@ -271,4 +279,14 @@ html body form.add_review { // add review form {{{1
 			&:before, &:after { z-index: -1; }
 		} // span
 	} // label.submit }}}2
+
+	&.ajax_process label.submit {
+		span {
+			color: #4d2e20;
+			&:hover:after { .opacity(0); }
+			&:hover:before { .opacity(1); }
+		}
+
+		&:before { .opacity(1); left: 0; top: 0; }
+	} // &.ajax_process label.submit
 } // add review form }}}1

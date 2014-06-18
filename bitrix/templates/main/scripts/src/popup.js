@@ -133,7 +133,7 @@ define(['get_val', 'jquery'], function (getVal, $) {
 
 		function docClickHandler(event) { // {{{2
 
-			if (closingProcess) return true;
+			if (closingProcess || $html.hasClass('dialog_box')) return true;
 
 			var x = params.$container.offset().left;
 			var y = params.$container.offset().top;
