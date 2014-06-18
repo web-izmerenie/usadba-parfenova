@@ -15,59 +15,68 @@ html.activities_page body {
 		.background-size(cover);
 	} // .section_wrap .columns
 
+	.section_wrap .columns .right_block {
+		vertical-align: bottom;
+	} // .section_wrap .columns .right_block
+
 	.section_wrap .columns .right_block section.activities {
 		display: block;
+		background: rgba(0, 0, 0, 0.7);
+
+		&:after { .pseudoBlock; clear: both; }
 
 		.section_info {
 			display: block;
 			float: left;
 			font: @contentFont;
 			color: @light2Color;
-			width: 350px;
-			margin-left: 60px;
-			margin-top: 105px - 36px;
+			width: 66%;
+			margin-left: 36px;
+			padding-bottom: 35px - 6px;
+			padding-top: (51px - 36px) + (51px - 46px);
+			line-height: 20px;
+			max-width: 650px;
 
 			h2 {
-				@iconW: 49px;
+				@iconW: 39px;
 
 				display: inline-block;
-				.customFont('PT Sans', 40px, 42px);
+				.customFont('PT Sans', 34px, 36px);
 				font-weight: bold;
 				text-transform: uppercase;
 				color: @light2Color;
 				.relative;
 				padding-left: @iconW + 8px;
 				padding-right: @iconW + 8px;
-				padding-bottom: 40px - 24px;
+				padding-bottom: 40px - 24px - 9px + 2px;
+				white-space: nowrap;
 
 				&:before, &:after {
 					&:extend(.icon-oars);
 					.pseudoBlock;
-					.absolute(-1px, auto, auto, 0);
+					.absolute(0, auto, auto, 0);
 				} // &:before, &:after
 
-				&:after {
-					left: auto;
-					right: 0;
-				} // &:after
+				&:after { left: auto; right: 0; }
 			} // h2
 		} // .section_info
 
 		.more {
-			@iconW: 18px;
+			@iconW: 13px;
 
 			.linkNoLine;
 			display: block;
-			float: right;
-			margin-top: 71px;
-			margin-right: 43px + @mainMargin;
+			float: left;
+			margin-bottom: 30px;
+			margin-top: 34px;
+			margin-left: @mainMargin;
 
 			figure {
 				display: block;
 				text-align: center;
 
 				img {
-					@s: 131px;
+					@s: 78px;
 
 					display: inline-block;
 					.size(@s);
@@ -76,21 +85,22 @@ html.activities_page body {
 					border: 2px solid white;
 					margin: 0 auto;
 					.transition(border-color @animationSpeed linear);
+					.relative(auto, auto, auto, -(@iconW/2));
 				} // img
 
 				figcaption {
 					display: inline-block;
 					background: @light2Color;
-					.border-radius(5px 0 0 5px);
+					.border-radius(3px 0 0 3px);
 					color: @dark3Color;
-					.size(auto, 35px);
-					.customFont('PT Sans', 18px, 24px);
+					.size(auto, 26px);
+					.customFont('PT Sans', 16px, 18px);
 					font-weight: bold;
 					text-transform: uppercase;
-					padding: 0 10px;
-					padding-top: 23px-18px;
+					padding: 0 7px;
+					padding-top: 23px-18px-1px;
 					.box-sizing(border-box);
-					margin-top: 17px;
+					margin-top: 8px;
 					.relative;
 					margin-right: @iconW;
 					.transition(background-color @animationSpeed linear);
