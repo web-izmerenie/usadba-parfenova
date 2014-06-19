@@ -50,7 +50,7 @@ $detail_pic = CFile::GetPath($fields["DETAIL_PICTURE"]);?>
 );?>
             </nav>
         </div><!--.left_block-->
-        <div class="right_block">
+        <div class="right_block"><main>
             <section class="activities">
 				<div class="section_info">
 					<h2><?=$fields["NAME"]?></h2>
@@ -65,8 +65,8 @@ $detail_pic = CFile::GetPath($fields["DETAIL_PICTURE"]);?>
 					</figure>
 				</a>
             </section>
-        </div><!--.right_block-->
+        </main></div><!--.right_block-->
     </div><!--.columns-->
 </div><!--.section_wrap-->
-<main></main>
+
 <?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
