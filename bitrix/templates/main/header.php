@@ -1,5 +1,5 @@
 <?
-    $revision = 6;
+    $revision = 7;
     $devRevision = 1;
 
     // development revision

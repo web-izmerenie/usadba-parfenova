@@ -189,6 +189,13 @@ html.activities_page body {
 		.iconPaddings(44px + @offset);
 	}
 
+	.section_wrap.equestrian .section_info h2 {
+		&:before { &:extend(.icon-equestrian_left); }
+		&:after { &:extend(.icon-equestrian_right); }
+		&:before, &:after { top: -3px !important; }
+		.iconPaddings(44px + @offset);
+	}
+
 	.section_wrap.ropepark .section_info h2 {
 		&:before { &:extend(.icon-rope_left); }
 		&:after { &:extend(.icon-rope_right); }
