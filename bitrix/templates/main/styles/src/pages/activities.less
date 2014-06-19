@@ -9,28 +9,22 @@
 html.activities_page body {
 	.twoColumnsPage();
 
-	.section_wrap .columns {
+	.section_wrap .columns { // {{{1
 		background-position: center center;
 		background-repeat: no-repeat;
 		.background-size(cover);
-	} // .section_wrap .columns
+	} // .section_wrap .columns }}}1
 
-	.section_wrap .columns .right_block {
-		vertical-align: bottom;
-	} // .section_wrap .columns .right_block
+	.section_wrap .columns .right_block { vertical-align: bottom; }
+	.section_wrap .columns .right_block main { display: block; h2 + p { .resetCSS; } }
 
-	.section_wrap .columns .right_block main {
-		display: block;
-		h2 + p { .resetCSS; }
-	} // .section_wrap .columns .right_block main
-
-	.section_wrap .columns .right_block section.activities {
+	.section_wrap .columns .right_block section.activities { // {{{1
 		display: block;
 		background: rgba(0, 0, 0, 0.7);
 
 		&:after { .pseudoBlock; clear: both; }
 
-		.section_info {
+		.section_info { // {{{2
 			display: block;
 			float: left;
 			font: @contentFont;
@@ -42,31 +36,26 @@ html.activities_page body {
 			line-height: 20px;
 			max-width: 650px;
 
-			h2 {
-				@iconW: 39px;
-
+			h2 { // {{{3
 				display: inline-block;
 				.customFont('PT Sans', 34px, 36px);
 				font-weight: bold;
 				text-transform: uppercase;
 				color: @light2Color;
 				.relative;
-				padding-left: @iconW + 8px;
-				padding-right: @iconW + 8px;
 				padding-bottom: 40px - 24px - 9px + 2px;
 				white-space: nowrap;
 
 				&:before, &:after {
-					&:extend(.icon-oars);
 					.pseudoBlock;
 					.absolute(0, auto, auto, 0);
 				} // &:before, &:after
 
 				&:after { left: auto; right: 0; }
-			} // h2
-		} // .section_info
+			} // h2 }}}3
+		} // .section_info }}}2
 
-		.more {
+		.more { // {{{2
 			@iconW: 13px;
 
 			.linkNoLine;
@@ -76,11 +65,11 @@ html.activities_page body {
 			margin-top: 34px;
 			margin-left: @mainMargin;
 
-			figure {
+			figure { // {{{3
 				display: block;
 				text-align: center;
 
-				img {
+				img { // {{{4
 					@s: 78px;
 
 					display: inline-block;
@@ -91,9 +80,9 @@ html.activities_page body {
 					margin: 0 auto;
 					.transition(border-color @animationSpeed linear);
 					.relative(auto, auto, auto, -(@iconW/2));
-				} // img
+				} // img }}}4
 
-				figcaption {
+				figcaption { // {{{4
 					display: inline-block;
 					background: @light2Color;
 					.border-radius(3px 0 0 3px);
@@ -124,17 +113,88 @@ html.activities_page body {
 						.pseudoBlock;
 						.opacity(0);
 					}
-				} // figcaption
-			} // figure
+				} // figcaption }}}4
+			} // figure }}}3
 
-			&:hover figure {
+			&:hover figure { // {{{3
 				img { border-color: @activeLightLinkColor; }
 				figcaption {
 					background: @activeLightLinkColor;
 					//&:before { .opacity(0); }
 					&:after { .opacity(1); }
 				} // figcaption
-			} // &:hover
-		} // .more
-	} // .section_wrap .columns .right_block section.activities
+			} // &:hover figure }}}3
+		} // .more }}}2
+	} // .section_wrap .columns .right_block section.activities }}}1
+
+	// section icons {{{2
+
+	@offset: 8px;
+
+	.iconPaddings(@p) {
+		padding-left: @p;
+		padding-right: @p;
+	}
+
+	.section_wrap.rafting .section_info h2 {
+		&:before, &:after { &:extend(.icon-oars); }
+		.iconPaddings(39px + @offset);
+	}
+
+	.section_wrap.quad .section_info h2 {
+		&:before { &:extend(.icon-quad_left); }
+		&:after { &:extend(.icon-quad_right); }
+		&:before, &:after { top: -2px !important; }
+		.iconPaddings(43px + @offset);
+	}
+
+	.section_wrap.mountainbike .section_info h2 {
+		&:before { &:extend(.icon-bike_left); }
+		&:after { &:extend(.icon-bike_right); }
+		&:before, &:after { top: 4px !important; }
+		.iconPaddings(55px + @offset);
+	}
+
+	.section_wrap.jeep .section_info h2 {
+		&:before { &:extend(.icon-jeep_left); }
+		&:after { &:extend(.icon-jeep_right); }
+		&:before, &:after { top: 4px !important; }
+		.iconPaddings(52px + @offset);
+	}
+
+	.section_wrap.tracking .section_info h2 {
+		&:before { &:extend(.icon-tracking_left); }
+		&:after { &:extend(.icon-tracking_right); }
+		&:before, &:after { top: -6px !important; }
+		.iconPaddings(42px + @offset);
+	}
+
+	.section_wrap.canyoning .section_info h2 {
+		&:before { &:extend(.icon-canyoning_left); }
+		&:after { &:extend(.icon-canyoning_right); }
+		&:before, &:after { top: -3px !important; }
+		.iconPaddings(34px + @offset);
+	}
+
+	.section_wrap.rockclimbing .section_info h2 {
+		&:before { &:extend(.icon-carbine_left); }
+		&:after { &:extend(.icon-carbine_right); }
+		&:before, &:after { top: -2px !important; }
+		.iconPaddings(35px + @offset);
+		padding-right: 35px + @offset + 2px;
+	}
+
+	.section_wrap.cave .section_info h2 {
+		&:before, &:after { &:extend(.icon-helmet); top: 4px !important; }
+		.iconPaddings(44px + @offset);
+	}
+
+	.section_wrap.ropepark .section_info h2 {
+		&:before { &:extend(.icon-rope_left); }
+		&:after { &:extend(.icon-rope_right); }
+		&:before, &:after { top: 9px !important; }
+		.iconPaddings(52px + @offset);
+	}
+
+	// section icons }}}2
 } // html.activities_page body
