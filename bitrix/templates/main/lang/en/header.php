@@ -15,5 +15,8 @@ $MESS["CITY_LOCATION"] = "Location";
 $MESS["EMAIL"] = "E-mail";
 $MESS["YOUR_REVIEW"] = "Your review";
 $MESS["SEND"] = "Send";
+$MESS["ASK_QUESTION"] = "Ask";
+$MESS["PHONE"] = "Phone";
+$MESS["QUESTION"] = "Question";
 
 ?>

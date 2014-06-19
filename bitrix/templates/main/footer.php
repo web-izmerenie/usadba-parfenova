@@ -1,25 +1,25 @@
         <?if (!defined("NO_MAIN_WRAPPER")) {?></main><?}?>
-		<form class="add_question" action="/ajax/add_question.php" method="post">
-			<h2>Задать вопрос</h2>
+		<form class="add_question" action="/ajax/handler.php" method="post">
+			<h2><?=GetMessage("ASK_QUESTION")?></h2>
 			<label class="text required">
-				<span>Имя</span>
+				<span><?=GetMessage("NAME")?></span>
 				<input type="text" name="name" value=""/>
 			</label>
 			<label class="text">
-				<span>E-mail</span>
+				<span><?=GetMessage("EMAIL")?></span>
 				<input type="text" name="email" value=""/>
 			</label>
 			<label class="text required">
-				<span>Телефон</span>
+				<span><?=GetMessage("PHONE")?></span>
 				<input type="text" name="phone" value=""/>
 			</label>
 			<label class="textarea required">
-				<span>Ваш отзыв</span>
-				<textarea name="review_text"></textarea>
+				<span><?=GetMessage("QUESTION")?></span>
+				<textarea name="question_text"></textarea>
 			</label>
 			<label class="submit">
-				<span>Отправить</span>
-				<input type="submit" value="Отправить" />
+				<span><?=GetMessage("SEND")?></span>
+				<input type="submit" value="<?=GetMessage("SEND")?>" />
 			</label>
 		</form>
     </div><!--.top_side-->

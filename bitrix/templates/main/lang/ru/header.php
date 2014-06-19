@@ -15,5 +15,8 @@ $MESS["CITY_LOCATION"] = "Город (страна)";
 $MESS["EMAIL"] = "E-mail";
 $MESS["YOUR_REVIEW"] = "Ваш отзыв";
 $MESS["SEND"] = "Отправить";
+$MESS["ASK_QUESTION"] = "Задать вопрос";
+$MESS["PHONE"] = "Телефон";
+$MESS["QUESTION"] = "Ваш вопрос";
 
 ?>
