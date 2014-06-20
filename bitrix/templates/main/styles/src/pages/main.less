@@ -14,9 +14,12 @@ html.main_page body main section.main_page {
 		.size(100%);
 		.relative;
 		min-height: @cardMinHeight;
-		.bg('main_page/01.jpg', center center no-repeat);
+		background-position: center center;
+		background-repeat: no-repeat;
 		.background-size(cover);
 		background-attachment: fixed;
+
+		img.background { display: none; }
 
 		.logo_wrap { // {{{2
 			display: block;
@@ -67,6 +70,12 @@ html.main_page body main section.main_page {
 			display: block;
 			.size(100%);
 			min-height: @cardMinHeight;
+			background-position: center center;
+			background-repeat: no-repeat;
+			.background-size(cover);
+			background-attachment: fixed;
+
+			img { display: none; }
 		} // .background
 
 		h2 {
@@ -88,22 +97,7 @@ html.main_page body main section.main_page {
 			text-align: center;
 		} // .text
 
-		.setBg(@fileNum) {
-			.bg('main_page/@{fileNum}.jpg', center center no-repeat);
-			.background-size(cover);
-			background-attachment: fixed;
-		}
-
-		&.card_2 .background { .setBg('02'); }
-		&.card_3 .background { .setBg('03'); }
-		&.card_4 .background { .setBg('04'); }
-		&.card_5 .background { .setBg('05'); }
-		&.card_6 .background { .setBg('06'); }
-
-		&.card_3 .text,
-		&.card_4 .text {
-			width: 600px;
-		}
+		&.card_3 .text, &.card_4 .text { width: 600px; }
 	} // .card }}}1
 } // html.main_page body main
 

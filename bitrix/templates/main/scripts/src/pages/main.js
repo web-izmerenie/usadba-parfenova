@@ -22,6 +22,17 @@ $(function domReady() {
 
 	var scrollDownSpeed = getVal('animationSpeed') * 6;
 
+	$backgrounds.each(function () { // set backgrounds {{{1
+
+		if ($(this).hasClass('card_1')) {
+			$(this).css('background-image', 'url("'+ $(this).find('img.background').attr('src') +'")');
+			return;
+		}
+
+		$(this).css('background-image', 'url("'+ $(this).find('img').attr('src') +'")');
+
+	}); // set backgrounds }}}1
+
 	// paralax {{{1
 
 	var bgRatio = getVal('mainPageBackgroundsRatio');
