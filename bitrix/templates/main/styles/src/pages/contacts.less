@@ -20,9 +20,9 @@ html body section.contacts {
 
 	.contact_unit + h2 { margin-top: @mainMargin; }
 	h2 + .way_icons { padding-top: @mainMargin; }
-	.map + h2, ul + h2 { margin-top: 56px - 18px; }
-	h2 + .map { margin-top: 23px - 4px; }
-	//ul + h2 { margin-top: 53px - 24px; } // cause small, use .map+h2
+	.interactive_map + h2, ul + h2 { margin-top: 56px - 18px; }
+	h2 + .interactive_map { margin-top: 23px - 4px; }
+	//ul + h2 { margin-top: 53px - 24px; } // cause small, use .interactive_map+h2
 
 	.way_icons {
 		display: block;
@@ -64,9 +64,14 @@ html body section.contacts {
 		margin-top: 45px - 18px;
 	} // ul
 
-	.map {
+	.interactive_map {
 		display: block;
 		height: 400px;
 		background: @plugColor;
-	}
+
+		.map {
+			display: block;
+			.size(100%);
+		} // .map
+	} // .interactive_map
 } // html body section.contacts

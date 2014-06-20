@@ -38,6 +38,8 @@ define(function () {
 
 		panoramaRatio: [148, 69],
 
+		dynamicApiLoadInterval: 500,
+
 	};
 
 	/** Required set before "getVal" */

@@ -25,6 +25,7 @@ $(function domReady() {
 				'grayscale_img': 'basics/grayscale_img',
 				'json_answer': 'basics/json_answer',
 				'dialog_box': 'basics/dialog_box',
+				'dynamic_api': 'basics/dynamic_api',
 
 			}
 		}
@@ -58,6 +59,10 @@ $(function domReady() {
 
 	if ($('form.add_question').size() > 0) {
 		require(['ask_a_question']);
+	}
+
+	if ($('section.contacts').size() > 0) {
+		require(['pages/contacts']);
 	}
 
 }); // domReady()
