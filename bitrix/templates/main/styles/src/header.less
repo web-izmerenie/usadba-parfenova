@@ -102,6 +102,9 @@ html body header {
 				color: @openedLightLinkColor;
 			} // .active, .active:hover
 
+			a.active, a.active:hover { cursor: pointer; }
+			a.active:hover { color: @activeLightLinkColor; }
+
 			.separator {
 				display: inline-block;
 				width: 25px;
@@ -148,6 +151,9 @@ html body header {
 			cursor: default;
 			color: @openedLightLinkColor;
 		} // span, span:hover
+
+		a.active { color: @openedLightLinkColor; }
+		a.active:hover { color: @activeLightLinkColor; }
 
 		a { cursor: pointer; }
 	} // nav.sub_menu }}}1

@@ -153,7 +153,7 @@ html.homestead_subpage body {
 					&:hover { color: @light3Color; border-bottom-color: @light3Color; }
 				} // a
 
-				span {
+				span, a.active {
 					background: @darkBgColor;
 					cursor: default;
 					border: 0;
@@ -166,7 +166,17 @@ html.homestead_subpage body {
 						.pseudoBlock;
 						.absolute(0, auto, auto, 100%);
 					} // &:after
-				} // span
+				} // span, a.active
+
+				a.active {
+					cursor: pointer;
+					padding-left: 5px;
+					padding-top: 12px - 7px;
+					margin-bottom: 0;
+					margin-left: 0;
+					.size(@w - 13px, @ih);
+					&:hover { color: @light3Color; }
+				} // a.active
 			} // nav.sub_menu }}}2
 
 			nav.rooms { // {{{2
