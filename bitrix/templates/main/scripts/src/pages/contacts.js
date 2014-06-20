@@ -20,8 +20,8 @@ $(function domReady() {
 			var id = 'interactive_yandex_map_n_' + i + '_' + n;
 			$map.attr('id', id);
 
-			var mapCenterX = parseInt($mapWrap.attr('data-center-x'), 10);
-			var mapCenterY = parseInt($mapWrap.attr('data-center-y'), 10);
+			var mapCenterX = parseFloat($mapWrap.attr('data-center-x'), 10);
+			var mapCenterY = parseFloat($mapWrap.attr('data-center-y'), 10);
 			var mapZoom = parseInt($mapWrap.attr('data-zoom'), 10);
 			var mapRoute = null;
 
@@ -65,6 +65,8 @@ $(function domReady() {
 								zoom: mapZoom,
 							});
 
+							$mapWrap.data('map', map);
+
 							// controls
 							map.controls
 								.add('zoomControl', { left: 15, top: 15 })
@@ -80,7 +82,7 @@ $(function domReady() {
 								});
 							});
 
-							$(window).on('resize', function () {
+							function resize() {
 
 								$mapWrap.css(
 									'height', (
@@ -91,7 +93,11 @@ $(function domReady() {
 
 								map.container.fitToViewport();
 
-							}).trigger('resize');
+							}
+
+							$(window).on('resize', resize);
+							setTimeout(resize, 1);
+							setTimeout(function () { map.setCenter([ mapCenterY, mapCenterX ]); }, 1);
 
 						}); // ymaps.ready()
 
