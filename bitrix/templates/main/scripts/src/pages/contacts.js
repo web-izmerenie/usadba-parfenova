@@ -55,9 +55,6 @@ $(function domReady() {
 							return;
 						}
 
-						// load modules
-						ymaps.load(['package.route']);
-
 						ymaps.ready(function () {
 
 							var map = new ymaps.Map(id, {
@@ -72,12 +69,14 @@ $(function domReady() {
 								.add('zoomControl', { left: 15, top: 15 })
 								.add('typeSelector', { right: 15, top: 15 });
 
-							$.each(mapRoute, function (i, path) {
-								ymaps.route(path).then(function success(route) {
-									map.geoObjects.add(route);
-								}, function error(err) {
-									require(['dialog_box_wrapper'], function (showDialogBox) {
-										showDialogBox({ messages: [ getLocalText('err', 'interactive_map_route') ] });
+							ymaps.load(['package.route'], function () {
+								$.each(mapRoute, function (i, path) {
+									ymaps.route(path).then(function success(route) {
+										map.geoObjects.add(route);
+									}, function error(err) {
+										require(['dialog_box_wrapper'], function (showDialogBox) {
+											showDialogBox({ messages: [ getLocalText('err', 'interactive_map_route') ] });
+										});
 									});
 								});
 							});
