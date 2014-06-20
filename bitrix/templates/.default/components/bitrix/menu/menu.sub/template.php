@@ -11,7 +11,15 @@ foreach($arResult as $arItem):
         
 ?>
 	<?if($arItem["SELECTED"]):?>
-		<span><?=$arItem["TEXT"]?></span>
+        <?
+            $path = $arItem["LINK"];
+            $page = $APPLICATION->GetCurPage();
+        ?>
+        <?if($path == $page):?>
+            <span><?=$arItem["TEXT"]?></span>
+        <?else:?>
+            <a class="active" target="<?=$target?>" href="<?=$path?>"><?=$arItem["TEXT"]?></a>
+        <?endif;?>
 	<?else:?>
         <?if(stristr($arItem["LINK"], "ask")):?>
             <a class="ask_a_question"><?=$arItem["TEXT"]?></a>
