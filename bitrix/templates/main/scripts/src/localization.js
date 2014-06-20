@@ -24,6 +24,7 @@ define(['get_val'], function (getVal) {
 				'interactive_map_init': 'Interactive map initialization error.',
 				'interactive_map_route': 'Route planning error on interactive map.',
 				'interactive_map_params': 'No interactive map parameters or incorrect values.',
+				'panorama_init': 'Panorama initialization error.',
 			},
 
 			'forms': {
@@ -50,6 +51,7 @@ define(['get_val'], function (getVal) {
 				'interactive_map_init': 'Ошибка инициализации интерактивной карты.',
 				'interactive_map_route': 'Ошибка построения маршрута на интерактивной карте.',
 				'interactive_map_params': 'Не указаны параметры интерактивной карты или имеют неверный тип данных.',
+				'panorama_init': 'Произошла ошибка при инициализации панорамы.',
 			},
 
 			'forms': {

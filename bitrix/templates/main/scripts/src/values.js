@@ -46,6 +46,7 @@ define(function () {
 	exports.required = [
 		'lang',
 		'revision',
+		'tplPath',
 	];
 
 	return exports;

@@ -95,5 +95,27 @@ $(function domReady() {
 	})(); // isolate()
 	// panorama block ratio resize }}}1
 
+	setTimeout(function () { // panorama init {{{1
+		$panorama.each(function () {
+			var $p = $(this);
+			require(['sphere_panorama'], function (Panorama) {
+				new Panorama(
+					$p,
+					{ textureUrl: $p.attr('data-texture') },
+					function (err) {
+						if (err) {
+							require(['dialog_box_wrapper'], function (showDialogBox) {
+								showDialogBox({ messages: [ getLocalText('err', 'panorama_init') ] });
+							});
+							return;
+						}
+						this.animationLoop();
+						$p.addClass('loaded');
+					}
+				);
+			});
+		});
+	}, 1); // panorama init }}}1
+
 }); // domReady()
 }); // define()
