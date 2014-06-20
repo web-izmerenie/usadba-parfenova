@@ -19,6 +19,28 @@ $(function domReady() {
 			var $map = $mapWrap.find('.map');
 			var id = 'interactive_yandex_map_n_' + i + '_' + n;
 			$map.attr('id', id);
+
+			var mapCenterX = parseInt($mapWrap.attr('data-center-x'), 10);
+			var mapCenterY = parseInt($mapWrap.attr('data-center-y'), 10);
+			var mapZoom = parseInt($mapWrap.attr('data-zoom'), 10);
+			var mapRoute = null;
+
+			if (isNaN(mapCenterX) || isNaN(mapCenterY) || isNaN(mapZoom)) {
+				require(['dialog_box_wrapper'], function (showDialogBox) {
+					showDialogBox({ messages: [ getLocalText('err', 'interactive_map_params') ] });
+				});
+				return;
+			}
+
+			try {
+				mapRoute = JSON.parse($mapWrap.attr('data-route'));
+			} catch (err) {
+				require(['dialog_box_wrapper'], function (showDialogBox) {
+					showDialogBox({ messages: [ getLocalText('err', 'interactive_map_params') ] });
+				});
+				return;
+			}
+
 			require(['dynamic_api'], function (dynamicLoadApi) {
 				var mapLang = (getVal('lang') === 'ru') ? 'ru-RU' : 'en-US';
 				dynamicLoadApi(
@@ -39,11 +61,8 @@ $(function domReady() {
 						ymaps.ready(function () {
 
 							var map = new ymaps.Map(id, {
-								center: [
-									parseInt($mapWrap.attr('data-center-y'), 10),
-									parseInt($mapWrap.attr('data-center-x'), 10),
-								],
-								zoom: parseInt($mapWrap.attr('data-zoom'), 10),
+								center: [ mapCenterY, mapCenterX ],
+								zoom: mapZoom,
 							});
 
 							// controls
@@ -51,7 +70,7 @@ $(function domReady() {
 								.add('zoomControl', { left: 15, top: 15 })
 								.add('typeSelector', { right: 15, top: 15 });
 
-							$.each(JSON.parse($mapWrap.attr('data-route')), function (i, path) {
+							$.each(mapRoute, function (i, path) {
 								ymaps.route(path).then(function success(route) {
 									map.geoObjects.add(route);
 								}, function error(err) {
