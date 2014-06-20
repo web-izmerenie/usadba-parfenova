@@ -51,9 +51,84 @@
         false,
         array()
     );
-    while($arMap = $map->GetNext()){?>
-        <h2><?=$arMap["NAME"]?></h2>
-        <div class="map"><?=$arMap["PREVIEW_TEXT"]?></div><?
+    
+    $index = 0;
+    while($arMap = $map->GetNextElement()){
+        $fields = $arMap->GetFields();
+        $props = $arMap->GetProperties();?>
+        <h2><?=$fields["NAME"]?></h2><?
+        $data = array();
+        $error = array();
+        
+        $from = $props["FROM"]["VALUE"];
+        
+        if(preg_match("/([0-9]+\.[0-9]+)\,\s*([0-9]+\.[0-9]+)/", $from)){            
+            $from = preg_replace("/([0-9]+\.[0-9]+)\,\s*([0-9]+\.[0-9]+)/", "\$2,\$1", $from);
+        }else{
+            $error[] = array(
+                "fields" => "FROM",
+                "message" => "WRONG FORMAT"
+            );
+        }      
+        
+        $from = explode(",", $from);
+        $from_array = array(
+            "type" => "wayPoint", 
+            "point"=> array($from[0], $from[1])
+        ); 
+        $data[$index][] = $from_array;
+        
+        $via = $props["VIA"]["VALUE"];        
+        
+        $via_array = array();
+        if($via){            
+            $counter = 0;
+            foreach($via as $v){
+                $counter++;
+                if(preg_match("/([0-9]+\.[0-9]+)\,\s*([0-9]+\.[0-9]+)/", $v)){            
+                    $v = preg_replace("/([0-9]+\.[0-9]+)\,\s*([0-9]+\.[0-9]+)/", "\$2,\$1", $v);
+                }else{
+                    $error[] = array(
+                        "fields" => "VIA ".$counter,
+                        "message" => "WRONG FORMAT"
+                    );
+                }      
+                
+                $v = explode(",", $v);
+                $data[$index][] = array(
+                    "type" => "viaPoint", 
+                    "point"=> array($v[0], $v[1])
+                ); 
+            }
+        }
+        
+        $to = $props["TO"]["VALUE"];
+        
+        if(preg_match("/([0-9]+\.[0-9]+)\,\s*([0-9]+\.[0-9]+)/", $to)){            
+            $to = preg_replace("/([0-9]+\.[0-9]+)\,\s*([0-9]+\.[0-9]+)/", "\$2,\$1", $to);
+        }else{
+            $error[] = array(
+                "fields" => "TO",
+                "message" => "WRONG FORMAT"
+            );
+        }      
+        
+        $to = explode(",", $to);
+        $to_array = array(
+            "type" => "wayPoint", 
+            "point"=> array($to[0], $to[1])
+        );
+        $data[$index][] = $to_array;
+        
+        $json_info = json_encode($data);?>
+        
+        <div class="interactive_map" 
+        data-center-x="<?=$props["CENTER_X"]["VALUE"]?>" 
+        data-center-y="<?=$props["CENTER_Y"]["VALUE"]?>" 
+        data-zoom="<?=$props["ZOOM"]["VALUE"]?>" 
+        data-route="<?=$json_info?>"></div><?
+        
+        $index++;
     }
 ?>
 </section>
