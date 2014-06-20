@@ -64,18 +64,19 @@
         
         if(preg_match("/([0-9]+\.[0-9]+)\,\s*([0-9]+\.[0-9]+)/", $from)){            
             $from = preg_replace("/([0-9]+\.[0-9]+)\,\s*([0-9]+\.[0-9]+)/", "\$2,\$1", $from);
+            $from = explode(",", $from);
+            $from_array = array(
+                "type" => "wayPoint", 
+                "point"=> array($from[0], $from[1])
+            ); 
         }else{
-            $error[] = array(
-                "fields" => "FROM",
-                "message" => "WRONG FORMAT"
-            );
+            $from_array = array(
+                "type" => "wayPoint", 
+                "point"=> $from
+            ); 
         }      
         
-        $from = explode(",", $from);
-        $from_array = array(
-            "type" => "wayPoint", 
-            "point"=> array($from[0], $from[1])
-        ); 
+        
         $data[$index][] = $from_array;
         
         $via = $props["VIA"]["VALUE"];        
@@ -87,18 +88,19 @@
                 $counter++;
                 if(preg_match("/([0-9]+\.[0-9]+)\,\s*([0-9]+\.[0-9]+)/", $v)){            
                     $v = preg_replace("/([0-9]+\.[0-9]+)\,\s*([0-9]+\.[0-9]+)/", "\$2,\$1", $v);
+                    $v = explode(",", $v);
+                    $data[$index][] = array(
+                        "type" => "viaPoint", 
+                        "point"=> array($v[0], $v[1])
+                    ); 
                 }else{
-                    $error[] = array(
-                        "fields" => "VIA ".$counter,
-                        "message" => "WRONG FORMAT"
+                    $data[$index][] = array(
+                        "type" => "viaPoint", 
+                        "point"=> $v
                     );
                 }      
                 
-                $v = explode(",", $v);
-                $data[$index][] = array(
-                    "type" => "viaPoint", 
-                    "point"=> array($v[0], $v[1])
-                ); 
+                
             }
         }
         
@@ -106,18 +108,18 @@
         
         if(preg_match("/([0-9]+\.[0-9]+)\,\s*([0-9]+\.[0-9]+)/", $to)){            
             $to = preg_replace("/([0-9]+\.[0-9]+)\,\s*([0-9]+\.[0-9]+)/", "\$2,\$1", $to);
-        }else{
-            $error[] = array(
-                "fields" => "TO",
-                "message" => "WRONG FORMAT"
+            $to = explode(",", $to);
+            $to_array = array(
+                "type" => "wayPoint", 
+                "point"=> array($to[0], $to[1])
             );
-        }      
+        }else{
+            $to_array = array(
+                "type" => "wayPoint", 
+                "point"=> $to
+            );
+        }       
         
-        $to = explode(",", $to);
-        $to_array = array(
-            "type" => "wayPoint", 
-            "point"=> array($to[0], $to[1])
-        );
         $data[$index][] = $to_array;
         
         $json_info = json_encode($data);?>
