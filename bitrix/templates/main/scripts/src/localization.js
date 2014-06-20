@@ -21,6 +21,8 @@ define(['get_val'], function (getVal) {
 					'incorrect_fields': 'Incorrect values of some fields.',
 				},
 				'dialog_box': 'Create dialog box error.',
+				'interactive_map_init': 'Interactive map initialization error.',
+				'interactive_map_route': 'Route planning error on interactive map.',
 			},
 
 			'forms': {
@@ -44,6 +46,8 @@ define(['get_val'], function (getVal) {
 					'incorrect_fields': 'Некорректно заполнены некоторые поля.',
 				},
 				'dialog_box': 'Ошибка создания диалогового окна.',
+				'interactive_map_init': 'Ошибка инициализации интерактивной карты.',
+				'interactive_map_route': 'Ошибка построения маршрута на интерактивной карте.',
 			},
 
 			'forms': {

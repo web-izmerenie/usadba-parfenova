@@ -53,7 +53,7 @@
     );
     while($arMap = $map->GetNext()){?>
         <h2><?=$arMap["NAME"]?></h2>
-        <div class="map"><?=$arMap["PREVIEW_TEXT"]?></div><?
+        <div class="interactive_map" data-center-x="40.118114" data-center-y="45.845907" data-zoom="6" data-route='[[ { "type": "wayPoint", "point": "Ростов-на-Дону" }, { "type": "wayPoint", "point": "Республика Адыгея, Майкопский район, пос. Каменномостский, ул. Чайковского, д. 23" } ]]'><div class="map"></div></div><?
     }
 ?>
 </section>
