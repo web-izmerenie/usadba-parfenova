@@ -122,11 +122,7 @@
         
         $json_info = json_encode($data);?>
         
-        <div class="interactive_map" 
-        data-center-x="<?=$props["CENTER_X"]["VALUE"]?>" 
-        data-center-y="<?=$props["CENTER_Y"]["VALUE"]?>" 
-        data-zoom="<?=$props["ZOOM"]["VALUE"]?>" 
-        data-route="<?=$json_info?>"></div><?
+        <div class="interactive_map" data-center-x="<?=$props["CENTER_X"]["VALUE"]?>" data-center-y="<?=$props["CENTER_Y"]["VALUE"]?>" data-zoom="<?=$props["ZOOM"]["VALUE"]?>" data-route="<?=str_replace('"', '&quot;', $json_info)?>"><div class="map"></div></div><?
         
         $index++;
     }
