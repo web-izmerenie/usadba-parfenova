@@ -101,7 +101,11 @@ $(function domReady() {
 			require(['sphere_panorama'], function (Panorama) {
 				new Panorama(
 					$p,
-					{ textureUrl: $p.attr('data-texture') },
+					{
+						textureUrl: $p.attr('data-texture'),
+						onlyWebGL: true,
+						minFov: 60,
+					},
 					function (err) {
 						if (err) {
 							require(['dialog_box_wrapper'], function (showDialogBox) {

@@ -8,7 +8,7 @@
  * @requires jquery
  * @requires threejs
  * @requires modernizr
- * @version r1
+ * @version r4
  *
  * @see {@link https://github.com/unclechu/three.js-sphere-panorama/|GitHub}
  * @author Viacheslav Lotsmanov
@@ -184,15 +184,6 @@ function ($, THREE, Modernizr) {
 			/**
 			 * @private
 			 * @instance
-			 * @type {string}
-			 * @name Panorama.fillColor
-			 * @default '#eaeaea'
-			 */
-			fillColor: '#eaeaea',
-
-			/**
-			 * @private
-			 * @instance
 			 * @type {THREE.BoxGeometry}
 			 * @name Panorama.geometry
 			 */
@@ -219,7 +210,7 @@ function ($, THREE, Modernizr) {
 		 * @returns {*} Private variable value
 		 * @this {Panorama}
 		 */
-		this.__getter = function getter(name) {
+		this.__getter = function (name) {
 			if (name in private) {
 				return private[name];
 			} else {
@@ -235,7 +226,7 @@ function ($, THREE, Modernizr) {
 		 * @exception {Panorama~UnknownPrivateVariableName}
 		 * @this {Panorama}
 		 */
-		this.__setter = function setter(name, val) {
+		this.__setter = function (name, val) {
 			if (name in private) {
 				private[name] = val;
 			} else {
@@ -250,7 +241,7 @@ function ($, THREE, Modernizr) {
 		 * @instance
 		 * @this {Panorama}
 		 */
-		this.__destroy = function __destroy() {
+		this.__destroy = function () {
 			$selector = undefined;
 			params = undefined;
 			for (var key in private) {
@@ -300,6 +291,7 @@ function ($, THREE, Modernizr) {
 		 * @prop {float} [fovMouseStep=2.0] Step of zoom by mouse wheel
 		 * @prop {boolean} [mouseWheelRequired=false] Module "jquery.mousewheel" is required
 		 * @prop {number} [fpsLimit=30] Limit frames per second of animation
+		 * @prop {boolean} [onlyWebGL=false] If WebGL is not supported - do not use canvas, make error
 		 */
 		/**
 		 * @public
@@ -317,7 +309,8 @@ function ($, THREE, Modernizr) {
 			maxFov: 75,
 			fovMouseStep: 2.0,
 			mouseWheelRequired: false,
-			fpsLimit: 30
+			fpsLimit: 30,
+			onlyWebGL: false
 
 		}, params);
 		// this.params }}}1
@@ -390,12 +383,12 @@ function ($, THREE, Modernizr) {
 		// renderer init {{{1
 		if (Modernizr.webgl) {
 			try {
-				private.renderer = new THREE.WebGLRenderer();
+				private.renderer = new THREE.WebGLRenderer({ alpha: true });
 			} catch (e) {
 				// chromium bug
-				if (Modernizr.canvas) {
+				if (Modernizr.canvas && !this.params.onlyWebGL) {
 					try {
-						private.renderer = new THREE.CanvasRenderer();
+						private.renderer = new THREE.CanvasRenderer({ alpha: true });
 					} catch (err) {
 						self.makeError(new self.exceptions.RendererInitError());
 						return false;
@@ -405,9 +398,9 @@ function ($, THREE, Modernizr) {
 					return false;
 				}
 			} // try-catch
-		} else if (Modernizr.canvas) {
+		} else if (Modernizr.canvas && !this.params.onlyWebGL) {
 			try {
-				private.renderer = new THREE.CanvasRenderer();
+				private.renderer = new THREE.CanvasRenderer({ alpha: true });
 			} catch (e) {
 				self.makeError(new self.exceptions.RendererInitError());
 				return false;
@@ -418,6 +411,8 @@ function ($, THREE, Modernizr) {
 		}
 		private.renderer.setSize(this.$container.width(), this.$container.height());
 		// renderer init }}}1
+
+		private.renderer.setClearColor(0xffffff, 0);
 
 		/**
 		 * Time in milliseconds when last animation frame was drawn
@@ -451,7 +446,7 @@ function ($, THREE, Modernizr) {
 		 * @type function
 		 * @this {window}
 		 */
-		this.resizeHandlerWrapper = function resizeHandlerWrapper() {
+		this.resizeHandlerWrapper = function () {
 			self.handlers.resizeHandler.call(this, self);
 		};
 
@@ -532,8 +527,7 @@ function ($, THREE, Modernizr) {
 	 * @static
 	 * @returns {number}
 	 */
-	Panorama.prototype.zoom =
-	function zoom(percent, justCalculate) {
+	Panorama.prototype.zoom = function (percent, justCalculate) {
 		if (percent < 0) percent = 0;
 		if (percent > 100) percent = 100;
 		percent = 100 - percent; // invert value
@@ -561,8 +555,7 @@ function ($, THREE, Modernizr) {
 	 * @public
 	 * @static
 	 */
-	Panorama.prototype.animationLoop =
-	function animationLoop() {
+	Panorama.prototype.animationLoop = function () {
 		var self = this;
 
 		requestAnimationFrame(function (time) {
@@ -586,8 +579,7 @@ function ($, THREE, Modernizr) {
 	 * @public
 	 * @static
 	 */
-	Panorama.prototype.draw =
-	function draw() {
+	Panorama.prototype.draw = function () {
 		if (this.__getter('holdByUser') === false)
 			this.__setter('lon', this.__getter('lon') + 0.1);
 
@@ -614,8 +606,7 @@ function ($, THREE, Modernizr) {
 	 * @public
 	 * @static
 	 */
-	Panorama.prototype.destroy =
-	function destroy() {
+	Panorama.prototype.destroy = function () {
 		this.$container.unbind('.' + this.panoramaId);
 		$(window).unbind('.' + this.panoramaId);
 		this.$panoramaWrapper.remove();
@@ -649,8 +640,7 @@ function ($, THREE, Modernizr) {
 	 * @exception {Error} Any exception that in "exception" argument
 	 * @returns {boolean} Returns true or throws exception
 	 */
-	Panorama.prototype.makeError =
-	function makeError(exception) {
+	Panorama.prototype.makeError = function (exception) {
 		var self = this;
 		if (this.__getter('callback')) {
 			setTimeout(function () {
