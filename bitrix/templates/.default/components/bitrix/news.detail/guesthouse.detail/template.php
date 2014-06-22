@@ -77,7 +77,8 @@
     </div>
     <main><?
         if($arResult["DETAIL_PICTURE"]){?>
-            <div class="detail_picture"><img src="<?=$arResult["DETAIL_PICTURE"]["SRC"]?>" /></div><? // class="panorama"
+            <!--<div class="detail_picture"><img src="<?=$arResult["DETAIL_PICTURE"]["SRC"]?>" /></div>-->
+			<div class="panorama" data-texture="/upload/tmp/panorama1.jpg"></div><?
         }?><?
         if($arResult["DETAIL_TEXT"]){?>
             <div class="notation_block">

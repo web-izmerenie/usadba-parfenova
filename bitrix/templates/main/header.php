@@ -1,5 +1,5 @@
 <?
-    $revision = 7;
+    $revision = 8;
     $devRevision = 1;
 
     // development revision
@@ -44,6 +44,7 @@
 
                 getVal.set('lang', '<?=LANGUAGE_ID?>');
                 getVal.set('revision', '<?=$revision?>');
+                getVal.set('tplPath', '/bitrix/templates/main');
 
                 require(['main']);
 

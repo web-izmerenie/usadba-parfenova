@@ -10,6 +10,13 @@ $(function domReady() {
 	var $html = $('html');
 
 	require.config({
+
+		baseUrl: getVal('tplPath') + '/scripts',
+
+		paths: {
+			'threejs': 'libs_not_build/three-r67.min.amd'
+		},
+
 		map: {
 			'*': {
 
@@ -17,6 +24,9 @@ $(function domReady() {
 
 				// outsource modules
 				'jquery.cookie': 'libs/jquery.cookie-1.4.0',
+				'jquery.mousewheel': 'libs/jquery.mousewheel-3.1.11',
+				'modernizr': 'libs/modernizr-2.7.2.amd',
+				'sphere_panorama': 'libs/sphere_panorama',
 
 				// basics aliases
 				'get_local_text': 'basics/get_local_text',
