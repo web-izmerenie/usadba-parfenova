@@ -104,7 +104,6 @@ $(function domReady() {
 					{
 						textureUrl: $p.attr('data-texture'),
 						onlyWebGL: true,
-						minFov: 60,
 					},
 					function (err) {
 						if (err) {
