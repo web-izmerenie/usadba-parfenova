@@ -14,7 +14,8 @@ $APPLICATION->SetTitle("Усадьба");
 		1 => "",
 	),
 	"PROPERTY_CODE" => array(
-		0 => "PRICE"
+		0 => "PRICE",
+        1 => "GALLERY"
 	),
 	"IBLOCK_URL" => "",
 	"AJAX_MODE" => "N",

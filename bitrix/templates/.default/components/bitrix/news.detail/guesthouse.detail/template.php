@@ -83,14 +83,17 @@
             <div class="notation_block">
                 <?=$arResult["DETAIL_TEXT"]?>
             </div><?
-        }?>
+        }
+        if($arResult["DISPLAY_PROPERTIES"]["GALLERY"]["VALUE"]){?>
         <ul class="photos"><?
-            // TODO INSTALL DEFATOOLS AND MAKE MULTIPROPERTY FOR UPLOADING IMAGES
-        ?>
-            <li><img alt="" src="/upload/tmp/homestead_detail_photo1.jpg" /></li>
-            <li><img alt="" src="/upload/tmp/homestead_detail_photo2.jpg" /></li>
-            <li><img alt="" src="/upload/tmp/homestead_detail_photo3.jpg" /></li>
-        </ul>
+            foreach($arResult["DISPLAY_PROPERTIES"]["GALLERY"]["VALUE"] as $image){
+                $thumb = CFile::ResizeImageGet($image, array("width" => "295", "height" => "195"), BX_RESIZE_IMAGE_EXACT);
+                $origin = CFile::ResizeImageGet($image, array("width" => "1200", "height" => "1200"), BX_RESIZE_IMAGE_PROPORTIONAL);?>
+                <li><a href="<?=$origin["src"]?>"><img alt="" src="<?=$thumb["src"]?>" /></a></li><?
+            }
+        ?>                       
+        </ul><?
+        }?>
         <div class="prices"><?
             foreach($arResult["DISPLAY_PROPERTIES"]["PRICE"]["VALUE"] as $key => $price){
                 $desc_count = explode(":", $arResult["DISPLAY_PROPERTIES"]["PRICE"]["DESCRIPTION"][$key]);?>
