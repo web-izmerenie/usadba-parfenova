@@ -21,6 +21,19 @@
 		margin-left: 27px;
 		.relative;
 
+		a {
+			.linkNoLine;
+			display: block;
+			.size(@w, @h);
+
+			&:before {
+				.pseudoBlock;
+				.absolute(0, auto, auto, 0);
+				.size(@w, @h);
+				z-index: 10;
+			} // &:before
+		} // a
+
 		img {
 			display: block;
 			.size(@w, @h);
@@ -31,6 +44,7 @@
 			&:extend(.icon-photo_frame);
 			.pseudoBlock;
 			.absolute(0, auto, auto, 0);
+			z-index: 5;
 		} // &:before
 
 		&:first-child, &:nth-child(3n+4) { margin-left: 0; }

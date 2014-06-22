@@ -78,7 +78,7 @@
     <main><?
         if($arResult["DETAIL_PICTURE"]){?>
             <!--<div class="detail_picture"><img src="<?=$arResult["DETAIL_PICTURE"]["SRC"]?>" /></div>-->
-			<div class="panorama" data-texture="/upload/tmp/panorama1.jpg"></div><?
+            <div class="panorama" data-texture="/upload/tmp/panorama1.jpg"></div><?
         }?><?
         if($arResult["DETAIL_TEXT"]){?>
             <div class="notation_block">
@@ -90,7 +90,7 @@
             foreach($arResult["DISPLAY_PROPERTIES"]["GALLERY"]["VALUE"] as $image){
                 $thumb = CFile::ResizeImageGet($image, array("width" => "295", "height" => "195"), BX_RESIZE_IMAGE_EXACT);
                 $origin = CFile::ResizeImageGet($image, array("width" => "1200", "height" => "1200"), BX_RESIZE_IMAGE_PROPORTIONAL);?>
-                <li><a href="<?=$origin["src"]?>"><img alt="" src="<?=$thumb["src"]?>" /></a></li><?
+                <li><a href="<?=$origin["src"]?>" target="_blank"><img alt="" src="<?=$thumb["src"]?>" /></a></li><?
             }
         ?>                       
         </ul><?
