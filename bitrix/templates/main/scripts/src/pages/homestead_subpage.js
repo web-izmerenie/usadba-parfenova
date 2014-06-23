@@ -15,6 +15,7 @@ $(function domReady() {
 	var $quantity = $main.find('.prices .quantity');
 	var $activeRooms = $s.find('.sub_menu_line nav.rooms > span');
 	var $panorama = $main.find('.panorama');
+	var $photos = $main.find('ul.photos li a');
 
 	function fill() { // {{{1
 		$quantity.each(function () {
@@ -119,6 +120,23 @@ $(function domReady() {
 			});
 		});
 	}, 1); // panorama init }}}1
+
+	if ($photos.size() > 0) {
+		require(['photogallery'], function (Photogallery) {
+
+			new Photogallery({
+				$selector: $photos
+			}, function (err) {
+				if (err) {
+					require(['dialog_box_wrapper'], function (showDialogBox) {
+						showDialogBox({ messages: [ getLocalText('err', 'panorama_init') ] });
+					});
+					return;
+				}
+			});
+
+		});
+	}
 
 }); // domReady()
 }); // define()
