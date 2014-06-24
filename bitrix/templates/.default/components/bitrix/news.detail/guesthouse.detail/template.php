@@ -77,8 +77,19 @@
     </div>
     <main><?
         if($arResult["DETAIL_PICTURE"]){?>
-            <!--<div class="detail_picture"><img src="<?=$arResult["DETAIL_PICTURE"]["SRC"]?>" /></div>-->
-			<div class="panorama" data-texture="/upload/tmp/panorama1.jpg"></div><?
+			<div class="panorama" data-texture="<?=$arResult["DETAIL_PICTURE"]["SRC"]?>"></div><?
+            if($arResult["DISPLAY_PROPERTIES"]["ALT_PHOTO"]["VALUE"]){
+                $thumb = CFile::ResizeImageGet(
+                    $arResult["DISPLAY_PROPERTIES"]["ALT_PHOTO"]["VALUE"], 
+                    array(
+                        "width" => "1200", 
+                        "height" => "1200"
+                    ), 
+                    BX_RESIZE_IMAGE_PROPORTIONAL
+                );?>
+                <div class="detail_picture"><img src="<?=$thumb["src"]?>" /></div><?
+            }?>
+            <?
         }?><?
         if($arResult["DETAIL_TEXT"]){?>
             <div class="notation_block">
