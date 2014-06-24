@@ -23,7 +23,7 @@ $aMenuLinks = Array(
 	),
 	Array(
 		"Спорт и отдых", 
-		"/homestead/sport-and-rest/", 
+		"/activities/", 
 		Array(), 
 		Array(), 
 		"" 
