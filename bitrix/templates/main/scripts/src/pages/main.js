@@ -14,6 +14,7 @@ $(function domReady() {
 	var $window = $(window);
 	var $document = $(document);
 	var $page = $('html,body');
+	var $video = $card1.find('video');
 
 	var $backgrounds = $mainPage.find('.card .background, .card_1');
 
@@ -97,9 +98,30 @@ $(function domReady() {
 
 	// paralax }}}1
 
-	$window.on('resize' + resizeCardsBindSuffix, function () {
+	function resizeCards() {
 		$backgrounds.css('height', $window.height() + 'px');
-	}).trigger('resize' + resizeCardsBindSuffix);
+		$video.each(function () {
+			$video.css({ width: '', height: '', top: '' });
+			if ($video.width() < $card1.width()) {
+				$video.css({
+					width: $card1.width() + 'px',
+					height: 'auto'
+				});
+				$video.css('top', ( -(($video.height() - $card1.height()) / 2) ) + 'px');
+			}
+		});
+	}
+
+	$window.on('resize' + resizeCardsBindSuffix, function () {
+		setTimeout(resizeCards, 1);
+	});
+	setTimeout(resizeCards, 1);
+
+	if ($video.size() > 0) {
+		require(['modernizr'], function (Modernizr) {
+			if (!Modernizr.video) $video.remove();
+		});
+	}
 
 	setTimeout(function () {
 
