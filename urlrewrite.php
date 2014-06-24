@@ -1,7 +1,7 @@
 <?
 $arUrlRewrite = array(
 	array(
-		"CONDITION" => "#^/homestead/([a-z]+)/([a-z]+)/(.*)#",
+		"CONDITION" => "#^/homestead/([a-z]+)/([a-z-_]+)/(.*)#",
 		"RULE" => "ELEMENT_CODE=\$2",
 		"ID" => "bitrix:news.detail",
 		"PATH" => "/homestead/detail.php",
@@ -13,7 +13,7 @@ $arUrlRewrite = array(
 		"PATH" => "/activities/detail.php",
 	),
 	array(
-		"CONDITION" => "#^/activities/([a-z]+)/#",
+		"CONDITION" => "#^/activities/([a-z-_]+)/#",
 		"RULE" => "ELEMENT_CODE=\$1",
 		"ID" => "",
 		"PATH" => "/activities/title.php",

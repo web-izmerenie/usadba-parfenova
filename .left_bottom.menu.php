@@ -2,14 +2,14 @@
 $aMenuLinks = Array(
 	Array(
 		"Дары природы", 
-		"/homestead/nature/", 
+		"/nature/", 
 		Array(), 
 		Array(), 
 		"" 
 	),
 	Array(
 		"Багетная мастерская", 
-		"/homestead/workshop/", 
+		"/workshop/", 
 		Array(), 
 		Array(), 
 		"" 

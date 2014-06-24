@@ -45,7 +45,7 @@ $APPLICATION->SetTitle($fields["NAME"]);
             );
             $index = 0;
             while($arNav = $nav->GetNext()){
-                $arNavigation[$index]["DETAIL_PAGE_URL"] = $arNav["DETAIL_PAGE_URL"];
+                $arNavigation[$index]["DETAIL_PAGE_URL"] = $arNav["DETAIL_PAGE_URL"]."details/";
                 $arNavigation[$index]["NAME"] = $arNav["NAME"];
                 $arNavigation[$index]["PREVIEW_PICTURE"] = CFile::GetPath($arNav["PREVIEW_PICTURE"]);
                 if($arNav["ID"] == $fields["ID"]){
@@ -95,13 +95,17 @@ $APPLICATION->SetTitle($fields["NAME"]);
             </div><!--.centered_content--><?
         }?>
         <?
-            // TODO PROPERTY LIKE IN HOMESTEAD
+         if($props["GALLERY"]["VALUE"]){?>
+        <ul class="photos"><?
+            foreach($props["GALLERY"]["VALUE"] as $image){
+                $thumb = CFile::ResizeImageGet($image, array("width" => "295", "height" => "195"), BX_RESIZE_IMAGE_EXACT);
+                $origin = CFile::ResizeImageGet($image, array("width" => "1200", "height" => "1200"), BX_RESIZE_IMAGE_PROPORTIONAL);?>
+                <li><a href="<?=$origin["src"]?>"><img alt="" src="<?=$thumb["src"]?>" /></a></li><?
+            }
+        ?>                       
+        </ul><?
+        }
         ?>
-		<ul class="photos">
-			<li><img alt="" src="/tmp/homestead/pic.png" /></li>
-			<li><img alt="" src="/tmp/homestead/pic.png" /></li>
-			<li><img alt="" src="/tmp/homestead/pic.png" /></li>
-		</ul>
 		<?=$props["INFO"]["~VALUE"]["TEXT"]?><?
         if($props["ADDITIONAL"]["~VALUE"]["TEXT"]){?>
             <div class="additional_content">
