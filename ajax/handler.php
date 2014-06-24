@@ -46,10 +46,20 @@ if(!$_POST["action"]){
                 
                 $add = $el->Add($arFields);
                                              
-                if($add)
+                if($add){
                     $response["status"] = "success";
-                else
+                    //REVIEW_SENT
+                    $site_id = $_POST["lang"] == "ru" ? "s1" : "en";
+                    $send = CEvent::SendImmediate(
+                        "REVIEW_SENT", 
+                        $site_id, 
+                        false, 
+                        "N"
+                    );
+                    file_put_contents($_SERVER["DOCUMENT_ROOT"]."/123.txt", $send);
+                }else{
                     $response["status"] = "error";                
+                }
             }
         }
     }
@@ -99,10 +109,19 @@ if(!$_POST["action"]){
             
             $add = $el->Add($arFields);
                                          
-            if($add)
+            if($add){
                 $response["status"] = "success";
-            else
+                
+                $site_id = $_POST["lang"] == "ru" ? "s1" : "en";
+                $send = CEvent::SendImmediate(
+                    "QUESTION_SENT", 
+                    $site_id, 
+                    false, 
+                    "N"
+                );
+            }else{
                 $response["status"] = "error";  
+            }
             
         }
     }
