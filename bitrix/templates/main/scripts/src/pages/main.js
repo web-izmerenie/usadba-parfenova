@@ -121,7 +121,10 @@ $(function domReady() {
 
 	function waitForVideoReady() {
 		if ($video.width() > 0 && $video.height() > 0) {
-			$video.animate({opacity: 1}, getVal('animationSpeed')*2);
+			setTimeout(resizeCards, 1);
+			$video.animate({opacity: 1}, getVal('animationSpeed')*2, function () {
+				setTimeout(resizeCards, 1);
+			});
 			return;
 		}
 		setTimeout(waitForVideoReady, getVal('dynamicApiLoadInterval'));
