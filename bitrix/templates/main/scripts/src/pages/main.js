@@ -117,11 +117,27 @@ $(function domReady() {
 	});
 	setTimeout(resizeCards, 1);
 
+	// video behavior {{{1
+
+	function waitForVideoReady() {
+		if ($video.width() > 0 && $video.height() > 0) {
+			$video.animate({opacity: 1}, getVal('animationSpeed')*2);
+			return;
+		}
+		setTimeout(waitForVideoReady, getVal('dynamicApiLoadInterval'));
+	}
+
 	if ($video.size() > 0) {
 		require(['modernizr'], function (Modernizr) {
-			if (!Modernizr.video) $video.remove();
+			if (!Modernizr.video) {
+				$video.remove();
+			} else {
+				setTimeout(waitForVideoReady, getVal('dynamicApiLoadInterval'));
+			}
 		});
 	}
+
+	// video behavior }}}1
 
 	setTimeout(function () {
 
