@@ -6,9 +6,9 @@
             <section class="card <?=$Item["CODE"]?>">
                 <img alt="Фоновый пейзаж" src="<?=$Item["PREVIEW_PICTURE"]["SRC"]?>" class="background" />
 				<video autoplay="autoplay" loop="loop">
-					<source src="/upload/main_page_video/usadba_parfenova.mp4" type='video/webm; codecs="vp8.0, vorbis"' />
+					<source src="/upload/main_page_video/usadba_parfenova.mp4" type='video/mp4; codecs="avc1.4D401E, mp4a.40.2"' />
 					<source src="/upload/main_page_video/usadba_parfenova.ogv" type='video/ogg; codecs="theora, vorbis"' />
-					<source src="/upload/main_page_video/usadba_parfenova.webm" type='video/mp4; codecs="avc1.4D401E, mp4a.40.2"' />
+					<source src="/upload/main_page_video/usadba_parfenova.webm" type='video/webm; codecs="vp8.0, vorbis"' />
 				</video>
                 <div class="logo_wrap">
                     <span class="helper"></span>
