@@ -15,6 +15,7 @@ $(function domReady() {
 	var $quantity = $main.find('.prices .quantity');
 	var $activeRooms = $s.find('.sub_menu_line nav.rooms > span');
 	var $panorama = $main.find('.panorama');
+	var $detailPicture = $main.find('.detail_picture');
 	var $photos = $main.find('ul.photos li a');
 
 	function fill() { // {{{1
@@ -108,9 +109,18 @@ $(function domReady() {
 					},
 					function (err) {
 						if (err) {
-							require(['dialog_box_wrapper'], function (showDialogBox) {
+							/*require(['dialog_box_wrapper'], function (showDialogBox) {
 								showDialogBox({ messages: [ getLocalText('err', 'panorama_init') ] });
-							});
+							});*/
+
+							// show detail picture instead of error
+
+							if ($detailPicture.size() > 0) {
+								$detailPicture.slideDown(getVal('animationSpeed')*2);
+							}
+
+							$panorama.slideUp(getVal('animationSpeed')*2);
+
 							return;
 						}
 						this.animationLoop();
@@ -121,7 +131,7 @@ $(function domReady() {
 		});
 	}, 1); // panorama init }}}1
 
-	if ($photos.size() > 0) {
+	if ($photos.size() > 0) { // photogallery {{{1
 		require(['photogallery'], function (Photogallery) {
 
 			new Photogallery({
@@ -136,7 +146,9 @@ $(function domReady() {
 			});
 
 		});
-	}
+	} // photogallery }}}1
+
+	if ($panorama.size() <= 0 && $detailPicture > 0) $detailPicture.slideDown(getVal('animationSpeed')*2);
 
 }); // domReady()
 }); // define()
