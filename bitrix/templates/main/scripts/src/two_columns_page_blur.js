@@ -1,5 +1,5 @@
 /**
- * Navigation section (like "homestead" or "activities") background in left side blur module
+ * Two columns page (like "homestead" or "activities") background in left side blur module
  *
  * @author Viacheslav Lotsmanov
  */

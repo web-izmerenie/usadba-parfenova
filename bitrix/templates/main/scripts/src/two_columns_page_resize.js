@@ -1,5 +1,5 @@
 /**
- * Navigation section (like "homestead" or "activities") width background resize module
+ * Two columns page (like "homestead" or "activities") width background resize module
  *
  * @author Viacheslav Lotsmanov
  */

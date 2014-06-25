@@ -82,14 +82,14 @@ $(function domReady() {
 			if (!bg) return;
 
 			$columnsBlock.css('background-image', 'url("'+ bg +'")');
-			require(['navigation_section_blur'], function (handler) {
+			require(['two_columns_page_blur'], function (handler) {
 				$columnsBlock.each(handler);
 			});
 
 		})(); // set background }}}2
 
 		// resize height
-		require(['navigation_section_resize'], function (handler) {
+		require(['two_columns_page_resize'], function (handler) {
 			$columnsBlock.each(handler);
 		});
 
