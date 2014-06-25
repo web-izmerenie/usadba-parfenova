@@ -1,5 +1,5 @@
 /**
- * Navigation section width background resize module
+ * Navigation section (like "homestead" or "activities") width background resize module
  *
  * @author Viacheslav Lotsmanov
  */
