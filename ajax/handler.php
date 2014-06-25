@@ -56,7 +56,6 @@ if(!$_POST["action"]){
                         false, 
                         "N"
                     );
-                    file_put_contents($_SERVER["DOCUMENT_ROOT"]."/123.txt", $send);
                 }else{
                     $response["status"] = "error";                
                 }
