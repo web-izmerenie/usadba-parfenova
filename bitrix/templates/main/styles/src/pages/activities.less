@@ -15,68 +15,40 @@ html.activities_page body {
 		.background-size(cover);
 	} // .section_wrap .columns }}}1
 
-	.section_wrap .columns .right_block { vertical-align: bottom; }
+	.section_wrap .columns .right_block { vertical-align: top; }
 	.section_wrap .columns .right_block main { display: block; h2 + p { .resetCSS; } }
 
 	.section_wrap .columns .right_block section.activities { // {{{1
 		display: block;
-		background: rgba(0, 0, 0, 0.7);
 
 		&:after { .pseudoBlock; clear: both; }
 
-		.section_info { // {{{2
-			display: block;
-			float: left;
-			font: @contentFont;
-			color: @light2Color;
-			width: 66%;
-			margin-left: 36px;
-			padding-bottom: 35px - 6px;
-			padding-top: (51px - 36px) + (51px - 46px);
-			line-height: 20px;
-			max-width: 650px;
-
-			h2 { // {{{3
-				display: inline-block;
-				.customFont('PT Sans', 34px, 36px);
-				font-weight: bold;
-				text-transform: uppercase;
-				color: @light2Color;
-				.relative;
-				padding-bottom: 40px - 24px - 9px + 2px;
-				white-space: nowrap;
-
-				&:before, &:after {
-					.pseudoBlock;
-					.absolute(0, auto, auto, 0);
-				} // &:before, &:after
-
-				&:after { left: auto; right: 0; }
-			} // h2 }}}3
-		} // .section_info }}}2
-
 		.more { // {{{2
-			@iconW: 13px;
+			@iconW: 16px;
+			@color: #f9e9c6;
+			@shadowColor: #e7d8b6;
 
 			.linkNoLine;
 			display: block;
-			float: left;
-			margin-bottom: 30px;
-			margin-top: 34px;
-			margin-left: @mainMargin;
+			float: right;
+			margin: @mainMargin;
 
 			figure { // {{{3
 				display: block;
 				text-align: center;
 
+				img, figcaption {
+					.box-shadow(0 0 0 1px @shadowColor);
+				} // img, figcaption
+
 				img { // {{{4
-					@s: 78px;
+					@s: 107px;
 
 					display: inline-block;
 					.size(@s);
 					.box-sizing(border-box);
 					.border-radius(@s/2);
-					border: 2px solid white;
+					border: 2px solid @color;
 					margin: 0 auto;
 					.transition(border-color @animationSpeed linear);
 					.relative(auto, auto, auto, -(@iconW/2));
@@ -84,17 +56,17 @@ html.activities_page body {
 
 				figcaption { // {{{4
 					display: inline-block;
-					background: @light2Color;
-					.border-radius(3px 0 0 3px);
+					background: @color;
+					.border-radius(2px 0 0 2px);
 					color: @dark3Color;
-					.size(auto, 26px);
+					.size(auto, 29px);
 					.customFont('PT Sans', 16px, 18px);
 					font-weight: bold;
 					text-transform: uppercase;
 					padding: 0 7px;
-					padding-top: 23px-18px-1px;
+					padding-top: 23px-18px+1px;
 					.box-sizing(border-box);
-					margin-top: 8px;
+					margin-top: 14px + 2px; /* plus box-shadow */
 					.relative;
 					margin-right: @iconW;
 					.transition(background-color @animationSpeed linear);
@@ -104,7 +76,7 @@ html.activities_page body {
 
 					&:before, &:after {
 						.pseudoBlock;
-						.absolute(0, -@iconW);
+						.absolute(-1px, -@iconW);
 						.opacity(1);
 						.transition(opacity @animationSpeed linear);
 					}

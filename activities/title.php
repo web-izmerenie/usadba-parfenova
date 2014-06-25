@@ -52,10 +52,6 @@ $detail_pic = CFile::GetPath($fields["DETAIL_PICTURE"]);?>
         </div><!--.left_block-->
         <div class="right_block"><main>
             <section class="activities">
-				<div class="section_info">
-					<h2><?=$fields["NAME"]?></h2>
-					<?=$props["SHORTTEXT"]["~VALUE"]["TEXT"]?>
-				</div>
 				<a href="<?=$fields["DETAIL_PAGE_URL"]?>details/" class="more">
 					<figure><?
                         $thumb = CFile::ResizeImageGet($fields["PREVIEW_PICTURE"], array("width" => "131", "height" => "131"), BX_RESIZE_IMAGE_EXACT);
