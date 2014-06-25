@@ -41,7 +41,7 @@ $(function domReady() {
 
 	$backgrounds.css('position', 'relative');
 
-	function paralaxUpdate() {
+	function paralaxUpdate() { // {{{2
 
 		var st = $document.scrollTop();
 		var ww = $window.width();
@@ -88,7 +88,7 @@ $(function domReady() {
 
 		});
 
-	} // paralaxUpdate()
+	} // paralaxUpdate() }}}2
 
 	$window.on('scroll' + paralaxBindSuffix, paralaxUpdate);
 	$window.on('resize' + paralaxBindSuffix, function () {
@@ -98,7 +98,7 @@ $(function domReady() {
 
 	// paralax }}}1
 
-	function resizeCards() {
+	function resizeCards() { // {{{1
 		$backgrounds.css('height', $window.height() + 'px');
 		$video.each(function () {
 			$video.css({ width: '', height: '', top: '' });
@@ -110,11 +110,9 @@ $(function domReady() {
 				$video.css('top', ( -(($video.height() - $card1.height()) / 2) ) + 'px');
 			}
 		});
-	}
+	} // resizeCards }}}1
 
-	$window.on('resize' + resizeCardsBindSuffix, function () {
-		setTimeout(resizeCards, 1);
-	});
+	$window.on('resize' + resizeCardsBindSuffix, $.proxy(setTimeout, null, resizeCards, 1));
 	setTimeout(resizeCards, 1);
 
 	// video behavior {{{1
@@ -142,7 +140,7 @@ $(function domReady() {
 
 	// video behavior }}}1
 
-	setTimeout(function () {
+	setTimeout(function () { // scroll down {{{1
 
 		var jitterTimer = null;
 		var bottom = parseInt($card1ScrlDn.css('bottom'), 10);
@@ -150,7 +148,7 @@ $(function domReady() {
 		var scrollDownBindSuffix = '.card_1_scroll_down';
 		var curve = 'easeInOutSine';
 
-		// .card_1 sroll down jitter {{{1
+		// .card_1 sroll down jitter {{{2
 
 		$card1ScrlDn
 			.on('mouseenter' + scrollDownBindSuffix, function () {
@@ -177,9 +175,9 @@ $(function domReady() {
 
 		}, getVal('card1ScrollDownJitterInterval') * 1000);
 
-		// .card_1 sroll down jitter }}}1
+		// .card_1 sroll down jitter }}}2
 
-		$card1ScrlDn.click(function () { // scroll down on .card_1 button {{{1
+		$card1ScrlDn.click(function () { // scroll down on .card_1 button {{{2
 
 			clearInterval(jitterTimer);
 			$card1ScrlDn.stop().animate({ 'bottom': bottom + 'px' }, speed);
@@ -193,9 +191,9 @@ $(function domReady() {
 
 			return false;
 
-		}); // scroll down on .card_1 button }}}1
+		}); // scroll down on .card_1 button }}}2
 
-	}, 1);
+	}, 1); // scroll down }}}1
 
 }); // domReady()
 }); // define()
