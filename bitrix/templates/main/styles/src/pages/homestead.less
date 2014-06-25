@@ -29,9 +29,11 @@ html.homestead_page body {
 		nav.rooms {
 			display: block;
 			margin-left: 8px;
+			max-width: 1300px;
+			text-align: center;
 
 			a {
-				@imgS: 106px - 32px; // image size
+				@imgS: 74px; // image size
 				@s: @imgS + 28px; // size
 
 				display: inline-block;
@@ -63,6 +65,7 @@ html.homestead_page body {
 					padding: 1px 9px 3px;
 					margin-top: 6px;
 					width: auto;
+					max-width: @s;
 					.transition(background-color @animationSpeed linear);
 				} // & > span
 

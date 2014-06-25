@@ -40,6 +40,9 @@ define(function () {
 
 		dynamicApiLoadInterval: 500,
 
+		minWidth: 980,
+		maxWidth: 1200,
+
 	};
 
 	/** Required set before "getVal" */
