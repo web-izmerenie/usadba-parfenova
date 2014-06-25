@@ -10,9 +10,11 @@ $(function domReady() {
 	var $html = $('html');
 	if (!$html.hasClass('homestead_page')) return;
 
+	var $swrap = $('.section_wrap');
+
 	var resizeRoomsBindSuffix = '.resize_rooms';
 
-	$('section.homestead').each(function () { // {{{1
+	$swrap.find('section.homestead').each(function () { // {{{1
 
 		var $sect = $(this);
 		var $nav = $sect.find('nav.rooms');
@@ -70,11 +72,22 @@ $(function domReady() {
 
 	}); // $('section.homestead').each() }}}1
 
-	$('.section_wrap .columns').each(function () { // set background {{{1
-		var bg = $(this).attr('data-background');
+	$swrap.find('.columns').each(function () { // {{{1
+
+		var $columnsBlock = $(this);
+
+		// set background {{{2
+		var bg = $columnsBlock.attr('data-background');
 		if (!bg) return;
-		$(this).css('background-image', 'url("'+ bg +'")');
-	}); // set background }}}1
+		$columnsBlock.css('background-image', 'url("'+ bg +'")');
+		// set background }}}2
+
+		// resize height
+		require(['navigation_section_resize'], function (navigationSectionResize) {
+			$columnsBlock.each(navigationSectionResize);
+		});
+
+	}); // .columns $.each() }}}1
 
 }); // domReady()
 }); // define()
