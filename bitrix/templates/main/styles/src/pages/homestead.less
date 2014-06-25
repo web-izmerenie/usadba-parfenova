@@ -9,14 +9,16 @@
 html.homestead_page body {
 	.twoColumnsPage();
 
-	.section_wrap .columns {
-		background-position: center center;
-		background-repeat: no-repeat;
+	.section_wrap .columns,
+	.section_wrap .columns .left_block .blur_bg {
+		background-position: center center !important;
+		background-repeat: no-repeat !important;
 		.background-size(cover);
 	} // .section_wrap .columns
 
-	.section_wrap.guesthouse .columns {
-		background-position: center 0;
+	.section_wrap.guesthouse .columns,
+	.section_wrap.guesthouse .columns .left_block .blur_bg {
+		background-position: center 0 !important;
 	} // .section_wrap.guesthouse .columns
 
 	.section_wrap .columns .right_block {

@@ -30,8 +30,6 @@ $detail_pic = CFile::GetPath($fields["DETAIL_PICTURE"]);?>
     </div>
     <div class="columns" data-background="<?=$detail_pic?>">
         <div class="left_block">
-            <div class="bg"></div>
-            <div class="blur_back_bg"></div>
             <nav class="left_submenu"><?$APPLICATION->IncludeComponent(
 	"bitrix:menu",
 	"menu.left",

@@ -76,15 +76,21 @@ $(function domReady() {
 
 		var $columnsBlock = $(this);
 
-		// set background {{{2
-		var bg = $columnsBlock.attr('data-background');
-		if (!bg) return;
-		$columnsBlock.css('background-image', 'url("'+ bg +'")');
-		// set background }}}2
+		(function isolate() { // set background {{{2
+
+			var bg = $columnsBlock.attr('data-background');
+			if (!bg) return;
+
+			$columnsBlock.css('background-image', 'url("'+ bg +'")');
+			require(['navigation_section_blur'], function (handler) {
+				$columnsBlock.each(handler);
+			});
+
+		})(); // set background }}}2
 
 		// resize height
-		require(['navigation_section_resize'], function (navigationSectionResize) {
-			$columnsBlock.each(navigationSectionResize);
+		require(['navigation_section_resize'], function (handler) {
+			$columnsBlock.each(handler);
 		});
 
 	}); // .columns $.each() }}}1

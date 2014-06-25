@@ -18,7 +18,6 @@
 	</div>
 	<div class="columns" data-background="<?=$arSection["PICTURE"]?>">
 		<div class="left_block">
-			<div class="bg"></div>
 			<nav class="left_submenu"><?$APPLICATION->IncludeComponent(
 	"bitrix:menu",
 	"menu.left",
