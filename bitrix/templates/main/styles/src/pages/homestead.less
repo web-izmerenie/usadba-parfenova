@@ -28,11 +28,12 @@ html.homestead_page body {
 
 		nav.rooms {
 			display: block;
-			margin-left: 2px;
+			margin-left: 8px;
 
 			a {
-				@s: 106px; // size
-				@imgS: @s - 32px; // image size
+				@imgS: 106px - 32px; // image size
+				@s: @imgS + 28px; // size
+
 
 				display: inline-block;
 				.size(@s, auto);
