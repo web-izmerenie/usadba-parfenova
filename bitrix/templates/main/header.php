@@ -36,7 +36,7 @@
     <![endif]-->
 
     <link rel="stylesheet" type="text/css" href="/bitrix/templates/main/styles/build/build.css?v=<?=$revision?>" />
-
+    <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <script src="/bitrix/templates/main/scripts/build/build.js?v=<?=$revision?>"></script>
     <script>
         //<![CDATA[
@@ -62,10 +62,10 @@
             <?if ($APPLICATION->GetCurPage() != SITE_DIR){?><a href="/" title="На главную"><?}?>
                 <img alt="Усадьба Парфенова" src="/bitrix/templates/main/images/logo.png" width="167" height="80" class="logo" />
             <?if ($APPLICATION->GetCurPage() != SITE_DIR){?></a><?}?>
-			<div class="choose_lang">
+			<?/* <div class="choose_lang">
 				<a href="#" title="English">En</a>
 				<span title="Русский">Ру</span>
-			</div>
+			</div> */?>
             <div class="first_line_wrap">
                 <div class="first_line">
                     <nav class="main_menu"><?$APPLICATION->IncludeComponent("bitrix:menu", "menu.top", Array(
