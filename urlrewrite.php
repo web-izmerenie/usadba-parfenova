@@ -7,13 +7,13 @@ $arUrlRewrite = array(
 		"PATH" => "/homestead/detail.php",
 	),
 	array(
-		"CONDITION" => "#^/activities/([a-z]+)/details/#",
+		"CONDITION" => "#^/activities/([a-z]+)/details/(.*)#",
 		"RULE" => "ELEMENT_CODE=\$1",
 		"ID" => "",
 		"PATH" => "/activities/detail.php",
 	),
 	array(
-		"CONDITION" => "#^/activities/([a-z-_]+)/#",
+		"CONDITION" => "#^/activities/([a-z-_]+)/(.*)#",
 		"RULE" => "ELEMENT_CODE=\$1",
 		"ID" => "",
 		"PATH" => "/activities/title.php",
