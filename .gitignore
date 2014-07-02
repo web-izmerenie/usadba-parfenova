@@ -2,6 +2,11 @@
 *.log
 *.tar
 *.gz
+*.sql
+*.zip
+*.7z
+*.rar
+
 node_modules
 grunt
 
