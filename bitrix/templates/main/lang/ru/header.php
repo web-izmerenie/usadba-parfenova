@@ -5,6 +5,9 @@ $MESS["HOMESTEAD"] = 'Усадьба';
 $MESS["RUB_DAY"] = '<span>руб.</span>
                     <span>/</span>
                     <span>сутки</span>';
+$MESS["RUB_HOUR"] = '<span>руб.</span>
+                    <span>/</span>
+                    <span>час</span>';
 $MESS["TRANSFER"] = "Как добраться";
 $MESS["TRANSFER_LONG"] = "Усадьба организует трансфер из Краснодара в гостевой дом";
 $MESS["SHOW_MORE"] = "Узнать больше";
@@ -18,5 +21,6 @@ $MESS["SEND"] = "Отправить";
 $MESS["ASK_QUESTION"] = "Задать вопрос";
 $MESS["PHONE"] = "Телефон";
 $MESS["QUESTION"] = "Ваш вопрос";
+$MESS["COST"] = "Стоимость:";
 
 ?>
