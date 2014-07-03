@@ -1,7 +1,7 @@
 <?
 $arUrlRewrite = array(
 	array(
-		"CONDITION" => "#^/homestead/([a-z]+)/([a-z-_]+)/(.*)#",
+		"CONDITION" => "#^/homestead/([a-z]+)/([a-z-_0-9]+)/(.*)#",
 		"RULE" => "ELEMENT_CODE=\$2",
 		"ID" => "bitrix:news.detail",
 		"PATH" => "/homestead/detail.php",
