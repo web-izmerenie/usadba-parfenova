@@ -148,7 +148,7 @@ $(function domReady() {
 		});
 	} // photogallery }}}1*/
 
-	if ($panorama.size() <= 0 && $detailPicture > 0) $detailPicture.slideDown(getVal('animationSpeed')*2);
+	if ($panorama.size() <= 0 && $detailPicture.size() > 0) $detailPicture.slideDown(getVal('animationSpeed')*2);
 
 }); // domReady()
 }); // define()
