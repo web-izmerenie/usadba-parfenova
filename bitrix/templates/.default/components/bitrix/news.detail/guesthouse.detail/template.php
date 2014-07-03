@@ -105,22 +105,31 @@
         ?>                       
         </ul><?
         }?>
-        <div class="prices"><?
+        <div class="prices"><?            
             foreach($arResult["DISPLAY_PROPERTIES"]["PRICE"]["VALUE"] as $key => $price){
                 $desc_count = explode(":", $arResult["DISPLAY_PROPERTIES"]["PRICE"]["DESCRIPTION"][$key]);?>
                 <dl>
-                    <dt><?=$desc_count[0]?></dt>
-                    <dd>
+                    <dt><?=$desc_count[0]?></dt><?
+                    if(!strlen($desc_count[0])){?>
+                        <dt><?=GetMessage("COST")?></dt><?
+                    }?>
+                    <dd><?
+                        if(strlen($desc_count[1])){?>
                         <span class="quantity"><?
                             for($i = 1; $i <= $desc_count[1]; $i++){?>
                             <span class="unit"></span><?
                             }?>
                             <span class="fill"></span>
-                        </span>
+                        </span><?
+                        }?>
                         <span class="price_block">
                             <span class="price"><?=number_format($price, 0, "", " ")?></span>
-                            <span class="currency">
-                                <?=GetMessage("RUB_DAY")?>
+                            <span class="currency"><?
+                            if($arResult["DISPLAY_PROPERTIES"]["PRICE_CHECK"]["VALUE"]){?>
+                                <?=GetMessage("RUB_HOUR")?><?
+                            }else{?>                              
+                                <?=GetMessage("RUB_DAY")?><?
+                            }?>
                             </span>
                         </span>
                     </dd>

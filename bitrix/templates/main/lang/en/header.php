@@ -5,6 +5,9 @@ $MESS["HOMESTEAD"] = 'Homestead';
 $MESS["RUB_DAY"] = '<span>rub.</span>
                     <span>/</span>
                     <span>day</span>';
+$MESS["RUB_HOUR"] = '<span>руб.</span>
+                    <span>/</span>
+                    <span>hour</span>';
 $MESS["TRANSFER"] = "Transfer";
 $MESS["TRANSFER_LONG"] = "Manor offers a shuttle service from Krasnodar to guest house";
 $MESS["SHOW_MORE"] = "Show more";
@@ -18,5 +21,6 @@ $MESS["SEND"] = "Send";
 $MESS["ASK_QUESTION"] = "Ask";
 $MESS["PHONE"] = "Phone";
 $MESS["QUESTION"] = "Question";
+$MESS["COST"] = "Cost:";
 
 ?>
