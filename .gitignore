@@ -19,6 +19,8 @@ robots.txt
 
 urlrewrite_.php
 
+index.html
+
 # bitrix tmp dirs
 bitrix/cache
 bitrix/managed_cache
