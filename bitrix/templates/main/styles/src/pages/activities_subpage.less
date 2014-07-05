@@ -150,13 +150,10 @@ html.activities_subpage body .section_wrap {
 		} // .general_description }}}2
 
 		.centered_content { // {{{2
-			@topOffset: 55px - 18px;
-
 			display: block;
 			width: @minWidth - @mainMargin - @superOffset;
 			margin: 0 auto;
 			margin-top: 37px - 6px;
-			padding-top: @topOffset;
 
 			img.cirle_photo {
 				@size: 212px;
@@ -165,7 +162,6 @@ html.activities_subpage body .section_wrap {
 				.border-radius(@size / 2);
 				margin-bottom: 0;
 				margin-right: 37px;
-				margin-top: -@topOffset;
 			} // .cirle_photo
 
 			&:after { .pseudoBlock; clear: both; }
