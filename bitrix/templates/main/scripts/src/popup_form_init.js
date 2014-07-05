@@ -6,7 +6,6 @@
 
 define(['get_val', 'jquery', 'get_local_text'], function (getVal, $, getLocalText) {
 
-	var placeholdersBindSuffix = '.form_placeholders';
 	var focusClassBindSuffix = '.form_focus_class';
 	var errorFieldBindSuffix = '.form_error_field';
 
@@ -18,29 +17,9 @@ define(['get_val', 'jquery', 'get_local_text'], function (getVal, $, getLocalTex
 
 		$form.detach().prependTo('body');
 
-		$inputs.each(function () { // placeholders {{{1
-
-			var $label = $(this);
-			var $placeholder = $label.find('>span');
-
-			function blur() {
-				if ($(this).val() === '') {
-					$placeholder.stop().fadeIn(getVal('animationSpeed'));
-				} else if ($(this).val() !== '') {
-					$placeholder.stop().fadeOut(getVal('animationSpeed'));
-				}
-			}
-
-			function focus() {
-				$placeholder.stop().fadeOut(getVal('animationSpeed'));
-			}
-
-			$label.find('input, textarea')
-				.on('focus' + placeholdersBindSuffix, focus)
-				.on('blur' + placeholdersBindSuffix, blur)
-				.trigger('blur' + placeholdersBindSuffix);
-
-		}); // placeholders }}}1
+		require(['form_placeholder'], function (handler) {
+			$inputs.each(handler);
+		});
 
 		$inputs.each(function () { // focus class {{{1
 
@@ -176,7 +155,7 @@ define(['get_val', 'jquery', 'get_local_text'], function (getVal, $, getLocalTex
 					showDialogBox({
 						messages: successMessagesArr,
 						closeCallback: function () {
-							$form.find('input, textarea').val('').trigger('blur' + placeholdersBindSuffix);
+							$form.find('input, textarea').val('').trigger('blur');
 							end();
 							$form.find('.closer').trigger('click');
 						},

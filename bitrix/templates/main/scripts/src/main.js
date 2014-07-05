@@ -36,6 +36,7 @@ $(function domReady() {
 				'json_answer': 'basics/json_answer',
 				'dialog_box': 'basics/dialog_box',
 				'dynamic_api': 'basics/dynamic_api',
+				'form_placeholder': 'basics/form_placeholder',
 
 			}
 		}
