@@ -1,0 +1,58 @@
+/**
+ * "nature" page styles
+ *
+ * @author Viacheslav Lotsmanov
+ */
+
+html.nature_page body section.nature {
+	display: block;
+	.size(100%);
+	.bg('nature_section_bg.jpg', center center no-repeat);
+	.background-size(cover);
+	.fontMetrics(0, 0);
+	min-width: @minWidth;
+	max-width: @maxWidth;
+	margin: 0 auto;
+	margin-bottom: 57px;
+
+	&:after { .pseudoBlock; clear: both; }
+
+	ul.list {
+		.resetCSS;
+
+		@elSize: 234px;
+		@elDistanceX: 70px; // see also: scripts/src/pages/nature.js
+		@elDistanceY: 50px; // see also: scripts/src/pages/nature.js
+		@elLineCount: 3;
+
+		display: block;
+		list-style: none;
+		width: (@elSize * @elLineCount) + (@elDistanceX * (@elLineCount - 1));
+		margin: 0 auto;
+		padding-bottom: @elDistanceY;
+
+		&:after { .pseudoBlock; clear: both; }
+
+		& > li {
+			.resetCSS; background: none;
+			&:before { display: none; }
+			display: block;
+			float: left;
+			margin-left: @elDistanceX;
+			margin-top: @elDistanceY;
+
+			dl > dt img {
+				@size: @elSize;
+				display: block;
+				.size(@size);
+				.border-radius(@size / 2);
+				background: white;
+				cursor: pointer;
+			} // dl dt img
+
+			&:first-child, &:nth-child(3n+4) {
+				margin-left: 0;
+			}
+		} // & > li
+	} // ul.list
+} // html.nature_page body section.nature

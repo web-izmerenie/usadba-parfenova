@@ -28,7 +28,7 @@ $(function domReady() {
 		})(); // set background }}}2
 
 		// resize height
-		require(['two_columns_page_resize'], function (handler) {
+		require(['section_block_resize'], function (handler) {
 			$columnsBlock.each(handler);
 		});
 

@@ -75,5 +75,9 @@ $(function domReady() {
 		require(['pages/contacts']);
 	}
 
+	if ($html.hasClass('nature_page') && $('section.nature').size() > 0) {
+		require(['pages/nature']);
+	}
+
 }); // domReady()
 }); // define()
