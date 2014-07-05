@@ -17,7 +17,7 @@ html.nature_page body section.nature {
 
 	&:after { .pseudoBlock; clear: both; }
 
-	ul.list {
+	ul.list { // {{{1
 		.resetCSS;
 
 		@elSize: 234px;
@@ -33,7 +33,7 @@ html.nature_page body section.nature {
 
 		&:after { .pseudoBlock; clear: both; }
 
-		& > li {
+		& > li { // {{{2
 			.resetCSS; background: none;
 			&:before { display: none; }
 			display: block;
@@ -41,18 +41,81 @@ html.nature_page body section.nature {
 			margin-left: @elDistanceX;
 			margin-top: @elDistanceY;
 
-			dl > dt img {
+			dl > dt img { // {{{3
 				@size: @elSize;
 				display: block;
 				.size(@size);
 				.border-radius(@size / 2);
 				background: white;
 				cursor: pointer;
-			} // dl dt img
+			} // dl dt img }}}3
 
 			&:first-child, &:nth-child(3n+4) {
 				margin-left: 0;
 			}
-		} // & > li
-	} // ul.list
+
+			dl > dd .nature_detail { // {{{3
+				@w: 854px;
+				@mH: 560px;
+				@pL: 34px;
+				@pR: 74px;
+
+				display: none;
+				width: @w;
+				min-height: @mH;
+				margin-left: -(@w/2);
+
+				.center_wrap_1 {
+					display: table;
+					width: @w - @pL - @pR;
+					height: @mH;
+					margin-left: @pL;
+				}
+
+				.center_wrap_1 > .center_wrap_2 {
+					display: table-cell;
+					vertical-align: middle;
+					padding: @mainMargin 0;
+					padding-right: @mainMargin;
+				}
+
+				img.detail_pic {
+					display: block;
+					float: left;
+				}
+
+				.detail_text {
+					display: block;
+					float: right;
+					font: @contentFont;
+					width: 408px;
+
+					& > h3 {
+						display: block;
+						color: @dark2Color;
+						.customFont('PT Sans', 34px, 36px);
+						font-weight: bold;
+						text-transform: uppercase;
+						text-align: left;
+						padding-bottom: 31px - 5px;
+						
+						&:first-child { padding-top: 40px; }
+					}
+
+					& > .text {
+						padding: 0 2px;
+						border-top: 1px solid @splitBorderColor;
+						padding-top: 25px - (43px - 36px);
+						border-bottom: 1px solid @splitBorderColor;
+						padding-bottom: 24px - 6px;
+					}
+				}
+
+				&.scrolling_y {
+					min-height: 0;
+					.center_wrap_1 { height: auto; }
+				}
+			} // dl > dd .nature_detail }}}3
+		} // & > li }}}2
+	} // ul.list }}}1
 } // html.nature_page body section.nature

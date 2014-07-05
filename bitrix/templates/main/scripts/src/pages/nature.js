@@ -89,6 +89,37 @@ $(function domReady() {
 			});
 		});
 
+		$pics.on('click', function () { // {{{2
+			var $pic = $(this);
+			var $popup = $pic.closest('li').find('.nature_detail');
+			if ($popup.size() <= 0) return false;
+
+			var resizeBindSuffix = '.nature_detail_resize';
+
+			function resizeHandler() { // {{{3
+				function resize() {
+					if (!$popup.hasClass('scrolling_y'))
+						$popup.css('margin-top', -Math.round($popup.innerHeight() / 2) + 'px');
+				}
+				resize(); setTimeout(resize, 1);
+			} // }}}3
+
+			require(['popup'], function (popup) {
+				popup.show({
+					$container: $popup,
+					preShowCallback: function () {
+						$(window).on('resize' + resizeBindSuffix, resizeHandler);
+						resizeHandler();
+					},
+					closerCallback: function () {
+						$(window).off('resize' + resizeBindSuffix);
+					},
+				});
+			});
+
+			return false;
+		}); // $pics.on('click'... }}}2
+
 	}); // $wrap.each(... }}}1
 
 }); // domReady()

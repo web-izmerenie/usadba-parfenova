@@ -4,7 +4,7 @@
  * @author Viacheslav Lotsmanov
  */
 
-html.popup { &, body { overflow: hidden; } }
+html.popup body { overflow: hidden; }
 
 html.popup body {
 	.popup_overflow {
@@ -23,18 +23,29 @@ html.popup body {
 		.border-radius(20px);
 		max-width: @maxWidth - (@mainMargin * 2);
 
+		@closerPos: 17px;
+
 		.closer {
 			&:extend(.icon-closer_small);
+			.linkNoLine;
 			background: none;
 			cursor: pointer;
 			display: block;
-			.absolute(17px, 17px);
+			.absolute(@closerPos, @closerPos);
 
 			&:before { &:extend(.icon-closer_small); }
 			&:after { &:extend(.icon-closer_small_active); }
 
 			.animatedIcon;
 		} // .closer
+
+		&.scrolling_x {
+			overflow-x: scroll;
+
+			.closer { right: auto; left: @closerPos; }
+		}
+
+		&.scrolling_y { overflow-y: scroll; }
 	} // .popup_content
 
 	.top_side, header, footer { overflow-y: scroll; }

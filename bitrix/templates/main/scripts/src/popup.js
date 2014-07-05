@@ -66,7 +66,7 @@ define(['get_val', 'jquery'], function (getVal, $) {
 		}
 
 		tmpParamName = 'closerCallback';
-		if (tmpParamName in params && params[tmpParamName] instanceof Function) {
+		if (tmpParamName in params && !(params[tmpParamName] instanceof Function)) {
 			makeError(new exports.exceptions.IncorrectParameter(
 				null, tmpParamName, typeof params[tmpParamName], 'function'), callback);
 			return false;
@@ -92,6 +92,7 @@ define(['get_val', 'jquery'], function (getVal, $) {
 			closerCallback: null, // [optional]
 			closerClassName: 'closer', // [optional]
 			bindSuffix: '.popup_bind', // [optional]
+			preShowCallback: null, // [optional]
 		}, (params || {}));
 
 		if (!$html) {
@@ -161,10 +162,45 @@ define(['get_val', 'jquery'], function (getVal, $) {
 
 		$overflow.stop().animate({ opacity: 1 }, getVal('animationSpeed'));
 
+		function scrollResize() { // {{{2
+			var ww = $(window).width() - 40;
+			var wh = $(window).height() - 40;
+
+			// reset
+			params.$container.css({
+				width: '',
+				'margin-left': '',
+				height: '',
+				'margin-top': '',
+			}).removeClass('scrolling_x').removeClass('scrolling_y');
+
+			if (params.$container.innerWidth() > ww) {
+				params.$container.css({
+					width: ww + 'px',
+					'margin-left': -(ww / 2) + 'px',
+				}).addClass('scrolling_x');
+			}
+
+			if (params.$container.innerHeight() > wh) {
+				params.$container.css({
+					height: wh + 'px',
+					'margin-top': -(wh / 2) + 'px',
+				}).addClass('scrolling_y');
+			}
+		} // scrollResize() }}}2
+
+		$(window).on('resize', scrollResize);
+
 		params.$container.stop().css({
 			opacity: 0,
 			display: 'block'
-		}).addClass( contentClassName ).animate({
+		}).addClass( contentClassName );
+
+		scrollResize();
+		setTimeout(scrollResize, 1);
+		if (params.preShowCallback) params.preShowCallback.call(this);
+
+		params.$container.animate({
 			opacity: 1
 		}, getVal('animationSpeed'), function () {
 			$(document).on('click' + params.bindSuffix, docClickHandler);
