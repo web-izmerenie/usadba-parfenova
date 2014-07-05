@@ -50,6 +50,5 @@ $APPLICATION->SetTitle("Усадьба");
 	"AJAX_OPTION_ADDITIONAL" => ""
 	),
 	false
-);?><br>
-
+);?>
 <?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
