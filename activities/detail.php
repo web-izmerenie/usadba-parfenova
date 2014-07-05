@@ -85,13 +85,11 @@ $APPLICATION->SetTitle($fields["NAME"]);
         }
         if($fields["DETAIL_TEXT"]){//cirle_photo sticky left?>
             <div class="centered_content">
-                <p><?
-                    if($props["ROUNDPIC"]["VALUE"]){
-                        $rpic = CFile::ResizeImageGet($props["ROUNDPIC"]["VALUE"], array("width" => "212", "height" => "212"), BX_RESIZE_IMAGE_EXACT);?>
-                        <img src="<?=$rpic["src"]?>" alt="<?=$fields["NAME"]?>" class="cirle_photo sticky left"><?
-                    }?>
-                    <?=$fields["DETAIL_TEXT"]?>
-                </p>
+                <?if($props["ROUNDPIC"]["VALUE"]){
+					$rpic = CFile::ResizeImageGet($props["ROUNDPIC"]["VALUE"], array("width" => "212", "height" => "212"), BX_RESIZE_IMAGE_EXACT);?>
+					<p><img src="<?=$rpic["src"]?>" alt="<?=$fields["NAME"]?>" class="cirle_photo sticky left"></p><?
+				}?>
+				<?=$fields["DETAIL_TEXT"]?>
             </div><!--.centered_content--><?
         }?>
         <?
