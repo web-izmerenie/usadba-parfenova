@@ -15,6 +15,7 @@
     if (defined("ACTIVITIES_PAGE")) $htmlClasses[] = "activities_page";
     if (defined("ACTIVITIES_SUBPAGE")) $htmlClasses[] = "activities_subpage";
     if (defined("NATURE_PAGE")) $htmlClasses[] = "nature_page";
+    if (defined("WORKSHOP_PAGE")) $htmlClasses[] = "workshop_page";
 ?><!doctype html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?=LANGUAGE_ID?>" lang="<?=LANGUAGE_ID?>" class="<?=implode(" ", $htmlClasses)?>">
 <head>
@@ -106,7 +107,7 @@
 );?>
             </nav>
         </header>
-		<?if (defined("NATURE_PAGE")) {?>
+		<?if (defined("NATURE_PAGE") || defined("WORKSHOP_PAGE")) {?>
 			<nav class="menu_left_top">
 <?$APPLICATION->IncludeComponent(
 	"bitrix:menu",

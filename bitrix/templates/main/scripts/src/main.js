@@ -80,5 +80,9 @@ $(function domReady() {
 		require(['pages/nature']);
 	}
 
+	if ($html.hasClass('workshop_page') && $('section.workshop').size() > 0) {
+		require(['pages/workshop']);
+	}
+
 }); // domReady()
 }); // define()
