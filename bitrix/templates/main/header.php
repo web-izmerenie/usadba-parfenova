@@ -1,5 +1,5 @@
 <?
-    $revision = 11;
+    $revision = 12;
     $devRevision = 1;
 
     // development revision
@@ -106,5 +106,25 @@
 );?>
             </nav>
         </header>
+		<?if (defined("NATURE_PAGE")) {?>
+			<nav class="menu_left_top">
+<?$APPLICATION->IncludeComponent(
+	"bitrix:menu",
+	"menu.left.top",
+	Array(
+		"ROOT_MENU_TYPE" => "left_bottom",
+		"MENU_CACHE_TYPE" => "A",
+		"MENU_CACHE_TIME" => "3600",
+		"MENU_CACHE_USE_GROUPS" => "Y",
+		"MENU_CACHE_GET_VARS" => array(""),
+		"MAX_LEVEL" => "1",
+		"CHILD_MENU_TYPE" => "",
+		"USE_EXT" => "Y",
+		"DELAY" => "N",
+		"ALLOW_MULTI_SELECT" => "N"
+	)
+);?>
+			</nav>
+		<?}?>
 		<?if (defined("PAGE_TITLE")) {?><h1 class="page_title"><?$APPLICATION->ShowTitle()?></h1><?}?>
         <?if (!defined("NO_MAIN_WRAPPER")) {?><main><?}?>

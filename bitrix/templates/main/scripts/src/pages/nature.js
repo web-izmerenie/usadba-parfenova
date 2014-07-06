@@ -85,7 +85,7 @@ $(function domReady() {
 		// resize height
 		require(['section_block_resize'], function (handler) {
 			$wrap.each(function () {
-				handler.call(this, { minusH1: true });
+				handler.call(this, { minusH1: true, minusMenuLeftTop: true });
 			});
 		});
 
@@ -102,7 +102,7 @@ $(function domReady() {
 						$popup.css('margin-top', -Math.round($popup.innerHeight() / 2) + 'px');
 				}
 				resize(); setTimeout(resize, 1);
-			} // }}}3
+			} // resizeHandler() }}}3
 
 			require(['popup'], function (popup) {
 				popup.show({

@@ -11,6 +11,7 @@ define(['jquery', 'get_val'], function ($, getVal) {
 	var $topSide;
 	var $head;
 	var $h1;
+	var $menuLeftTop;
 	var headerH;
 	var footerH;
 
@@ -18,6 +19,7 @@ define(['jquery', 'get_val'], function ($, getVal) {
 
 		params = $.extend({
 			minusH1: false,
+			minusMenuLeftTop: false,
 		}, (($.isPlainObject(params)) ? params : {}));
 
 		var $sectionBlock = $(this);
@@ -27,7 +29,8 @@ define(['jquery', 'get_val'], function ($, getVal) {
 
 			if (!$topSide) $topSide = $('.top_side');
 			if (!$head) $head = $topSide.find('.head');
-			if (!$h1) $h1 = $topSide.find('h1');
+			if (!$h1) $h1 = $topSide.find('h1.page_title');
+			if (!$menuLeftTop) $menuLeftTop = $topSide.find('nav.menu_left_top');
 			if (!headerH) headerH = $('header').height();
 			if (!footerH) footerH = $('footer').height();
 
@@ -39,8 +42,11 @@ define(['jquery', 'get_val'], function ($, getVal) {
 				var colH = $sectionBlock.innerHeight();
 				var wsH = $topSide.height() - footerH; // workspace height
 
-				if (params.minusH1) {
-					wsH -= $h1.innerHeight();
+				if (params.minusH1 || params.minusMenuLeftTop) {
+					if (params.minusH1)
+						wsH -= $h1.innerHeight();
+					if (params.minusMenuLeftTop)
+						wsH -= $menuLeftTop.innerHeight();
 				} else {
 					wsH -= headerH;
 				}

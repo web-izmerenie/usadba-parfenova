@@ -26,6 +26,7 @@
 @import "dialog_box";
 @import "popup_forms";
 @import "photogallery";
+@import "menu_left_top";
 
 /* === PAGES === */
 
@@ -189,6 +190,18 @@ html body {
 			} // .notation_block }}}2
 		} // main }}}1
 
+		nav.menu_left_top {
+			.menuLeftTop();
+			margin: 0 auto;
+			min-width: @minWidth;
+			max-width: @maxWidth;
+			.box-sizing(border-box);
+			padding-left: @mainMargin;
+			padding-right: @mainMargin;
+			padding-top: @headerHeight + 36px;
+			height: 32px + @headerHeight + 36px;
+		}
+
 		h1.page_title { // {{{1
 			display: block;
 			.customFont('PT Sans', 40px, 42px);
@@ -199,6 +212,10 @@ html body {
 			padding-top: 67px - 36px + @headerHeight;
 			padding-bottom: 34px - 6px;
 		} // h1.page_title // }}}1
+
+		nav.menu_left_top + h1.page_title {
+			padding-top: 57px - 36px;
+		}
 
 		h1.page_title + main { padding-top: 0; }
 	} // .top_side

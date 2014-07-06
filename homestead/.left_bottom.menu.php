@@ -1,6 +1,6 @@
 <?
 $aMenuLinks = Array(
-	/* Array(
+	Array(
 		"Дары природы", 
 		"/nature/", 
 		Array(), 
@@ -13,6 +13,6 @@ $aMenuLinks = Array(
 		Array(), 
 		Array(), 
 		"" 
-	) */
+	)
 );
 ?>
