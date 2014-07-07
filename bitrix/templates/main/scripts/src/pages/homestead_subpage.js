@@ -80,20 +80,6 @@ $(function domReady() {
 	}); // $activeRooms.each() // }}}1
 
 	/*if ($photos.size() > 0) { // photogallery {{{1
-		require(['photogallery'], function (Photogallery) {
-
-			new Photogallery({
-				$selector: $photos
-			}, function (err) {
-				if (err) {
-					require(['dialog_box_wrapper'], function (showDialogBox) {
-						showDialogBox({ messages: [ getLocalText('err', 'panorama_init') ] });
-					});
-					return;
-				}
-			});
-
-		});
 	} // photogallery }}}1*/
 
 	require(['panorama_blocks'], function (handler) {
