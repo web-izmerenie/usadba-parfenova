@@ -1,6 +1,6 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
-$APPLICATION->SetTitle("Усадьба Парфёнова");
+$APPLICATION->SetTitle("Усадьба Парфенова");
 ?><?$APPLICATION->IncludeComponent(
 	"bitrix:news.list",
 	"mainpage.list",
@@ -28,7 +28,7 @@ $APPLICATION->SetTitle("Усадьба Парфёнова");
 		"PREVIEW_TRUNCATE_LEN" => "",
 		"ACTIVE_DATE_FORMAT" => "",
 		"SET_STATUS_404" => "N",
-		"SET_TITLE" => "Y",
+		"SET_TITLE" => "N",
 		"INCLUDE_IBLOCK_INTO_CHAIN" => "Y",
 		"ADD_SECTIONS_CHAIN" => "Y",
 		"HIDE_LINK_WHEN_NO_DETAIL" => "N",
