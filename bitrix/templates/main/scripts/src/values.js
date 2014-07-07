@@ -43,6 +43,13 @@ define(function () {
 		minWidth: 980,
 		maxWidth: 1200,
 
+		galleryColorboxParams: {
+			transition: 'fade',
+			height: '80%',
+			opacity: 0.5,
+			rel: 'photos',
+		},
+
 	};
 
 	/** Required set before "getVal" */

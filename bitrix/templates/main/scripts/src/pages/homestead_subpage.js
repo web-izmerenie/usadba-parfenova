@@ -79,8 +79,12 @@ $(function domReady() {
 
 	}); // $activeRooms.each() // }}}1
 
-	/*if ($photos.size() > 0) { // photogallery {{{1
-	} // photogallery }}}1*/
+	// photogallery
+	if ($photos.size() > 0) {
+		require(['jquery.colorbox'], function () {
+			$photos.colorbox(getVal('galleryColorboxParams'));
+		});
+	}
 
 	require(['panorama_blocks'], function (handler) {
 		handler($panorama, $detailPicture);

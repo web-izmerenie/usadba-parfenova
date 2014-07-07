@@ -45,5 +45,14 @@ $(function domReady() {
 
 	}); // $activeActivities.each() // }}}1
 
+	var $photos = $('.section_wrap main ul.photos li a');
+
+	// photogallery
+	if ($photos.size() > 0) {
+		require(['jquery.colorbox'], function () {
+			$photos.colorbox(getVal('galleryColorboxParams'));
+		});
+	}
+
 }); // domReady()
 }); // define()

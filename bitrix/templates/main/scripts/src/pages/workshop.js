@@ -29,12 +29,7 @@ $(function domReady() {
 		// photogallery
 		if ($photos.size() > 0) {
 			require(['jquery.colorbox'], function () {
-				$photos.colorbox({
-					transition: 'fade',
-					height: '80%',
-					opacity: 0.5,
-					rel: 'photos',
-				});
+				$photos.colorbox(getVal('galleryColorboxParams'));
 			});
 		}
 
