@@ -18,8 +18,12 @@ $(function domReady() {
 	$wrap.each(function () { // {{{1
 
 		var $wrap = $(this);
+		var $panorama = $wrap.find('.panorama');
+		var $detailPicture = $wrap.find('.detail_picture');
 
-		// ...
+		require(['panorama_blocks'], function (handler) {
+			handler($panorama, $detailPicture);
+		});
 
 	}); // $wrap.each(... }}}1
 

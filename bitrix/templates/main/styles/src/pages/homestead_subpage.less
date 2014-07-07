@@ -6,6 +6,7 @@
 
 @import "strange_shaped_photos";
 @import "menu_left_top";
+@import "panorama_blocks";
 
 html.homestead_subpage body {
 	.section_wrap {
@@ -166,46 +167,7 @@ html.homestead_subpage body {
 			.customFont('PT Sans', 16px, 24px);
 			color: @dark2Color;
 
-			.panorama, .detail_picture { // {{{2
-				display: block;
-				background: @plugColor;
-				.size(100%, 400px);
-				max-width: @maxWidth - (@mainMargin * 2);
-				margin: 0 auto;
-				.relative;
-			} // .panorama, .detail_picture }}}2
-
-			.panorama { // {{{2
-				&:before {
-					@spinnerSize: 66px;
-
-					.pseudoBlock;
-					.size(@spinnerSize);
-					.bg('big_spinner.gif', center center no-repeat);
-					.absolute(50%, auto, auto, 50%);
-					margin-left: -(@spinnerSize / 2);
-					margin-top: -((@spinnerSize / 2) + 20px);
-					.opacity(1);
-					.transition(opacity @animationSpeed linear);
-				} // &:before
-
-				&:after {
-					.icon-panorama;
-					.pseudoBlock;
-					.absolute(auto, auto, 42px, 50%);
-					margin-left: -(76px / 2);
-				} // &:after
-
-				&.loaded:before { .opacity(0); }
-			} // .panorama }}}2
-
-			.detail_picture, .detail_picture img { // {{{2
-				display: block;
-				width: 100%;
-				height: auto;
-			} // .detail_picture, .detail_picture img }}}2
-
-			.detail_picture { display: none; }
+			.panoramaBlocks;
 
 			ul.photos { .strangeShapedPhotos; }
 

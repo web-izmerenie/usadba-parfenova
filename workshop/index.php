@@ -6,8 +6,8 @@ $APPLICATION->SetTitle("Багетная мастерская");
 ?>
 
 <section class="workshop">
-	<div class="panorama" data-texture="/upload/iblock/6e1/6e185ba267fe0f6360f1bbd9f0197556.jpg"></div>
-	<div class="detail_picture"><img src="/upload/resize_cache/iblock/73b/1200_1200_1/73b9fb188be98e65ba3a0ad8e8b8aa31.JPG" /></div>
+	<!--<div class="panorama" data-texture=""></div>-->
+	<div class="detail_picture"><img alt="" src="/upload/tmp/workshop/detail_picture.jpg" /></div>
 	<div class="notation_block">
 		<p>К&nbsp;вашим услугам багетная мастерская «Усадьба&nbsp;Парфенова».
 		Вы&nbsp;можете приобрести паспорту и&nbsp;фото на&nbsp;холсте
@@ -19,28 +19,43 @@ $APPLICATION->SetTitle("Багетная мастерская");
 	</div>
 	<ul class="photos">
 		<li>
-			<a href="/upload/resize_cache/iblock/ef9/1200_1200_1/ef9209733e7f614001160041129e0f4c.JPG" target="_blank">
-				<img alt="" src="/upload/resize_cache/iblock/ef9/295_195_2/ef9209733e7f614001160041129e0f4c.JPG" />
+			<a href="/upload/tmp/workshop/photos/01_big.jpg" target="_blank">
+				<img alt="" src="/upload/tmp/workshop/photos/01_small.jpg" />
 			</a>
 		</li>
 		<li>
-			<a href="/upload/resize_cache/iblock/f87/1200_1200_1/f87fad9cd67ef88eb2a0e961a3dfed69.JPG" target="_blank">
-				<img alt="" src="/upload/resize_cache/iblock/f87/295_195_2/f87fad9cd67ef88eb2a0e961a3dfed69.JPG" />
+			<a href="/upload/tmp/workshop/photos/02_big.jpg" target="_blank">
+				<img alt="" src="/upload/tmp/workshop/photos/02_small.jpg" />
 			</a>
 		</li>
 		<li>
-			<a href="/upload/resize_cache/iblock/5fb/1200_1200_1/5fba51737d407217034aacc3826dfdc7.jpg" target="_blank">
-				<img alt="" src="/upload/resize_cache/iblock/5fb/295_195_2/5fba51737d407217034aacc3826dfdc7.jpg" />
+			<a href="/upload/tmp/workshop/photos/03_big.jpg" target="_blank">
+				<img alt="" src="/upload/tmp/workshop/photos/03_small.jpg" />
 			</a>
 		</li>
 		<li>
-			<a href="/upload/resize_cache/iblock/f87/1200_1200_1/f87fad9cd67ef88eb2a0e961a3dfed69.JPG" target="_blank">
-				<img alt="" src="/upload/resize_cache/iblock/f87/295_195_2/f87fad9cd67ef88eb2a0e961a3dfed69.JPG" />
+			<a href="/upload/tmp/workshop/photos/04_big.jpg" target="_blank">
+				<img alt="" src="/upload/tmp/workshop/photos/04_small.jpg" />
 			</a>
 		</li>
 		<li>
-			<a href="/upload/resize_cache/iblock/5fb/1200_1200_1/5fba51737d407217034aacc3826dfdc7.jpg" target="_blank">
-				<img alt="" src="/upload/resize_cache/iblock/5fb/295_195_2/5fba51737d407217034aacc3826dfdc7.jpg" />
+			<a href="/upload/tmp/workshop/photos/05_big.jpg" target="_blank">
+				<img alt="" src="/upload/tmp/workshop/photos/05_small.jpg" />
+			</a>
+		</li>
+		<li>
+			<a href="/upload/tmp/workshop/photos/06_big.jpg" target="_blank">
+				<img alt="" src="/upload/tmp/workshop/photos/06_small.jpg" />
+			</a>
+		</li>
+		<li>
+			<a href="/upload/tmp/workshop/photos/07_big.jpg" target="_blank">
+				<img alt="" src="/upload/tmp/workshop/photos/07_small.jpg" />
+			</a>
+		</li>
+		<li>
+			<a href="/upload/tmp/workshop/photos/08_big.jpg" target="_blank">
+				<img alt="" src="/upload/tmp/workshop/photos/08_small.jpg" />
 			</a>
 		</li>
 	</ul>
