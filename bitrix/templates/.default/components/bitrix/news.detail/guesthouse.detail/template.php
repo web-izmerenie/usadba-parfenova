@@ -88,7 +88,7 @@
 				), 
 				BX_RESIZE_IMAGE_PROPORTIONAL
 			);?>
-			<div class="detail_picture"><img src="<?=$thumb["src"]?>" /></div><?
+			<div class="detail_picture"><img alt="" src="<?=$thumb["src"]?>" /></div><?
 		}
         if($arResult["DETAIL_TEXT"]){?>
             <div class="notation_block">
