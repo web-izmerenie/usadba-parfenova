@@ -1,3 +1,4 @@
+        <?if (defined("CONTENT_PAGE")) {?></section><?}?>
         <?if (!defined("NO_MAIN_WRAPPER")) {?></main><?}?>
 		<form class="add_question" action="/ajax/handler.php" method="post">
 			<h2><?=GetMessage("ASK_QUESTION")?></h2>
