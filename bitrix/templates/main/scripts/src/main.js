@@ -85,5 +85,9 @@ $(function domReady() {
 		require(['pages/workshop']);
 	}
 
+	if ($html.hasClass('error_404')) {
+		require(['pages/error_404']);
+	}
+
 }); // domReady()
 }); // define()
