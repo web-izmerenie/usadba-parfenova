@@ -82,9 +82,6 @@ $(function domReady() {
 			if (!bg) return;
 
 			$columnsBlock.css('background-image', 'url("'+ bg +'")');
-			require(['two_columns_page_blur'], function (handler) {
-				$columnsBlock.each(handler);
-			});
 
 		})(); // set background }}}2
 
