@@ -7,7 +7,7 @@ foreach($arResult as $arItem):
 	if($arParams["MAX_LEVEL"] == 1 && $arItem["DEPTH_LEVEL"] > 1) 
 		continue;
     
-    $target = stristr($arItem["LINK"], "price") ? "_blank" : "_self";
+    $target = "_self";
         
 ?>
 	<?if($arItem["SELECTED"]):?>

@@ -9,7 +9,7 @@ $aMenuLinks = Array(
 	),
 	Array(
 		"Цены", 
-		"/upload/price.pdf", 
+		"/price/",
 		Array(), 
 		Array(), 
 		"" 
