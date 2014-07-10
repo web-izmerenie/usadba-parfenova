@@ -14,11 +14,13 @@
 	margin: 0 auto;
 
 	li {
+		.resetCSS;
 		@w: 295px; @h: 195px;
 
 		display: inline-block;
 		.size(@w, @h);
 		margin-left: 27px;
+		margin-top: 38px;
 		.relative;
 
 		a {
@@ -48,5 +50,6 @@
 		} // &:before
 
 		&:first-child, &:nth-child(3n+4) { margin-left: 0; }
+		&:first-child, &:nth-child(2), &:nth-child(3) { margin-top: 0; }
 	} // li
 } // .strangeShapedPhotos()
