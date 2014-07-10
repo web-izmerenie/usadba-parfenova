@@ -153,9 +153,7 @@ html body {
 				border-collapse: collapse;
 
 				tr { // {{{3
-					th, td {
-						border: 1px solid @tableBorderColor;
-					}
+					th, td { border: 1px solid @tableBorderColor; }
 
 					th {
 						font-weight: bold;
@@ -170,7 +168,11 @@ html body {
 						padding: 15px;
 
 						&.centered { text-align: center; }
+						&.lefted { text-align: left; }
+						&.righted { text-align: right; }
 						&.vcentered { vertical-align: middle; }
+						&.vtopped { vertical-align: top; }
+						&.vbottom { vertical-align: bottom; }
 					}
 				} // tr }}}3
 
@@ -214,6 +216,8 @@ html body {
 
 					& + h4 { padding-top: 58px; }
 				} // &.sale }}}3
+
+				&.centered_cells tr td { text-align: center; }
 			} // table }}}2
 
 			// margins and paddings of content tags {{{2
