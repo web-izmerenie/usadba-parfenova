@@ -3,156 +3,51 @@ define("NATURE_PAGE", "Y");
 define("PAGE_TITLE", "Y");
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Дары природы");
-?>
-
-<section class="nature">
-	<ul class="list">
-		<li>
-			<dl>
-				<dt><img alt="Мёд майский" src="/upload/tmp/nature/01.png" /></dt>
-				<dd>
-					<div class="nature_detail">
-						<div class="center_wrap_1">
-						<div class="center_wrap_2">
-							<img alt="Мёд майский" src="/upload/tmp/nature/detail/01.png" class="detail_pic" />
-							<div class="detail_text">
-								<h3>Мёд майский</h3>
-								<div class="text">
-									<p>Содержит огромное количество витаминов и&nbsp;микроэлементов.
-									Рекомендуется для&nbsp;повышения иммунитета, восстановления
-									защитных сил&nbsp;организма. Помогает при&nbsp;стрессах
-									и&nbsp;перенапряжениях, снимает головные боли. Усиливает
-									физическую и&nbsp;умственную активность, укрепляет сердце,
-									благотворно действует на&nbsp;печень.</p>
-								</div>
-							</div>
-						</div><!--.center_wrap_2-->
-						</div><!--.center_wrap_1-->
-					</div><!--.nature_detail-->
-				</dd>
-			</dl>
-		</li>
-		<li>
-			<dl>
-				<dt><img alt="Мёд каштановый" src="/upload/tmp/nature/02.png" /></dt>
-				<dd>
-					<div class="nature_detail">
-						<div class="center_wrap_1">
-						<div class="center_wrap_2">
-							<img alt="Мёд каштановый" src="/upload/tmp/nature/detail/02.png" class="detail_pic" />
-							<div class="detail_text">
-								<h3>Мёд каштановый</h3>
-								<div class="text">
-									<p>Содержит много минеральных солей и&nbsp;аминокислот.
-									Рекомендуется при&nbsp;тромбофлебите, варикозном расширении&nbsp;вен,
-									простате, простудных заболеваниях, бронхите, астме. Оказывает благотворное
-									действие на&nbsp;сосудистую систему, нормализует давление, отлично
-									укрепляет иммунитет.</p>
-								</div>
-							</div>
-						</div><!--.center_wrap_2-->
-						</div><!--.center_wrap_1-->
-					</div><!--.nature_detail-->
-				</dd>
-			</dl>
-		</li>
-		<li>
-			<dl>
-				<dt><img alt="Варенье абрикосовое" src="/upload/tmp/nature/03.png" /></dt>
-				<dd>
-					<div class="nature_detail">
-						<div class="center_wrap_1">
-						<div class="center_wrap_2">
-							<img alt="Варенье абрикосовое" src="/upload/tmp/nature/detail/03.png" class="detail_pic" />
-							<div class="detail_text">
-								<h3>Варенье абрикосовое</h3>
-								<div class="text">
-									<p>Прекрасный десерт к&nbsp;любому столу. Содержание витамина&nbsp;А
-									и&nbsp;калия больше, чем&nbsp;в&nbsp;других фруктах. Варенье
-									из&nbsp;абрикосов в&nbsp;умеренных количествах будет полезно беременным,
-									детям и&nbsp;пожилым людям, а&nbsp;также страдающим сердечно&nbsp;—
-									сосудистыми заболеваниями.</p>
-								</div>
-							</div>
-						</div><!--.center_wrap_2-->
-						</div><!--.center_wrap_1-->
-					</div><!--.nature_detail-->
-				</dd>
-			</dl>
-		</li>
-		<li>
-			<dl>
-				<dt><img alt="Варенье малиновое" src="/upload/tmp/nature/04.png" /></dt>
-				<dd>
-					<div class="nature_detail">
-						<div class="center_wrap_1">
-						<div class="center_wrap_2">
-							<img alt="Варенье малиновое" src="/upload/tmp/nature/detail/04.png" class="detail_pic" />
-							<div class="detail_text">
-								<h3>Варенье малиновое</h3>
-								<div class="text">
-									<p>Малиновое варенье содержит натуральную салициловую кислоту&nbsp;—
-									составляющее большинства противовоспалительных и&nbsp;жаропонижающих
-									средств. Витамины&nbsp;А,&nbsp;Е,&nbsp;РР,&nbsp;В2
-									отвечают&nbsp;за&nbsp;ровный цвет&nbsp;лица. Варенье способствует
-									улучшению кроветворения.</p>
-								</div>
-							</div>
-						</div><!--.center_wrap_2-->
-						</div><!--.center_wrap_1-->
-					</div><!--.nature_detail-->
-				</dd>
-			</dl>
-		</li>
-		<li>
-			<dl>
-				<dt><img alt="Черника с сахаром" src="/upload/tmp/nature/05.png" /></dt>
-				<dd>
-					<div class="nature_detail">
-						<div class="center_wrap_1">
-						<div class="center_wrap_2">
-							<img alt="Черника с сахаром" src="/upload/tmp/nature/detail/05.png" class="detail_pic" />
-							<div class="detail_text">
-								<h3>Черника с сахаром</h3>
-								<div class="text">
-									<p>Черника значительно улучшает зрение человека, ускоряет обновление
-									сетчатой оболочки глаза. Оптимальное соотношение витаминов&nbsp;С,
-									группы&nbsp;В, <span class="non_break">Р-витаминоактивных</span>
-									дубильных веществ, магния, железа, меди обуславливают сосудоукрепляющее,
-									противобактериальное свойства черники.</p>
-								</div>
-							</div>
-						</div><!--.center_wrap_2-->
-						</div><!--.center_wrap_1-->
-					</div><!--.nature_detail-->
-				</dd>
-			</dl>
-		</li>
-		<li>
-			<dl>
-				<dt><img alt="Опята маринованные" src="/upload/tmp/nature/06.png" /></dt>
-				<dd>
-					<div class="nature_detail">
-						<div class="center_wrap_1">
-						<div class="center_wrap_2">
-							<img alt="Опята маринованные" src="/upload/tmp/nature/detail/06.png" class="detail_pic" />
-							<div class="detail_text">
-								<h3>Опята маринованные</h3>
-								<div class="text">
-									<p>Прекрасная закуска к&nbsp;любому столу. Опята благотворно влияют
-									на&nbsp;функционирование щитовидной железы. Также в&nbsp;опятах
-									содержится масса противораковых веществ. Содержат
-									витамины&nbsp;В2,&nbsp;С,&nbsp;Е,&nbsp;РР, магний, натрий, калий,
-									фосфор, кальций и&nbsp;железо.</p>
-								</div>
-							</div>
-						</div><!--.center_wrap_2-->
-						</div><!--.center_wrap_1-->
-					</div><!--.nature_detail-->
-				</dd>
-			</dl>
-		</li>
-	</ul>
-</section>
-
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+?><?$APPLICATION->IncludeComponent(
+	"bitrix:news.list",
+	"nature.list",
+	Array(
+		"IBLOCK_TYPE" => "ru",
+		"IBLOCK_ID" => "8",
+		"NEWS_COUNT" => "20",
+		"SORT_BY1" => "SORT",
+		"SORT_ORDER1" => "ASC",
+		"SORT_BY2" => "",
+		"SORT_ORDER2" => "",
+		"FILTER_NAME" => "",
+		"FIELD_CODE" => array("ID","CODE","XML_ID","NAME","TAGS","SORT","PREVIEW_TEXT","PREVIEW_PICTURE","DETAIL_TEXT","DETAIL_PICTURE","DATE_ACTIVE_FROM","ACTIVE_FROM","DATE_ACTIVE_TO","ACTIVE_TO","SHOW_COUNTER","SHOW_COUNTER_START","IBLOCK_TYPE_ID","IBLOCK_ID","IBLOCK_CODE","IBLOCK_NAME","IBLOCK_EXTERNAL_ID","DATE_CREATE","CREATED_BY","CREATED_USER_NAME","TIMESTAMP_X","MODIFIED_BY","USER_NAME",""),
+		"PROPERTY_CODE" => array("",""),
+		"CHECK_DATES" => "Y",
+		"DETAIL_URL" => "",
+		"AJAX_MODE" => "N",
+		"AJAX_OPTION_JUMP" => "N",
+		"AJAX_OPTION_STYLE" => "Y",
+		"AJAX_OPTION_HISTORY" => "N",
+		"CACHE_TYPE" => "A",
+		"CACHE_TIME" => "7200",
+		"CACHE_FILTER" => "N",
+		"CACHE_GROUPS" => "Y",
+		"PREVIEW_TRUNCATE_LEN" => "",
+		"ACTIVE_DATE_FORMAT" => "",
+		"SET_STATUS_404" => "N",
+		"SET_TITLE" => "Y",
+		"INCLUDE_IBLOCK_INTO_CHAIN" => "Y",
+		"ADD_SECTIONS_CHAIN" => "Y",
+		"HIDE_LINK_WHEN_NO_DETAIL" => "N",
+		"PARENT_SECTION" => "",
+		"PARENT_SECTION_CODE" => "",
+		"INCLUDE_SUBSECTIONS" => "Y",
+		"DISPLAY_DATE" => "Y",
+		"DISPLAY_NAME" => "Y",
+		"DISPLAY_PICTURE" => "Y",
+		"DISPLAY_PREVIEW_TEXT" => "Y",
+		"PAGER_TEMPLATE" => "modern",
+		"DISPLAY_TOP_PAGER" => "N",
+		"DISPLAY_BOTTOM_PAGER" => "Y",
+		"PAGER_TITLE" => "Новости",
+		"PAGER_SHOW_ALWAYS" => "N",
+		"PAGER_DESC_NUMBERING" => "N",
+		"PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
+		"PAGER_SHOW_ALL" => "N"
+	)
+);?><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
