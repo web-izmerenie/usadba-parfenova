@@ -7,6 +7,8 @@
 define(['jquery', 'get_val', 'jquery.easing'], function ($, getVal) {
 $(function domReady() {
 
+	if (!$('html').hasClass('main_page')) return;
+
 	var $mainPage = $('section.main_page');
 	var $card1 = $mainPage.find('.card.card_1');
 	var $card1LogoWrap = $card1.find('.logo_wrap');
@@ -15,6 +17,9 @@ $(function domReady() {
 	var $document = $(document);
 	var $page = $('html,body');
 	var $video = $card1.find('video');
+	var $card2 = $mainPage.find('.card.card_2');
+	var $card2Bg = $card2.find('.background');
+	var $card2Text = $card2.find('.text');
 
 	var $backgrounds = $mainPage.find('.card .background, .card_1');
 
@@ -79,7 +84,7 @@ $(function domReady() {
 
 			if (wr > ww) {
 				ih = ww;
-			} else {
+			} else if (!$bg.closest('.card').hasClass('card_2')) {
 				// centering position
 				offset += (ih - wh) / 2;
 			}
@@ -100,6 +105,7 @@ $(function domReady() {
 
 	function resizeCards() { // {{{1
 		$backgrounds.css('height', $window.height() + 'px');
+		$card2Bg.css('height', ($window.height() - $card2Text.innerHeight()) + 'px');
 		$video.each(function () {
 			$video.css({ width: '', height: '', top: '' });
 			if ($video.width() < $card1.width()) {
@@ -112,8 +118,11 @@ $(function domReady() {
 		});
 	} // resizeCards }}}1
 
-	$window.on('resize' + resizeCardsBindSuffix, $.proxy(setTimeout, null, resizeCards, 1));
-	setTimeout(resizeCards, 1);
+	var resizeCardsBind = $.proxy(setTimeout, null, resizeCards, 1);
+
+	$window.on('resize' + resizeCardsBindSuffix, resizeCardsBind);
+	resizeCardsBind();
+	$window.on('load', resizeCardsBind);
 
 	// video behavior {{{1
 
