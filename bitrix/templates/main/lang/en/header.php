@@ -22,5 +22,16 @@ $MESS["ASK_QUESTION"] = "Ask";
 $MESS["PHONE"] = "Phone";
 $MESS["QUESTION"] = "Question";
 $MESS["COST"] = "Cost:";
+$MESS["PRICE_MAIN_TITLE"] = 'Номерной фонд Гостевого дома "Усадьба Парфенова"';
+$MESS["CATEGORY"] = "Категория номера";
+$MESS["NUM_DESC"] = "Оборудование спального места";
+$MESS["PLACE_COUNT_1"] = "1-местное* проживание";
+$MESS["PLACE_COUNT_2"] = "2-местное* проживание";
+$MESS["PLACE_COUNT_3"] = "3-местное* проживание";
+$MESS["PLACE_COUNT_4"] = "4-местное* проживание";
+$MESS["PLACE_COUNT_5"] = "5-местное* проживание";
+$MESS["SERVICE_NAME"] = "Услуга";
+$MESS["PRICE"] = "Стоимость";
+$MESS["WORKTIME"] = "Время работы";
 
 ?>
