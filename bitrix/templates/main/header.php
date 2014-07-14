@@ -64,10 +64,17 @@
             <?if ($APPLICATION->GetCurPage() != SITE_DIR){?><a href="/" title="На главную"><?}?>
                 <img alt="Усадьба Парфенова" src="/bitrix/templates/main/images/logo.png" width="167" height="80" class="logo" />
             <?if ($APPLICATION->GetCurPage() != SITE_DIR){?></a><?}?>
-			<?/* <div class="choose_lang">
-				<a href="#" title="English">En</a>
-				<span title="Русский">Ру</span>
-			</div> */?>
+			<div class="choose_lang"><?
+                $site = CSite::GetList();
+                while($arSite = $site->GetNext()){
+                    if($arSite["LANGUAGE_ID"] == LANGUAGE_ID){?>
+                        <span title="Русский"><?=$arSite["LANGUAGE_ID"]?></span><?
+                    }else{
+                        $href = "http://".$arSite["SERVER_NAME"].$APPLICATION->GetCurPage();?>
+                        <a href="<?=$href?>" title="English"><?=$arSite["LANGUAGE_ID"]?></a><?
+                    }
+                }?>
+			</div>
             <div class="first_line_wrap">
                 <div class="first_line">
                     <nav class="main_menu"><?$APPLICATION->IncludeComponent("bitrix:menu", "menu.top", Array(
