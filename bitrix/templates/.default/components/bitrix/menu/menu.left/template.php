@@ -15,7 +15,7 @@ foreach($arResult as $arItem):
         <?if($path == $page):?>
             <span><?=$arItem["TEXT"]?></span>
         <?else:?>
-            <a class="active" target="<?=$target?>" href="<?=$path?>"><?=$arItem["TEXT"]?></a>
+            <a class="active" href="<?=$path?>"><?=$arItem["TEXT"]?></a>
         <?endif;?>
 	<?else:?>
 		<a href="<?=$arItem["LINK"]?>"><?=$arItem["TEXT"]?></a>
