@@ -50,6 +50,8 @@ define(function () {
 			rel: 'photos',
 		},
 
+		mobileMainPage: '/homestead/'
+
 	};
 
 	/** Required set before "getVal" */

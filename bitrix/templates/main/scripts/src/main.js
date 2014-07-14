@@ -28,6 +28,7 @@ $(function domReady() {
 				'jquery.colorbox': 'libs/jquery.colorbox-1.5.10',
 				'modernizr': 'libs/modernizr-2.7.2.amd',
 				'sphere_panorama': 'libs/sphere_panorama',
+				'mobile-detect': 'libs/mobile-detect',
 
 				// basics aliases
 				'get_local_text': 'basics/get_local_text',
@@ -40,13 +41,24 @@ $(function domReady() {
 				'form_placeholder': 'basics/form_placeholder',
 
 			}
-		}
+		},
+
+		enforceDefine: true
+
 	}); // require.config()
 
 	require(['header']);
 
 	if ($html.hasClass('main_page')) {
-		require(['pages/main']);
+		require(['mobile-detect'], function (MobileDetect) {
+			var md = new MobileDetect(window.navigator.userAgent);
+			if (md.mobile())
+				window.location = getVal('mobileMainPage');
+			else
+				require(['pages/main']);
+		}, function (err) {
+			require(['pages/main']);
+		});
 	}
 
 	if ($html.hasClass('homestead_page') && $('section.homestead').size() > 0) {
