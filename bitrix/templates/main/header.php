@@ -37,9 +37,9 @@
         <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
-    <link rel="stylesheet" type="text/css" href="/bitrix/templates/main/styles/build/build.css?v=<?=$revision?>" />
+    <link rel="stylesheet" type="text/css" href="/bitrix/templates/main/build.css?v=<?=$revision?>" />
     <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-    <script src="/bitrix/templates/main/scripts/build/build.js?v=<?=$revision?>"></script>
+    <script src="/bitrix/templates/main/build.js?v=<?=$revision?>"></script>
     <script>
         //<![CDATA[
             require(['basics/get_val'], function (getVal) {

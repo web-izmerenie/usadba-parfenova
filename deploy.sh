@@ -1,10 +1,12 @@
 #!/bin/bash
 #
 # Author: Viacheslav Lotsmanov
-# License: GNU/GPLv3 by Free Software Foundation
+# License: GNU/GPLv3 by Free Software Foundation (https://github.com/unclechu/grunt-project-templates/blob/master/LICENSE)
 #
 
-PARENT_DEPLOY_SCRIPT=true
+PARENT_DEPLOY_SCRIPT=1
+
+[ -n "$WD" ] && cd "$WD"
 
 clr_info='\e[0;36m'
 clr_ok='\e[0;32m'
@@ -137,86 +139,29 @@ function please_type {
 	echo -en "${clr_ask}${@}${clr_end}: "
 }
 
-# default deploy actions
+# deploy tasks
 
-info_inline "Checking for grunt"
-if [ -e ./node_modules/.bin/grunt ]; then ok; else
-	err 1;
-	info_err_clean "No grunt!" \
-		"You need to do \`${clr_info}npm install${clr_err}\`" \
-		"before deploy script!"
-
-	if ask "Do \`${clr_info}npm install${clr_ask}\` now?"; then
-		if ! npm install; then exit 1; fi
-		exit 0
-	else
-		info_clean "You need to do \`${clr_ask}npm install${clr_info}\` first."
-		exit 1
-	fi
-fi
-
-info_inline "Creating symbolic link to grunt-cli"
-rm ./grunt &>/dev/null
-if ln -s ./node_modules/.bin/grunt ./grunt &>/dev/null; then ok; else err; fi
-
-info "Generating sprites"
-if ./grunt gen-sprites; then
-	info_inline "Generating sprites status:"; ok;
-else err; fi
-
-info "Starting grunt default tasks"
-if ./grunt; then
-	info_inline "Grunt default tasks status:"; ok;
-else err; fi
-
-# custom deploy actions
-
-info_inline "Deprivation of privileges group and others"
-run_inline_answer chmod -R go-rwx .
-
-info "Creating symbolic links"
-if ask "Create symbolic links to master project?"; then
-	please_type "Please enter the relative path to master copy of this project"
-	read master_path
-	wait_separator=0
-	cat ".gitignore" | while read line; do
-		if [ "$line" == "#SYMBOLIC_LINKS_START#" ]; then
-			wait_separator=1
-		fi
-
-		line=$(echo "$line" | sed -e 's/#.*$//g' | sed -e 's/\s\+$//g')
-		count=$(echo "$line" | tr '/' '\n' | wc -l)
-		up=
-
-		for (( i=1; i<$count; i++ )); do
-			up="../$up"
-		done
-
-		if [ $wait_separator -ne 0 ] && [ "$line" != "" ]; then
-			if [ -h "$line" ] || ! test -e "$line"; then
-				if [ -h "$line" ]; then
-					info "rm \"$line\""
-					rm "$line"
-				fi
-
-				file_in_master="${master_path}/${line}"
-				relative_path="${up}${file_in_master}"
-				if [ -f "$file_in_master" ] || [ -d "$file_in_master" ] || [ -L "$file_in_master" ]; then
-					info "ln -s \"$relative_path\" \"$line\""
-					ln -s "$relative_path" "$line"
-				else
-					info_err_clean "[ SKIPPED ] \"$relative_path\" is not exists"
-				fi
-			else
-				info_err_clean "[ SKIPPED ] \"$line\" is not symbolic link"
-			fi
-		fi
-	done
+if [ -n "$YOUR_SUBJECT" ]; then
+	source "$YOUR_SUBJECT"
 else
-	info "[ SKIPPED ]"
+	tasks=$(find ./_deploy -maxdepth 1 -type f | grep '\.sh$' | sort | tr '\n' ':')
+	
+	while [ -n "$tasks" ]; do
+		task="${tasks#*:}"
+		task="${tasks:0:$[ ${#tasks} - ${#task} - 1 ]}"
+
+		info "Started task \"$task\""
+		source "$task"
+		info_inline "Task \"$task\" successfully finished" && ok
+
+		tasks="${tasks#*:}"
+	done
 fi
 
 # finishing of deploying
 
-info_ok_clean "This repository is successfully deployed!"
+if [ -z "$YOUR_SUBJECT" ]; then
+	info_ok_clean "This repository is successfully deployed!"
+fi
+
 exit 0

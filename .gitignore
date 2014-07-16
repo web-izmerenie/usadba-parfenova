@@ -10,9 +10,8 @@
 node_modules
 grunt
 
-bitrix/templates/main/styles/build
-bitrix/templates/main/scripts/build
-bitrix/templates/main/styles/src/icons/*.less
+bitrix/templates/main/build.css
+bitrix/templates/main/build.js
 bitrix/templates/main/images/icons_sprite.png
 
 robots.txt
