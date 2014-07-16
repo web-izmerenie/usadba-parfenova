@@ -1,7 +1,16 @@
 if [ -z "$PARENT_DEPLOY_SCRIPT" ]; then YOUR_SUBJECT="./_deploy/$(basename "$0")" WD="$(dirname "$0")/../" ../deploy.sh; exit "$?"; fi
 
+# Creating relative symbolic links to master site directory
+#
+# Put serapator "#SYMBOLIC_LINKS_START#" to ".gitignore"
+# Will be created symbolic links for all paths that after separator in .gitignore
+#
+# Put file ".source_of_symbolic_links" to site root for ignoring this action for master site
+
 info "Creating symbolic links"
-if ask "Create symbolic links to master project?"; then
+if [ -f '.source_of_symbolic_links' ]; then
+	info "Is source of symbolic links [ SKIPPED ]"
+elif ask "Create symbolic links to master project?"; then
 	please_type "Please enter the relative path to master copy of this project"
 	read master_path
 	wait_separator=0
