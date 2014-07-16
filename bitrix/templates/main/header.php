@@ -20,6 +20,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?=LANGUAGE_ID?>" lang="<?=LANGUAGE_ID?>" class="<?=implode(" ", $htmlClasses)?>">
 <head>
     <meta charset="utf-8" />
+	<meta name="viewport" content="width=980, initial-scale=1.0" />
     <title><?$APPLICATION->ShowTitle()?></title>
 
     <!--[if lt IE 8]>
