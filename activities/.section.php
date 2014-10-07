@@ -1,5 +1,5 @@
 <?
-$sSectionName = "Активный отдых";
+$sSectionName = "Отдых";
 $arDirProperties = Array(
 
 );

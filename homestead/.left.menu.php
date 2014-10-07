@@ -22,7 +22,7 @@ $aMenuLinks = Array(
 		"" 
 	),
 	Array(
-		"Спорт и отдых", 
+		"Отдых", 
 		"/activities/", 
 		Array(), 
 		Array(), 
