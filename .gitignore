@@ -25,6 +25,8 @@ bitrix/cache
 bitrix/managed_cache
 bitrix/tmp
 
+.source_of_symbolic_links
+
 #SYMBOLIC_LINKS_START#
 
 # configs (security)
