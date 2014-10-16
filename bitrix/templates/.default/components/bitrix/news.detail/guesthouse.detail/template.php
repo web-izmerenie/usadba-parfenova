@@ -99,6 +99,7 @@
 				<div class="new_gallery_big">
 					<a class="prev"></a>
 					<a class="next"></a>
+					<div class="slider"></div>
 				</div>
 				<ul class="new_gallery_list">
 					<?foreach($arResult["DISPLAY_PROPERTIES"]["GALLERY"]["VALUE"] as $image){?>
