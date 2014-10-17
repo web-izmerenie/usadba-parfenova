@@ -1,6 +1,13 @@
 <?
 $aMenuLinks = Array(
 	Array(
+		"События", 
+		"/events/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
 		"Задать вопрос", 
 		"/ask/", 
 		Array(), 
@@ -9,7 +16,7 @@ $aMenuLinks = Array(
 	),
 	Array(
 		"Цены", 
-		"/price/",
+		"/price/", 
 		Array(), 
 		Array(), 
 		"" 
