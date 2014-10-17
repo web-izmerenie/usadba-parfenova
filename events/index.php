@@ -8,7 +8,7 @@ $APPLICATION->SetTitle("События");
 	array(
 		"IBLOCK_TYPE" => "ru",
 		"IBLOCK_ID" => "20",
-		"NEWS_COUNT" => "4",
+		"NEWS_COUNT" => "8",
 		"SORT_BY1" => "ACTIVE_FROM",
 		"SORT_ORDER1" => "DESC",
 		"SORT_BY2" => "",
@@ -49,7 +49,7 @@ $APPLICATION->SetTitle("События");
 		"PAGER_TEMPLATE" => "",
 		"DISPLAY_TOP_PAGER" => "N",
 		"DISPLAY_BOTTOM_PAGER" => "Y",
-		"PAGER_TITLE" => "",
+		"PAGER_TITLE" => "Страницы",
 		"PAGER_SHOW_ALWAYS" => "Y",
 		"PAGER_DESC_NUMBERING" => "Y",
 		"PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
