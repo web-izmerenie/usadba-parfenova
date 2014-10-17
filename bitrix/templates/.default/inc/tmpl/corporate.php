@@ -6,7 +6,7 @@
 		"IBLOCK_ID" => "19",
 		"NEWS_COUNT" => "10000",
 		"SORT_BY1" => "ACTIVE_FROM",
-		"SORT_ORDER1" => "",
+		"SORT_ORDER1" => "ASC",
 		"SORT_BY2" => "",
 		"SORT_ORDER2" => "",
 		"FILTER_NAME" => "",
