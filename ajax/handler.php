@@ -18,7 +18,7 @@ if (!$_POST["action"]) {
 			if (!$_POST["review_text"])
 				$response["fields_names"][] = "review_text";
 		} else {
-			if (!preg_match("/^(.+)\@(.+)$/", $_POST["email"])) {
+			if ($_POST["email"] && !preg_match("/^(.+)\@(.+)$/", $_POST["email"])) {
 				$response["status"] = "error";
 				$response["error_code"] = "incorrect_fields";
 				$response["fields_names"][] = "email";
