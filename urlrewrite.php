@@ -18,6 +18,12 @@ $arUrlRewrite = array(
 		"ID" => "",
 		"PATH" => "/activities/title.php",
 	),
+	array(
+		"CONDITION" => "#^/events/([0-9]+).html#",
+		"RULE" => "ELEMENT_ID=\$1",
+		"ID" => "",
+		"PATH" => "/events/detail.php",
+	),
 );
 
 ?>
