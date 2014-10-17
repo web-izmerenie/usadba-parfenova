@@ -8,8 +8,8 @@ $aMenuLinks = Array(
 		"" 
 	),
 	Array(
-		"Задать вопрос", 
-		"/ask/", 
+		"Вопрос-ответ", 
+		"/question_and_answer/", 
 		Array(), 
 		Array(), 
 		"" 
