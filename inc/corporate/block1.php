@@ -1,1 +1,0 @@
-<img src="/upload/userupload/corporate.jpg" alt="Корпоративное собрание">
