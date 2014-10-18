@@ -141,5 +141,141 @@
 				</dl>
 			<?}?>
 		</div><!--.prices-->
+		<?
+		$iblockType = 'ru';
+		$iblockId = 23;
+		$housesIblockType = 'ru';
+		$housesIblockId = 1;
+		$res = CIBlockElement::GetList(
+			array('SORT'=>'ASC'),
+			array(
+				"ACTIVE" => "Y",
+				"IBLOCK_TYPE" => $iblockType,
+				"IBLOCK_ID" => $iblockId,
+			),
+			false,
+			array("nPageSize" => 10000),
+			array("ID", "NAME"));
+		$found = false;
+		$list = array();
+		while ($arItem = $res->Fetch()) {
+			$propRes = CIBlockElement::GetProperty(
+				$iblockId,
+				$arItem['ID'],
+				array('SORT' => 'ASC'),
+				array('CODE' => 'house_id'));
+			$arProp = $propRes->Fetch();
+			$houseId = $arProp['VALUE'];
+
+			$peopleCountText = array();
+			$propRes = CIBlockElement::GetProperty(
+				$iblockId,
+				$arItem['ID'],
+				array('SORT' => 'ASC'),
+				array('CODE' => 'people_count'));
+			while ($arProp = $propRes->Fetch()) {
+				$peopleCountText[] = $arProp['VALUE'];
+			}
+
+			$newItem = array();
+			$newItem['people_count'] = array();
+
+			$housePrices = CIBlockElement::GetProperty(
+				$housesIblockId,
+				$houseId,
+				array('SORT' => 'ASC'),
+				array('CODE' => 'PRICE'));
+			$i = 0;
+			while ($arProp = $housePrices->Fetch()) {
+				$d = explode(':', $arProp['DESCRIPTION']);
+				$newArr = array();
+				$newArr['hidden_text'] = $d[0].' ('.$arProp['VALUE'].')';
+				$newArr['public_text'] = $peopleCountText[$i];
+				$newItem['people_count'][] = $newArr;
+				$i++;
+			}
+
+			$newItem['house_id'] = $houseId;
+			if ($houseId == $arResult['ID']) {
+				$newItem['active'] = true;
+				$found = true;
+			} else {
+				$newItem['active'] = false;
+			}
+
+			$houseRes = CIBlockElement::GetList(
+				array('SORT'=>'ASC'),
+				array(
+					"IBLOCK_TYPE" => $housesIblockType,
+					"IBLOCK_ID" => $housesIblockId,
+					"ID" => $houseId,
+				),
+				false,
+				array("nPageSize" => 10000),
+				array("ID", "NAME"));
+			$arHouse = $houseRes->Fetch();
+			$newItem['house_name'] = $arHouse['NAME'];
+
+			$list[] = $newItem;
+		}
+		?>
+		<?if($found):?>
+		<div class="reservation">
+			<a class="reserve"><?=GetMessage('RESERVE')?></a>
+			<form class="reservation_form" action="/ajax/handler.php" method="post">
+				<h2><?=GetMessage("RESERVE")?></h2>
+				<ul class="houses_list">
+					<?foreach($list as $arHouse):?>
+						<li<?=($arHouse['active']) ? ' class="active"' : ''?>>
+							<div class="id"><?=$arHouse['house_id']?></div>
+							<div class="name"><?=$arHouse['house_name']?></div>
+							<ul class="people_count">
+								<?foreach($arHouse['people_count'] as $arPrice):?>
+									<li>
+										<div class="public"><?=$arPrice['public_text']?></div>
+										<div class="hidden"><?=$arPrice['hidden_text']?></div>
+									</li>
+								<?endforeach?>
+							</ul>
+						</li>
+					<?endforeach?>
+				</ul>
+				<label class="choose required">
+					<span><?=GetMessage("RESERVE_FORM_HOUSE")?></span>
+					<input type="text" name="house_name" value="" readonly="readonly"/>
+				</label>
+				<input type="hidden" name="house_id" value=""/>
+				<label class="choose required">
+					<span><?=GetMessage("RESERVE_FORM_PEOPLE_COUNT")?></span>
+					<input type="text" name="people_count" value="" readonly="readonly"/>
+				</label>
+				<input type="hidden" name="hidden_people_count" value="" />
+				<label class="date required">
+					<span><?=GetMessage("RESERVE_FORM_IN_DATE")?></span>
+					<input type="text" name="in_date" value=""/>
+				</label>
+				<label class="date required">
+					<span><?=GetMessage("RESERVE_FORM_OUT_DATE")?></span>
+					<input type="text" name="out_date" value=""/>
+				</label>
+				<label class="text required">
+					<span><?=GetMessage("RESERVE_FORM_NAME")?></span>
+					<input type="text" name="name" value=""/>
+				</label>
+				<label class="text required">
+					<span><?=GetMessage("RESERVE_FORM_LAST_NAME")?></span>
+					<input type="text" name="last_name" value=""/>
+				</label>
+				<label class="text required">
+					<span><?=GetMessage("RESERVE_FORM_PHONE")?></span>
+					<input type="text" name="phone" value=""/>
+				</label>
+				<label class="submit">
+					<span><?=GetMessage("RESERVE_FORM_SEND")?></span>
+					<input type="submit" value="<?=GetMessage("RESERVE_FORM_SEND")?>" />
+				</label>
+			</form>
+		</div><!--.reservation-->
+		<?endif?>
 	</main>
 </div><!--.section_wrap-->
