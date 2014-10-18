@@ -185,12 +185,12 @@ if (!$_POST["action"]) {
 					$response["status"] = "success";
 
 					$site_id = $_POST["lang"] == "ru" ? "s1" : "en";
-					//$send = CEvent::SendImmediate(
-						//"QUESTION_SENT",
-						//$site_id,
-						//false,
-						//"N"
-					//);
+					$send = CEvent::SendImmediate(
+						"RESERVE_SENT",
+						$site_id,
+						false,
+						"N"
+					);
 				} else {
 					$response["status"] = "error";
 					$response["error_code"] = "add_to_iblock";
