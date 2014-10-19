@@ -252,11 +252,11 @@
 				<input type="hidden" name="hidden_people_count" value="" />
 				<label class="date required">
 					<span><?=GetMessage("RESERVE_FORM_IN_DATE")?></span>
-					<input type="text" name="in_date" value=""/>
+					<input type="date" name="in_date" value=""/>
 				</label>
 				<label class="date required">
 					<span><?=GetMessage("RESERVE_FORM_OUT_DATE")?></span>
-					<input type="text" name="out_date" value=""/>
+					<input type="date" name="out_date" value=""/>
 				</label>
 				<label class="text required">
 					<span><?=GetMessage("RESERVE_FORM_NAME")?></span>
