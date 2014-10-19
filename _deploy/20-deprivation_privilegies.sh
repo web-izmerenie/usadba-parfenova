@@ -1,0 +1,1 @@
+../web-front-end-deploy/tasks/20-deprivation_privilegies.sh

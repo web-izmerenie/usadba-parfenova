@@ -1,0 +1,3 @@
+.non_break { white-space: nowrap; }
+img.sticky.left { float: left; }
+img.sticky.right { float: right; }
