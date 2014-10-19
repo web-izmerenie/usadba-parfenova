@@ -74,9 +74,21 @@ $APPLICATION->SetTitle($fields["NAME"]);
 		<h1><?$APPLICATION->ShowTitle()?></h1>
 	</div>
 	<main>
-		<?if($fields["DETAIL_PICTURE"]){?>
-			<?$detail_pic = CFile::GetPath($fields["DETAIL_PICTURE"]);?>
-			<img alt="<?=$fields["NAME"]?>" src="<?=$detail_pic?>" class="section_illustration" />
+		<?if($props["GALLERY"]["VALUE"]){?>
+			<div class="photogallery">
+				<div class="new_gallery_big">
+					<a class="prev"></a>
+					<a class="next"></a>
+					<div class="slider"></div>
+				</div>
+				<ul class="new_gallery_list">
+					<?foreach($props["GALLERY"]["VALUE"] as $image){?>
+						<?$thumb = CFile::ResizeImageGet($image, array("width" => "57", "height" => "57"), BX_RESIZE_IMAGE_EXACT);?>
+						<?$origin = CFile::ResizeImageGet($image, array("width" => "940", "height" => "454"), BX_RESIZE_IMAGE_EXACT);?>
+						<li><a href="<?=$origin["src"]?>" target="_blank"><img alt="" src="<?=$thumb["src"]?>" /></a></li>
+					<?}?>
+				</ul>
+			</div>
 		<?}?>
 		<?if($fields["PREVIEW_TEXT"]){?>
 			<div class="general_description">
@@ -91,15 +103,6 @@ $APPLICATION->SetTitle($fields["NAME"]);
 				<?}?>
 				<?=$fields["DETAIL_TEXT"]?>
 			</div><!--.centered_content-->
-		<?}?>
-		<?if($props["GALLERY"]["VALUE"]){?>
-			<ul class="photos">
-				<?foreach($props["GALLERY"]["VALUE"] as $image){?>
-					<?$thumb = CFile::ResizeImageGet($image, array("width" => "295", "height" => "195"), BX_RESIZE_IMAGE_EXACT);?>
-					<?$origin = CFile::ResizeImageGet($image, array("width" => "1200", "height" => "1200"), BX_RESIZE_IMAGE_PROPORTIONAL);?>
-					<li><a href="<?=$origin["src"]?>"><img alt="" src="<?=$thumb["src"]?>" /></a></li>
-				<?}?>
-			</ul>
 		<?}?>
 		<?=$props["INFO"]["~VALUE"]["TEXT"]?>
 		<?if($props["ADDITIONAL"]["~VALUE"]["TEXT"]){?>
