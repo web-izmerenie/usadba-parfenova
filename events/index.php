@@ -1,7 +1,7 @@
 <?
 define("PAGE_TITLE", "Y");
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
-$APPLICATION->SetTitle("События");
+$APPLICATION->SetTitle("Новости");
 ?><?$APPLICATION->IncludeComponent(
 	"bitrix:news.list", 
 	"events", 

@@ -1,7 +1,7 @@
 <?
 $aMenuLinks = Array(
 	Array(
-		"События", 
+		"Новости", 
 		"/events/", 
 		Array(), 
 		Array(), 

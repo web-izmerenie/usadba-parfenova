@@ -1,6 +1,6 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
-$APPLICATION->SetTitle("Событие подробно");
+$APPLICATION->SetTitle("Новость подробно");
 ?><?$APPLICATION->IncludeComponent("bitrix:news.detail", "events", Array(
 	"IBLOCK_TYPE" => "ru",	// Тип информационного блока (используется только для проверки)
 		"IBLOCK_ID" => "20",	// Код информационного блока
