@@ -1,2 +1,2 @@
 <?
-$MESS["BACK_TO_EVENTS"]="Events";
+$MESS["BACK_TO_EVENTS"]="News";
