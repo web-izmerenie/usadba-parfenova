@@ -47,7 +47,11 @@ $APPLICATION->SetTitle($fields["NAME"]);
 			while($arNav = $nav->GetNext()){
 				$arNavigation[$index]["DETAIL_PAGE_URL"] = $arNav["DETAIL_PAGE_URL"]."details/";
 				$arNavigation[$index]["NAME"] = $arNav["NAME"];
-				$arNavigation[$index]["PREVIEW_PICTURE"] = CFile::GetPath($arNav["PREVIEW_PICTURE"]);
+				$arNavigation[$index]["PREVIEW_PICTURE"] =
+					CFile::ResizeImageGet(
+						$arNav["PREVIEW_PICTURE"],
+						array("width" => "60", "height" => "60"),
+						BX_RESIZE_IMAGE_EXACT);
 				if($arNav["ID"] == $fields["ID"]){
 					$arNavigation[$index]["CURRENT"] = "Y";
 				}
@@ -57,12 +61,12 @@ $APPLICATION->SetTitle($fields["NAME"]);
 			foreach($arNavigation as $item){
 				if($item["CURRENT"]){?>
 					<span>
-						<img alt="<?=$item["NAME"]?>" src="<?=$item["PREVIEW_PICTURE"]?>" />
+						<img alt="<?=$item["NAME"]?>" src="<?=$item["PREVIEW_PICTURE"]['src']?>" />
 						<span><span><?=$item["NAME"]?></span></span>
 					</span><?
 				}else{?>
 					<a href="<?=$item["DETAIL_PAGE_URL"]?>">
-						<img alt="<?=$item["NAME"]?>" src="<?=$item["PREVIEW_PICTURE"]?>" />
+						<img alt="<?=$item["NAME"]?>" src="<?=$item["PREVIEW_PICTURE"]['src']?>" />
 						<span><span><?=$item["NAME"]?></span></span>
 					</a><?
 				}
