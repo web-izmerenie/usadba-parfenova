@@ -125,12 +125,12 @@ $APPLICATION->SetTitle($fields["NAME"]);
 			<?foreach($arNavigation as $item){?>
 				<?if($item["CURRENT"]){?>
 					<span>
-						<img alt="<?=$item["NAME"]?>" src="<?=$item["PREVIEW_PICTURE"]?>" />
+						<img alt="<?=$item["NAME"]?>" src="<?=$item["PREVIEW_PICTURE"]['src']?>" />
 						<span><span><?=$item["NAME"]?></span></span>
 					</span>
 				<?}else{?>
 					<a href="<?=$item["DETAIL_PAGE_URL"]?>">
-						<img alt="<?=$item["NAME"]?>" src="<?=$item["PREVIEW_PICTURE"]?>" />
+						<img alt="<?=$item["NAME"]?>" src="<?=$item["PREVIEW_PICTURE"]['src']?>" />
 						<span><span><?=$item["NAME"]?></span></span>
 					</a>
 				<?}?>
