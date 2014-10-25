@@ -24,6 +24,12 @@ $arUrlRewrite = array(
 		"ID" => "",
 		"PATH" => "/events/detail.php",
 	),
+	array(
+		"CONDITION" => "#^/robots.txt(\\?|\$)#",
+		"RULE" => "",
+		"ID" => "",
+		"PATH" => "/robots.php",
+	),
 );
 
 ?>

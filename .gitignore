@@ -14,8 +14,6 @@ bitrix/templates/main/build.css
 bitrix/templates/main/build.js
 bitrix/templates/main/images/icons_sprite.png
 
-robots.txt
-
 urlrewrite_.php
 test.php
 
