@@ -21,21 +21,9 @@
 		<div class="text"><?=$arResult['PREVIEW_TEXT']?></div>
 	<?endif?>
 
-	<?$photos = $arResult['DISPLAY_PROPERTIES']['photogallery']['VALUE']?>
-	<?if(!empty($photos)):?>
-		<div class="photogallery">
-			<div class="new_gallery_big">
-				<a class="prev"></a>
-				<a class="next"></a>
-				<div class="slider"></div>
-			</div>
-			<ul class="new_gallery_list">
-				<?foreach($photos as $item){?>
-					<?$thumb = CFile::ResizeImageGet($item, array("width" => "57", "height" => "57"), BX_RESIZE_IMAGE_EXACT);?>
-					<?$origin = CFile::ResizeImageGet($item, array("width" => "940", "height" => "454"), BX_RESIZE_IMAGE_EXACT);?>
-					<li><a href="<?=$origin["src"]?>" target="_blank"><img alt="" src="<?=$thumb["src"]?>" /></a></li>
-				<?}?>
-			</ul>
-		</div>
-	<?endif?>
+	<?$APPLICATION->IncludeFile(
+		"inc/tmpl/new_gallery.php",
+		array('photos' => $arResult['DISPLAY_PROPERTIES']['photogallery']['VALUE']),
+		array("SHOW_BORDER" => false)
+	);?>
 </div>
