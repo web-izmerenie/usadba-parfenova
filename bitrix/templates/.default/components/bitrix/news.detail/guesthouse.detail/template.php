@@ -94,22 +94,11 @@
 				<?=$arResult["DETAIL_TEXT"]?>
 			</div>
 		<?}?>
-		<?if($arResult["DISPLAY_PROPERTIES"]["GALLERY"]["VALUE"]){?>
-			<div class="photogallery">
-				<div class="new_gallery_big">
-					<a class="prev"></a>
-					<a class="next"></a>
-					<div class="slider"></div>
-				</div>
-				<ul class="new_gallery_list">
-					<?foreach($arResult["DISPLAY_PROPERTIES"]["GALLERY"]["VALUE"] as $image){?>
-						<?$thumb = CFile::ResizeImageGet($image, array("width" => "57", "height" => "57"), BX_RESIZE_IMAGE_EXACT);?>
-						<?$origin = CFile::ResizeImageGet($image, array("width" => "940", "height" => "454"), BX_RESIZE_IMAGE_EXACT);?>
-						<li><a href="<?=$origin["src"]?>" target="_blank"><img alt="" src="<?=$thumb["src"]?>" /></a></li>
-					<?}?>
-				</ul>
-			</div>
-		<?}?>
+		<?$APPLICATION->IncludeFile(
+			"inc/tmpl/new_gallery.php",
+			array('photos' => $arResult["DISPLAY_PROPERTIES"]["GALLERY"]["VALUE"]),
+			array("SHOW_BORDER" => false)
+		);?>
 		<div class="prices">
 			<?foreach($arResult["DISPLAY_PROPERTIES"]["PRICE"]["VALUE"] as $key => $price){?>
 				<?$desc_count = explode(":", $arResult["DISPLAY_PROPERTIES"]["PRICE"]["DESCRIPTION"][$key]);?>

@@ -78,22 +78,11 @@ $APPLICATION->SetTitle($fields["NAME"]);
 		<h1><?$APPLICATION->ShowTitle()?></h1>
 	</div>
 	<main>
-		<?if($props["GALLERY"]["VALUE"]){?>
-			<div class="photogallery">
-				<div class="new_gallery_big">
-					<a class="prev"></a>
-					<a class="next"></a>
-					<div class="slider"></div>
-				</div>
-				<ul class="new_gallery_list">
-					<?foreach($props["GALLERY"]["VALUE"] as $image){?>
-						<?$thumb = CFile::ResizeImageGet($image, array("width" => "57", "height" => "57"), BX_RESIZE_IMAGE_EXACT);?>
-						<?$origin = CFile::ResizeImageGet($image, array("width" => "940", "height" => "454"), BX_RESIZE_IMAGE_EXACT);?>
-						<li><a href="<?=$origin["src"]?>" target="_blank"><img alt="" src="<?=$thumb["src"]?>" /></a></li>
-					<?}?>
-				</ul>
-			</div>
-		<?}?>
+		<?$APPLICATION->IncludeFile(
+			"inc/tmpl/new_gallery.php",
+			array('photos' => $props["GALLERY"]["VALUE"]),
+			array("SHOW_BORDER" => false)
+		);?>
 		<?if($fields["PREVIEW_TEXT"]){?>
 			<div class="general_description">
 				<?=$fields["PREVIEW_TEXT"]?>
