@@ -14,14 +14,13 @@
         <div class="developer">
             <?=GetMessage("TMPL_CREATED_BY")?>
         </div>
-    </footer><?
-        $APPLICATION->IncludeFile(
+    </footer>
+    <?$APPLICATION->IncludeFile(
             "inc/tmpl/counter.php",
             array(),
             array(
                 "SHOW_BORDER" => false
             )
-        );
-    ?>
+    );?>
 </body>
 </html>
