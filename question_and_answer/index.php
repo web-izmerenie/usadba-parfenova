@@ -8,7 +8,7 @@ $APPLICATION->SetTitle("Вопрос-ответ");
 	array(
 		"IBLOCK_TYPE" => "common",
 		"IBLOCK_ID" => "6",
-		"NEWS_COUNT" => "100",
+		"NEWS_COUNT" => "3",
 		"SORT_BY1" => "ACTIVE_FROM",
 		"SORT_ORDER1" => "DESC",
 		"SORT_BY2" => "",

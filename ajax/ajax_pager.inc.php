@@ -24,11 +24,36 @@ $handle = function () use (&$response) {
 
 	CModule::IncludeModule('iblock');
 
+	$iblockType = $lang;
+	$iblockCode = '-';
+	$arOrder = array('active_from' => 'desc');
+
+	switch ($_POST['action']) {
+
+	case 'get_more_events':
+
+		$iblockCode = 'events';
+		$arOrder = array('active_from' => 'desc');
+		break;
+
+	case 'get_more_qna':
+
+		$iblockType = 'common';
+		$iblockCode = 'questions';
+		break;
+
+	default:
+
+		$response['status'] = 'error';
+		$response['error_code'] = 'unknown_iblock';
+		return;
+	}
+
 	$iblock = CIBlock::GetList(
 		array(),
 		array(
-			'TYPE' => $lang,
-			'CODE' => 'events',
+			'TYPE' => $iblockType,
+			'CODE' => $iblockCode,
 		));
 
 	if ($iblock->SelectedRowsCount() <= 0) {
@@ -44,8 +69,6 @@ $handle = function () use (&$response) {
 		'ACTIVE' => 'Y',
 		'IBLOCK_ID' => $arIBlock['ID'],
 	);
-
-	$arOrder = array('active_from' => 'desc');
 
 	$total = CIBlockElement::GetList(
 		$arOrder,
@@ -107,42 +130,61 @@ $handle = function () use (&$response) {
 
 		$item = array();
 
-		$item['id'] = $arResF['ID'];
-		$item['title'] = $arResF['NAME'];
+		switch ($_POST['action']) {
 
-		// date
-		$date = CIBlockFormatProperties::DateFormat(
-			'j F Y', strtotime($arResF["DATE_ACTIVE_FROM"]));
-		$date = explode(' ', $date);
-		$item['date'] = $date[0].' '.$date[1];
-		if ($date[2] != date('Y')) $item['date'] .= ' '.$date[2];
+		case 'get_more_events':
 
-		if (!empty($arResF['PREVIEW_TEXT']))
-			$item['text'] = $arResF['PREVIEW_TEXT'];
+			$item['id'] = $arResF['ID'];
+			$item['title'] = $arResF['NAME'];
 
-		if (!empty($arResF['DETAIL_TEXT']))
-			$item['link'] = $arResF['DETAIL_PAGE_URL'];
+			// date
+			$date = CIBlockFormatProperties::DateFormat(
+				'j F Y', strtotime($arResF["DATE_ACTIVE_FROM"]));
+			$date = explode(' ', $date);
+			$item['date'] = $date[0].' '.$date[1];
+			if ($date[2] != date('Y')) $item['date'] .= ' '.$date[2];
 
-		$picture = null;
+			if (!empty($arResF['PREVIEW_TEXT']))
+				$item['text'] = $arResF['PREVIEW_TEXT'];
 
-		if (!empty($arResF['PREVIEW_PICTURE']))
-			$picture = $arResF['PREVIEW_PICTURE'];
-		elseif (!empty($arResF['DETAIL_PICTURE']))
-			$picture = $arResF['DETAIL_PICTURE'];
+			if (!empty($arResF['DETAIL_TEXT']))
+				$item['link'] = $arResF['DETAIL_PAGE_URL'];
 
-		if ($picture) {
+			$picture = null;
 
-			$thumb = CFile::ResizeImageGet(
-				$picture,
-				array("width" => "401", "height" => "193"),
-				BX_RESIZE_IMAGE_EXACT);
+			if (!empty($arResF['PREVIEW_PICTURE']))
+				$picture = $arResF['PREVIEW_PICTURE'];
+			elseif (!empty($arResF['DETAIL_PICTURE']))
+				$picture = $arResF['DETAIL_PICTURE'];
 
-			$item['picture'] = array(
-				'description' => $picture['DESCRIPTION'],
-				'src' => $thumb['src'],
-				'width' => $thumb['width'],
-				'height' => $thumb['height'],
-			);
+			if ($picture) {
+
+				$thumb = CFile::ResizeImageGet(
+					$picture,
+					array("width" => "401", "height" => "193"),
+					BX_RESIZE_IMAGE_EXACT);
+
+				$item['picture'] = array(
+					'description' => $picture['DESCRIPTION'],
+					'src' => $thumb['src'],
+					'width' => $thumb['width'],
+					'height' => $thumb['height'],
+				);
+			}
+
+			break;
+
+		case 'get_more_qna':
+
+			$item['question'] = $arResF['PREVIEW_TEXT'];
+			$item['answer'] = $arResF['DETAIL_TEXT'];
+			break;
+
+		default:
+
+			$response['status'] = 'error';
+			$response['error_code'] = 'unknown_iblock';
+			return;
 		}
 
 		$items[] = $item;

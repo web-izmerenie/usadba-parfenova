@@ -14,8 +14,11 @@ if (!$_POST["action"]) {
 		require './add_question.inc.php';
 	} elseif ($_POST["action"] == "reserve") {
 		require './reserve.inc.php';
-	} elseif ($_POST["action"] == "get_more_events") {
-		require './get_more_events.inc.php';
+	} elseif (
+		$_POST["action"] == "get_more_events" ||
+		$_POST["action"] == "get_more_qna"
+	) {
+		require './ajax_pager.inc.php';
 	} else {
 		$response["error_code"] = 'unknown_action';
 	}
