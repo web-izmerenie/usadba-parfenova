@@ -4,19 +4,25 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Отзывы");
 ?>
 <?$APPLICATION->IncludeComponent(
-	"bitrix:news.list",
-	"reviews.list",
-	Array(
+	"bitrix:news.list", 
+	"reviews.list", 
+	array(
 		"IBLOCK_TYPE" => LANGUAGE_ID,
 		"IBLOCK_ID" => "5",
-		"NEWS_COUNT" => "50",
-		"SORT_BY1" => "DATE_ACTIVE_FROM",
+		"NEWS_COUNT" => "4",
+		"SORT_BY1" => "ACTIVE_FROM",
 		"SORT_ORDER1" => "DESC",
-		"SORT_BY2" => "ACTIVE_FROM",
-		"SORT_ORDER2" => "ASC",
+		"SORT_BY2" => "",
+		"SORT_ORDER2" => "",
 		"FILTER_NAME" => "",
-		"FIELD_CODE" => array("", ""),
-		"PROPERTY_CODE" => array("", ""),
+		"FIELD_CODE" => array(
+			0 => "",
+			1 => "",
+		),
+		"PROPERTY_CODE" => array(
+			0 => "",
+			1 => "",
+		),
 		"CHECK_DATES" => "Y",
 		"DETAIL_URL" => "",
 		"AJAX_MODE" => "N",
@@ -41,15 +47,19 @@ $APPLICATION->SetTitle("Отзывы");
 		"DISPLAY_NAME" => "Y",
 		"DISPLAY_PICTURE" => "Y",
 		"DISPLAY_PREVIEW_TEXT" => "Y",
-		"PAGER_TEMPLATE" => "modern",
+		"PAGER_TEMPLATE" => ".default",
 		"DISPLAY_TOP_PAGER" => "N",
 		"DISPLAY_BOTTOM_PAGER" => "Y",
-		"PAGER_TITLE" => "Новости",
+		"PAGER_TITLE" => "Страницы",
 		"PAGER_SHOW_ALWAYS" => "N",
 		"PAGER_DESC_NUMBERING" => "N",
 		"PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
-		"PAGER_SHOW_ALL" => "N"
-	)
+		"PAGER_SHOW_ALL" => "Y",
+		"SET_BROWSER_TITLE" => "Y",
+		"SET_META_KEYWORDS" => "Y",
+		"SET_META_DESCRIPTION" => "Y",
+		"AJAX_OPTION_ADDITIONAL" => ""
+	),
+	false
 );?>
-
 <?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

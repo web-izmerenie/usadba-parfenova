@@ -42,6 +42,11 @@ $handle = function () use (&$response) {
 		$iblockCode = 'questions';
 		break;
 
+	case 'get_more_reviews':
+
+		$iblockCode = 'reviews';
+		break;
+
 	default:
 
 		$response['status'] = 'error';
@@ -139,7 +144,7 @@ $handle = function () use (&$response) {
 
 			// date
 			$date = CIBlockFormatProperties::DateFormat(
-				'j F Y', strtotime($arResF["DATE_ACTIVE_FROM"]));
+				'j F Y', strtotime($arResF['DATE_ACTIVE_FROM']));
 			$date = explode(' ', $date);
 			$item['date'] = $date[0].' '.$date[1];
 			if ($date[2] != date('Y')) $item['date'] .= ' '.$date[2];
@@ -178,6 +183,25 @@ $handle = function () use (&$response) {
 
 			$item['question'] = $arResF['PREVIEW_TEXT'];
 			$item['answer'] = $arResF['DETAIL_TEXT'];
+			break;
+
+		case 'get_more_reviews':
+
+			if ($arResF['PREVIEW_TEXT_TYPE'] == 'text') {
+				$replace = preg_split('/[\n\r]+/', $arResF['~PREVIEW_TEXT']);
+				$arResF['PREVIEW_TEXT'] = '';
+				foreach ($replace as $string) {
+					$string = trim($string);
+					if($string)
+						$arResF['PREVIEW_TEXT'] .= '<p>'.$string.'</p>';
+				}
+			}
+
+			$item['text'] = $arResF['PREVIEW_TEXT'];
+			$item['signature'] = $arResF['NAME'];
+			$item['date'] = CIBlockFormatProperties::DateFormat(
+				'j F Y', strtotime($arResF['DATE_ACTIVE_FROM']));
+
 			break;
 
 		default:

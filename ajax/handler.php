@@ -16,7 +16,8 @@ if (!$_POST["action"]) {
 		require './reserve.inc.php';
 	} elseif (
 		$_POST["action"] == "get_more_events" ||
-		$_POST["action"] == "get_more_qna"
+		$_POST["action"] == "get_more_qna" ||
+		$_POST["action"] == "get_more_reviews"
 	) {
 		require './ajax_pager.inc.php';
 	} else {
