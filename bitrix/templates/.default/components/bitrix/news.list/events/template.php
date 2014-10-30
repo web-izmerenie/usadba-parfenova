@@ -37,6 +37,7 @@
 		<?endforeach?>
 	</ul>
 	<div class="pagination">
-		<?=$arResult["NAV_STRING"]?>
+		<div class="ajax_page_loader" data-count="<?=$arParams['NEWS_COUNT']?>"></div>
+		<noscript><?=$arResult["NAV_STRING"]?></noscript>
 	</div>
 </div>
