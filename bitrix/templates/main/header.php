@@ -54,9 +54,11 @@
             });
         //]]>
     </script>
-    <?$APPLICATION->ShowCSS()?>
-    <?$APPLICATION->ShowHeadStrings()?>
-    <?$APPLICATION->ShowHeadScripts()?>
+	<?if($USER->IsAuthorized()){?>
+		<?$APPLICATION->ShowCSS()?>
+		<?$APPLICATION->ShowHeadStrings()?>
+		<?$APPLICATION->ShowHeadScripts()?>
+	<?}?>
 </head>
 
 <body><?$APPLICATION->ShowPanel()?>
