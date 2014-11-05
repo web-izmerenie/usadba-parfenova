@@ -15,9 +15,7 @@
 					array("width" => "57", "height" => "57"),
 					BX_RESIZE_IMAGE_EXACT);
 				$imageData = CFile::GetFileArray($image);
-				$originResizeType = BX_RESIZE_IMAGE_EXACT;
-				if ($imageData["WIDTH"] <= $imageData["HEIGHT"])
-					$originResizeType = BX_RESIZE_IMAGE_PROPORTIONAL_ALT;
+				$originResizeType = BX_RESIZE_IMAGE_PROPORTIONAL_ALT;
 				$origin = CFile::ResizeImageGet(
 					$image,
 					array("width" => "940", "height" => "454"),
